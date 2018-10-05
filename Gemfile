@@ -22,6 +22,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails_autoscale_agent'
 # AWS S3
 gem 'aws-sdk-s3'
+# Bug interception
+gem 'bugsnag'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
