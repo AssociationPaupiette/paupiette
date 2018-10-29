@@ -5,11 +5,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1><%= link_to "PAUPIETTE", root_path %></h1>
+      <nav>
+        <ul>
+          <li><%= link_to "Annonces", adverts_path %></li>
+          <li><%= link_to "Ambassadeurs", ambassadors_path %></li>
+          <% if current_user.nil? %>
+            <li><%= link_to "Se connecter/S'inscrire", new_user_session_path %></li>
+          <% else %>
+            <li><%= link_to (current_user.first_name.present? ? current_user.first_name : "Mon espace"), dashboard_path %> | <%= link_to "Se déconnecter", destroy_user_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
