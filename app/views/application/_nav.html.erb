@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to 'Paupiette', root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><%= link_to "Annonces", adverts_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to "Ambassadeurs", ambassadors_path, class: 'nav-link' %></li>
+      <% if current_user.nil? %>
+        <li class="nav-item"><%= link_to "Se connecter/S'inscrire", new_user_session_path, class: 'nav-link' %></li>
+      <% else %>
+        <% title = current_user.first_name.present? ? current_user.first_name : 'Mon espace' %>
+        <li class="nav-item"><%= link_to title, dashboard_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Se déconnecter', destroy_user_session_path, class: 'nav-link' %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
