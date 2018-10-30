@@ -1,0 +1,27 @@
+<h3>Votre profil</h3>
+
+<%= simple_form_for(@user, url: update_profile_path, html: { class: "dashboard_edit_profile", method: :post }, wrapper: :vertical_form) do |f| %>
+  <div class="row">
+    <div class="col col-md-4">
+      <%= f.input :photo %>
+      <%= image_tag @user.photo if @user.photo.attached? %>
+    </div>
+
+    <div class="col col-md-8">
+      <%= f.association :city, required: true %>
+      <%= f.input :description %>
+
+      <% if @user.guest? %>
+        <%= f.input :identity_card, as: :file %>
+      <% end %>
+
+      <% if @user.host? %>
+        <%= f.input :specialties, as: :text %>
+        <div class="reception_days">
+          <%= f.input :reception_days, as: :check_boxes, collection: [["0", 'Lundi'], ["1", 'Mardi'], ["2", 'Mercredi'], ["3", 'Jeudi'], ["4", 'Vendredi'], ["5", 'Samedi'], ["6", 'Dimanche']], label_method: :second, value_method: :first, include_hidden: false, checked: @user.reception_days %>
+        </div>
+      <% end %>
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

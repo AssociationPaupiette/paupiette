@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
   end
 
-  get '/dashboard' => 'dashboard#index'
+  get '/dashboard(/:tab)' => 'dashboard#index', as: :dashboard
+  post '/dashboard/profile' => 'dashboard#update_profile', as: :update_profile
 
   get '/adverts' => 'adverts#index'
   get '/ambassadors' => 'ambassadors#index'

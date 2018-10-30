@@ -22,7 +22,7 @@ gem 'cancancan'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 

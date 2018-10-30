@@ -25,11 +25,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  attr_accessor :host_sign_up
+  serialize :reception_days, Array
+
+  before_create :set_role
+
   has_one_attached :photo
   has_one_attached :identity_card
 
   belongs_to :city, optional: true
 
+  validates_presence_of :first_name, :city_id, on: :update_profile
+
   enum role: { guest: 0, host: 10, ambassador: 20, admin: 30 }
   enum profile_status: { incomplete: 0, pending: 1, approved: 2, refused: 3 }
+
+  private
+
+  def set_role
+    self.role = :host if host_sign_up == "1"
+  end
 end
