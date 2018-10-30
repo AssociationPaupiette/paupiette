@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th scope="col">Nom</th>
+      <th scope="col">Active</th>
       <th scope="col">Nombre d'utilisateurs</th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
     <% @cities.each do |city| %>
       <tr>
         <td><%= link_to city, [:admin, city] %></td>
+        <td><%= city.active %></td>
         <td><%= city.users.count %></td>
       </tr>
     <% end %>

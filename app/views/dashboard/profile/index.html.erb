@@ -13,7 +13,7 @@
       <p><strong>Statut du profil</strong> : <%= @user.profile_status %></p>
       <%= f.input :first_name, autofocus: true, required: true %>
       <%= f.input :last_name, required: true %>
-      <%= f.association :city, include_blank: false %>
+      <%= f.association :city, include_blank: false, collection: City.active %>
       <%= f.input :description %>
 
       <% if @user.guest? %>

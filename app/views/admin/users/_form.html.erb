@@ -1,5 +1,5 @@
 <%= simple_form_for [:admin, user] do |f| %>
   <%= f.input :email %>
-  <%= f.association :city %>
+  <%= f.association :city, collection: City.active %>
   <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
 <% end %>

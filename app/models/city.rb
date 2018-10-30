@@ -13,6 +13,8 @@ class City < ApplicationRecord
   has_many :ambassadorships
   has_many :ambassadors, through: :ambassadorships, source: :user
 
+  scope :active, -> { where(active: true) }
+
   def to_s
     "#{name}"
   end

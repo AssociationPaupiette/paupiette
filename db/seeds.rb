@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-city_paris = City.where(name: "Paris").first_or_create
+city_paris = City.where(name: "Paris", active: true).first_or_create
 city_bordeaux = City.where(name: "Bordeaux").first_or_create
 
 user_pa = User.where(first_name: 'Pierre-André', last_name: 'Boissinot', email: 'paboissinot@lespoupees.paris').first_or_initialize

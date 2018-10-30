@@ -44,7 +44,7 @@ class Admin::CitiesController < Admin::ApplicationController
   private
 
   def city_params
-    params.require(:city).permit(:name)
+    params.require(:city).permit(:name, :active)
   end
 
 end

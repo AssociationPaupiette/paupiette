@@ -4,6 +4,8 @@
   <%= link_to 'Modifier', edit_admin_city_path(@city), class: 'btn btn-primary' %>
 <% end %>
 
+<p>Active : <%= @city.active %></p>
+
 <h2><%= @city.users.count %> utilisateurs</h2>
 <table class="table">
   <thead>
