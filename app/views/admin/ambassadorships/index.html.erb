@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ambassadorships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ambassadorships.each do |ambassadorship| %>
+      <tr>
+        <td><%= link_to 'Show', ambassadorship %></td>
+        <td><%= link_to 'Edit', edit_ambassadorship_path(ambassadorship) %></td>
+        <td><%= link_to 'Destroy', ambassadorship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ambassadorship', new_ambassadorship_path %>

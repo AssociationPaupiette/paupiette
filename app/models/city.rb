@@ -10,7 +10,8 @@
 
 class City < ApplicationRecord
   has_many :users
-  has_and_belongs_to_many :ambassadors, class_name: "User", join_table: "embassies"
+  has_many :ambassadorships
+  has_many :ambassadors, through: :ambassadorships, source: :user
 
   def to_s
     "#{name}"

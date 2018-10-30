@@ -33,7 +33,8 @@ class User < ApplicationRecord
   has_one_attached :identity_card
 
   belongs_to :city, optional: true
-  has_and_belongs_to_many :managed_cities, join_table: "embassies", class_name: "City"
+  has_many :ambassadorships
+  has_many :managed_cities, through: :ambassadorships, source: :city
 
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
 

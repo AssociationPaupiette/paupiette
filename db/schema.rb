@@ -36,17 +36,19 @@ ActiveRecord::Schema.define(version: 2018_10_30_150311) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "ambassadorships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_ambassadorships_on_city_id"
+    t.index ["user_id"], name: "index_ambassadorships_on_user_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "embassies", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "city_id"
-    t.index ["city_id"], name: "index_embassies_on_city_id"
-    t.index ["user_id"], name: "index_embassies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
