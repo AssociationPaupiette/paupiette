@@ -1,2 +1,15 @@
 <%= content_for :title, 'Tableau de bord' %>
-<p>Hello <%= current_user.first_name %></p>
+
+<div class="card-columns">
+  <% @cities.each do |city| %>
+    <%= link_to [:admin, city] do %>
+      <div class="card">
+        <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= city %></h5>
+          <p class="card-text"><%= city.users.count %> utilisateurs</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

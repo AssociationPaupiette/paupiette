@@ -20,10 +20,7 @@
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   attr_accessor :host_sign_up
   serialize :reception_days, Array
@@ -40,6 +37,10 @@ class User < ApplicationRecord
 
   enum role: { guest: 0, host: 10, ambassador: 20, admin: 30 }
   enum profile_status: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: :profile
+
+  def to_s
+    "#{email}"
+  end
 
   private
 

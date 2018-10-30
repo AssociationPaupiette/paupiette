@@ -16,6 +16,7 @@ gem 'bugsnag'
 
 # Back
 gem 'simple_form'
+gem 'breadcrumbs_on_rails'
 gem 'jbuilder', '~> 2.5'
 gem 'cancancan'
 gem 'kaminari'

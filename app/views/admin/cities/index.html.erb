@@ -1,5 +1,9 @@
 <% content_for :title, 'Villes' %>
-<p><%= link_to 'Créer une ville', new_admin_city_path, class: 'btn btn-primary' %></p>
+
+<%= content_for :subtitle do %>
+  <%= link_to 'Créer une ville', new_admin_city_path, class: 'btn btn-primary' %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
@@ -10,8 +14,8 @@
   <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= city %></td>
-        <td><%= city.users %></td>
+        <td><%= link_to city, [:admin, city] %></td>
+        <td><%= city.users.count %></td>
       </tr>
     <% end %>
   </tbody>

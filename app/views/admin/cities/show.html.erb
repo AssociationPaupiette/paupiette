@@ -1,10 +1,10 @@
-<% content_for :title, 'Utilisateurs' %>
+<%= content_for :title, @city %>
 
 <%= content_for :subtitle do %>
-  <%= link_to 'Créer un utilisateur', new_admin_user_path, class: 'btn btn-primary' %>
+  <%= link_to 'Modifier', edit_admin_city_path(@city), class: 'btn btn-primary' %>
 <% end %>
 
-<%= paginate @users, theme: 'twitter-bootstrap-4' %>
+<h2><%= @city.users.count %> utilisateurs</h2>
 <table class="table">
   <thead>
     <tr>
@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+    <% @city.users.each do |user| %>
       <tr>
         <td><%= link_to user, [:admin, user] %></td>
         <td><%= user.first_name %></td>
@@ -25,4 +25,3 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @users, theme: 'twitter-bootstrap-4' %>
