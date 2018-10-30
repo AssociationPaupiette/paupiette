@@ -18,6 +18,8 @@ gem 'bugsnag'
 gem 'simple_form'
 gem 'jbuilder', '~> 2.5'
 gem 'cancancan'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 # Front
 gem 'jquery-rails'
