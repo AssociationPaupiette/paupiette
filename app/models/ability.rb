@@ -14,11 +14,6 @@ class Ability
   def host
   end
 
-  def ambassador
-    can :manage, :all
-    cannot [:update, :destroy], User, role: :admin
-  end
-
   def admin
     can :manage, :all
   end

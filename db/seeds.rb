@@ -9,7 +9,7 @@
 city_paris = City.where(name: "Paris").first_or_create
 city_bordeaux = City.where(name: "Bordeaux").first_or_create
 
-user_pa = User.where(first_name: 'Pierre-André', email: 'paboissinot@lespoupees.paris').first_or_initialize
+user_pa = User.where(first_name: 'Pierre-André', last_name: 'Boissinot', email: 'paboissinot@lespoupees.paris').first_or_initialize
 unless user_pa.persisted?
   user_pa.description = "Description Pierre-André"
   user_pa.role = :admin
@@ -19,7 +19,7 @@ unless user_pa.persisted?
   user_pa.save
 end
 
-user_arnaud = User.where(first_name: 'Arnaud', email: 'alevy@lespoupees.paris').first_or_initialize
+user_arnaud = User.where(first_name: 'Arnaud', last_name: 'Levy', email: 'alevy@lespoupees.paris').first_or_initialize
 unless user_arnaud.persisted?
   user_arnaud.description = "Description Arnaud"
   user_arnaud.role = :admin
@@ -29,7 +29,7 @@ unless user_arnaud.persisted?
   user_arnaud.save
 end
 
-user_seb = User.where(first_name: 'Sébastien', email: 'sgaya@lespoupees.paris').first_or_initialize
+user_seb = User.where(first_name: 'Sébastien', last_name: 'Gaya', email: 'sgaya@lespoupees.paris').first_or_initialize
 unless user_seb.persisted?
   user_seb.description = "Description Sébastien"
   user_seb.role = :admin

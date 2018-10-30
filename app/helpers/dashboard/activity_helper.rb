@@ -1,0 +1,2 @@
+module Dashboard::ActivityHelper
+end

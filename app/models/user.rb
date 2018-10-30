@@ -17,6 +17,7 @@
 #  profile_status         :integer          default("incomplete")
 #  role                   :integer          default("guest")
 #  city_id                :bigint(8)
+#  last_name              :string
 #
 
 class User < ApplicationRecord
@@ -32,20 +33,25 @@ class User < ApplicationRecord
   has_one_attached :identity_card
 
   belongs_to :city, optional: true
+  has_and_belongs_to_many :managed_cities, join_table: "embassies", class_name: "City"
 
-  validates_presence_of :first_name, :city_id, on: :update_profile
+  validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
 
-  enum role: { guest: 0, host: 10, ambassador: 20, admin: 30 }
+  enum role: { guest: 0, host: 10, admin: 20 }
   enum profile_status: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: :profile
 
   def to_s
     "#{email}"
   end
 
+  def ambassador?
+    self.managed_cities.count > 0
+  end
+
   private
 
   def set_role
-    role = :host if host_sign_up == "1"
+    self.role = :host if host_sign_up == "true"
   end
 
   def set_profile_status

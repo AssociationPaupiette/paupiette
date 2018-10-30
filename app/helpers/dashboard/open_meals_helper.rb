@@ -1,0 +1,2 @@
+module Dashboard::OpenMealsHelper
+end

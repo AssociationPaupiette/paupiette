@@ -6,7 +6,7 @@ module DevisePermittedParams
   end
 
   def configure_devise_permitted_parameters
-    edit_user_params = [:first_name, :description, :city_id, :photo, :identity_card, :specialties, :reception_days => []]
+    edit_user_params = [:first_name, :last_name, :description, :city_id, :photo, :identity_card, :specialties, :reception_days => []]
     if params[:action] == 'update'
       devise_parameter_sanitizer.permit(:account_update, keys: edit_user_params)
     elsif params[:action] == 'create'

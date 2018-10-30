@@ -17,6 +17,7 @@
 #  profile_status         :integer          default("incomplete")
 #  role                   :integer          default("guest")
 #  city_id                :bigint(8)
+#  last_name              :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -11,8 +11,17 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
   end
 
-  get 'dashboard(/:tab)' => 'dashboard#index', as: :dashboard
-  post 'dashboard/profile' => 'dashboard#update_profile', as: :update_profile
+  namespace :dashboard do
+    get 'activity' => 'activity#index'
+    get 'messages' => 'messages#index'
+    get 'profile' => 'profile#index'
+    get 'advices' => 'advices#index'
+    get 'open_meals' => 'open_meals#index'
+
+    put 'profile' => 'profile#update'
+
+    root to: 'profile#index'
+  end
 
   get 'adverts' => 'adverts#index'
   get 'ambassadors' => 'ambassadors#index'
@@ -21,5 +30,6 @@ Rails.application.routes.draw do
   get 'about' => 'home#about', as: :about
   get 'legals' => 'home#legals', as: :legals
   get 'privacy' => 'home#privacy', as: :privacy
+  
   root to: 'home#index'
 end

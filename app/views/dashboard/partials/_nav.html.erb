@@ -1,0 +1,15 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <% if current_user.ambassador? %>
+      <%= link_to "VOTRE ACTIVITÉ", dashboard_activity_path, class: "nav-item nav-link #{'active' if controller_name == 'activity'}" %>
+    <% end %>
+
+    <%= link_to "VOS MESSAGES", dashboard_messages_path, class: "nav-item nav-link #{'active' if controller_name == 'messages'}" %>
+    <%= link_to "VOTRE PROFIL", dashboard_profile_path, class: "nav-item nav-link #{'active' if controller_name == 'profile'}" %>
+    <%= link_to "VOS AVIS", dashboard_advices_path, class: "nav-item nav-link #{'active' if controller_name == 'advices'}" %>
+
+    <% if current_user.host? %>
+      <%= link_to "VOS REPAS OUVERTS", dashboard_open_meals_path, class: "nav-item nav-link #{'active' if controller_name == 'open_meals'}" %>
+    <% end %>
+  </div>
+</nav>

@@ -11,7 +11,9 @@
       <th scope="col">Email</th>
       <th scope="col">Prénom</th>
       <th scope="col">Nom</th>
+      <th scope="col">Ville</th>
       <th scope="col">Rôle</th>
+      <th scope="col">Ambassadeur ?</th>
     </tr>
   </thead>
   <tbody>
@@ -19,8 +21,10 @@
       <tr>
         <td><%= link_to user, [:admin, user] %></td>
         <td><%= user.first_name %></td>
-        <td><%#= user.last_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.city %></td>
         <td><%= user.role %></td>
+        <td><%= user.ambassador? ? "#{user.managed_cities.join(', ')}" : "Non" %></td>
       </tr>
     <% end %>
   </tbody>
