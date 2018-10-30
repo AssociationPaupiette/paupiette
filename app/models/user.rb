@@ -29,6 +29,7 @@ class User < ApplicationRecord
   serialize :reception_days, Array
 
   before_create :set_role
+  after_save :set_profile_status
 
   has_one_attached :photo
   has_one_attached :identity_card
@@ -38,11 +39,16 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :city_id, on: :update_profile
 
   enum role: { guest: 0, host: 10, ambassador: 20, admin: 30 }
-  enum profile_status: { incomplete: 0, pending: 1, approved: 2, refused: 3 }
+  enum profile_status: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: :profile
 
   private
 
   def set_role
-    self.role = :host if host_sign_up == "1"
+    role = :host if host_sign_up == "1"
+  end
+
+  def set_profile_status
+    update_column :profile_status, :approved unless guest? || profile_approved?
+    update_column :profile_status, :pending if profile_incomplete? && identity_card.attached?
   end
 end

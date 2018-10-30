@@ -4,11 +4,12 @@
   <div class="row">
     <div class="col col-md-4">
       <%= f.input :photo %>
-      <%= image_tag @user.photo if @user.photo.attached? %>
+      <%= image_tag @user.photo.variant(resize: "200x200^") if @user.photo.attached? %>
     </div>
 
     <div class="col col-md-8">
-      <%= f.association :city, required: true %>
+      <p><strong>Statut du profil</strong> : <%= @user.profile_status %></p>
+      <%= f.association :city, include_blank: false %>
       <%= f.input :description %>
 
       <% if @user.guest? %>
