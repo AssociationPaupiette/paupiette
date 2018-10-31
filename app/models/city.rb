@@ -6,6 +6,7 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  active     :boolean          default(FALSE)
 #
 
 class City < ApplicationRecord
@@ -13,7 +14,19 @@ class City < ApplicationRecord
   has_many :ambassadorships
   has_many :ambassadors, through: :ambassadorships, source: :user
 
+  has_one_attached :photo
+
   scope :active, -> { where(active: true) }
+
+  def guests
+    # TODO not hosts
+    users
+  end
+
+  def hosts
+    # TODO hosts
+    users
+  end
 
   def to_s
     "#{name}"

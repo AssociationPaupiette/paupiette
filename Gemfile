@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'cancancan'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
+gem 'image_processing'
 
 # Front
 gem 'jquery-rails'

@@ -1,9 +1,5 @@
 <% content_for :title, 'Utilisateurs' %>
 
-<%= content_for :subtitle do %>
-  <%= link_to 'Créer un utilisateur', new_admin_user_path, class: 'btn btn-primary' %>
-<% end %>
-
 <%= paginate @users, theme: 'twitter-bootstrap-4' %>
 <table class="table">
   <thead>
@@ -19,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user, [:admin, user] %></td>
+        <td><%= link_to user.email, [:admin, user] %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.city %></td>

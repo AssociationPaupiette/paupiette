@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= yield :title %> | Espace d'administration | Paupiette</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -26,11 +28,15 @@
         <ol class="breadcrumb">
           <%= render_breadcrumbs tag: :li, separator: '&nbsp;/&nbsp;' %>
         </ol>
-        <div class="jumbotron jumbotron-fluid bg-white">
-          <div class="container">
-            <h1 class="display-4"><%= yield :title %></h1>
-            <p><%= yield :subtitle %></p>
-          </div>
+        <div  class="jumbotron jumbotron-fluid text-center bg-white"
+              <% if yield(:photo).present? %>
+                style=" background-image: url('<%= yield(:photo) %>');
+                        background-size: cover;
+                        background-position: 50%;
+                        box-shadow: inset 1000px 1000px rgba(255, 255, 255, 0.8);" 
+              <% end %>>
+          <h1 class="display-4"><%= yield :title %></h1>
+          <p><%= yield :subtitle %></p>
         </div>
         <% flash.each do |type, msg| %>
           <div class="alert alert-info alert-dismissable fade show">

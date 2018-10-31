@@ -41,8 +41,12 @@ class User < ApplicationRecord
   enum role: { guest: 0, host: 10, admin: 20 }
   enum profile_status: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: :profile
 
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
+
   def to_s
-    "#{email}"
+    full_name.blank? ? "#{email}" : "#{full_name}"
   end
 
   def ambassador?

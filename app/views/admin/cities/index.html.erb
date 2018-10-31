@@ -9,7 +9,9 @@
     <tr>
       <th scope="col">Nom</th>
       <th scope="col">Active</th>
-      <th scope="col">Nombre d'utilisateurs</th>
+      <th scope="col">Ambassadeurs</th>
+      <th scope="col">Convives</th>
+      <th scope="col">Hôtes</th>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +19,9 @@
       <tr>
         <td><%= link_to city, [:admin, city] %></td>
         <td><%= city.active %></td>
-        <td><%= city.users.count %></td>
+        <td><%= city.ambassadors.count %></td>
+        <td><%= city.guests.count %></td>
+        <td><%= city.hosts.count %></td>
       </tr>
     <% end %>
   </tbody>

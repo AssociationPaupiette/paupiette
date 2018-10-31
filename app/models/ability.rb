@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     @user = user ||= User.new
-    send @user.role.to_sym
+    send @user.role.to_sym unless @user.role.nil?
   end
 
   protected

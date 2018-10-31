@@ -4,7 +4,14 @@
   <% @cities.each do |city| %>
     <%= link_to [:admin, city] do %>
       <div class="card">
-        <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
+        <% if city.photo.attached? %>
+        <%= image_tag city.photo.variant( resize: '600x300^', 
+                                          combine_options: { 
+                                            gravity: 'center', 
+                                            crop: '600x300+0+0'
+                                          }), 
+                      class: 'card-img-top' %>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= city %></h5>
           <p class="card-text"><%= city.users.count %> utilisateurs</p>
