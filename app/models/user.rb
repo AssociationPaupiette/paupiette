@@ -27,13 +27,8 @@ class User < ApplicationRecord
   attr_accessor :host_sign_up
   serialize :reception_days, Array
 
-  scope :ambassadors, -> {}
-  scope :guests, -> {}
-  scope :hosts, -> {}
-  scope :admins, -> {}
-
   before_create :set_role
-  after_save :set_profile_status
+  after_save :set_profile_verification
 
   has_one_attached :photo
   has_one_attached :identity_card
@@ -52,8 +47,14 @@ class User < ApplicationRecord
   before_create :set_host
   after_save :set_profile_verification
 
-  scope :host, -> { where(host: true) }
-  scope :not_host, -> { where.not(id: host) }
+  # Every user is a guest
+  scope :guests, -> {}
+  scope :hosts, -> { where(host: true) }
+  scope :not_hosts, -> { where.not(id: hosts) }
+  scope :ambassadors, -> { includes(:ambassadorships).where.not(ambassadorships: { user_id: nil }) }
+  scope :not_ambassadors, -> { where.not(id: ambassadors) }
+  scope :admins, -> { where(admin: true) }
+  scope :not_admins, -> { where.not(id: admins) }
 
   def full_name
     "#{first_name} #{last_name}".strip
