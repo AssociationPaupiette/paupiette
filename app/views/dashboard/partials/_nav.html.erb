@@ -11,5 +11,9 @@
     <% if current_user.host? %>
       <%= link_to "VOS REPAS OUVERTS", dashboard_open_meals_path, class: "nav-item nav-link #{'active' if controller_name == 'open_meals'}" %>
     <% end %>
+
+    <% if current_user.admin? %>
+      <%= link_to "ADMIN", admin_root_path, class: "nav-item nav-link" %>
+    <% end %>
   </div>
 </nav>

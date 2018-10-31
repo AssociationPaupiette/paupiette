@@ -27,19 +27,6 @@ class User < ApplicationRecord
   attr_accessor :host_sign_up
   serialize :reception_days, Array
 
-  scope :ambassadors, -> {}
-  scope :guests, -> {}
-  scope :hosts, -> {}
-  scope :admins, -> {}
-
-  before_create :set_role
-  after_save :set_profile_status
-
-  has_one_attached :photo
-  has_one_attached :identity_card
-
-  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
-
   belongs_to :city, optional: true
   has_many :ambassadorships
   has_many :managed_cities, through: :ambassadorships, source: :city
@@ -47,13 +34,21 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :identity_card
 
+  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
+
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
 
   before_create :set_host
   after_save :set_profile_verification
 
-  scope :host, -> { where(host: true) }
-  scope :not_host, -> { where.not(id: host) }
+  # Every user is a guest
+  scope :guests, -> {}
+  scope :hosts, -> { where(host: true) }
+  scope :not_hosts, -> { where.not(id: hosts) }
+  scope :ambassadors, -> { includes(:ambassadorships).where.not(ambassadorships: { user_id: nil }) }
+  scope :not_ambassadors, -> { where.not(id: ambassadors) }
+  scope :admins, -> { where(admin: true) }
+  scope :not_admins, -> { where.not(id: admins) }
 
   def full_name
     "#{first_name} #{last_name}".strip
