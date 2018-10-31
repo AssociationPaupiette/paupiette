@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for  :users,
               path: '',
               path_names: {
+                sign_up: 'register',
                 sign_in: 'login',
                 sign_out: 'logout'
               }
@@ -31,6 +32,6 @@ Rails.application.routes.draw do
   get 'about' => 'home#about', as: :about
   get 'legals' => 'home#legals', as: :legals
   get 'privacy' => 'home#privacy', as: :privacy
-  
+
   root to: 'home#index'
 end
