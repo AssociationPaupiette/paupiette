@@ -27,20 +27,14 @@ class User < ApplicationRecord
   attr_accessor :host_sign_up
   serialize :reception_days, Array
 
-  before_create :set_host
-  after_save :set_profile_verification
-
-  has_one_attached :photo
-  has_one_attached :identity_card
-
-  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
-
   belongs_to :city, optional: true
   has_many :ambassadorships
   has_many :managed_cities, through: :ambassadorships, source: :city
 
   has_one_attached :photo
   has_one_attached :identity_card
+
+  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
 
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
 
