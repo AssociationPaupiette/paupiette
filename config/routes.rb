@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for  :users,
               path: '',
               path_names: {
+                sign_up: 'register',
                 sign_in: 'login',
                 sign_out: 'logout'
               }
@@ -44,5 +45,6 @@ Rails.application.routes.draw do
   get 'about' => 'statics#about'
   get 'legals' => 'statics#legals'
   get 'privacy' => 'statics#privacy'
+
   root to: 'home#index'
 end

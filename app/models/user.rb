@@ -14,10 +14,11 @@
 #  description            :text
 #  specialties            :text
 #  reception_days         :string
-#  profile_status         :integer          default("incomplete")
-#  role                   :integer          default("guest")
+#  profile_verification   :integer          default("incomplete")
 #  city_id                :bigint(8)
 #  last_name              :string
+#  host                   :boolean          default(FALSE)
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -37,14 +38,22 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :identity_card
 
+  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
+
   belongs_to :city, optional: true
   has_many :ambassadorships
   has_many :managed_cities, through: :ambassadorships, source: :city
 
+  has_one_attached :photo
+  has_one_attached :identity_card
+
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
 
-  enum role: { guest: 0, host: 10, admin: 20 }
-  enum profile_status: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: :profile
+  before_create :set_host
+  after_save :set_profile_verification
+
+  scope :host, -> { where(host: true) }
+  scope :not_host, -> { where.not(id: host) }
 
   def full_name
     "#{first_name} #{last_name}".strip
@@ -60,12 +69,11 @@ class User < ApplicationRecord
 
   private
 
-  def set_role
-    self.role = :host if host_sign_up == "true"
+  def set_host
+    self.host = true if host_sign_up == "true"
   end
 
-  def set_profile_status
-    update_column :profile_status, :approved unless guest? || profile_approved?
-    update_column :profile_status, :pending if profile_incomplete? && identity_card.attached?
+  def set_profile_verification
+    update_column :profile_verification, :pending if profile_verification_incomplete? && identity_card.attached?
   end
 end
