@@ -1,30 +1,29 @@
-<%= content_for :title, @city %>
-<%= content_for :photo, url_for(@city.photo.variant(resize: 1920)) if @city.photo.attached? %>
+<%= render 'header', city: @city %>
 
 <%= content_for :subtitle do %>
+  <% if @city.inactive? %><span class="badge badge-light">Ville non active</span><br/><br/><% end %>
   <%= link_to 'Modifier', edit_admin_city_path(@city), class: 'btn btn-primary' %>
 <% end %>
 
-<p>Active : <%= @city.active %></p>
-
-<h2><%= @city.users.count %> utilisateurs</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Email</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Nom</th>
-      <th scope="col">Rôle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @city.users.each do |user| %>
-      <tr>
-        <td><%= link_to user, [:admin, user] %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.role %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-3">
+    <h2><%= @city.ambassadors.count %> ambassadeur<%= 's' if @city.ambassadors.many? %></h2>
+    <p><%= link_to 'Voir la liste', ambassadors_admin_city_path(@city), class: 'btn btn-primary' %></p>
+    <ul>
+      <% @city.ambassadors.each do |user| %>
+        <li><%= link_to user, [:admin, user] %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h2><%= @city.guests.count %> convive<%= 's' if @city.guests.many? %></h2>
+    <p><%= link_to 'Voir la liste', guests_admin_city_path(@city), class: 'btn btn-primary' %></p>
+  </div>
+  <div class="col-md-3">
+    <h2><%= @city.hosts.count %> hôte<%= 's' if @city.hosts.many? %></h2>
+    <p><%= link_to 'Voir la liste', hosts_admin_city_path(@city), class: 'btn btn-primary' %></p>
+  </div>
+  <div class="col-md-3">
+    <h2>0 repas</h2>
+  </div>
+</div>

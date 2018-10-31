@@ -18,6 +18,10 @@ class City < ApplicationRecord
 
   scope :active, -> { where(active: true) }
 
+  def inactive?
+    !active?
+  end
+
   def guests
     # TODO not hosts
     users

@@ -16,6 +16,24 @@ class Admin::CitiesController < Admin::ApplicationController
     add_breadcrumb @city
   end
 
+  def ambassadors
+    add_breadcrumb @city, [:admin, @city]
+    add_breadcrumb 'Ambassadeurs'
+    @users = @city.ambassadors.page params[:page]
+  end
+
+  def guests
+    add_breadcrumb @city, [:admin, @city]
+    add_breadcrumb 'Convives'
+    @users = @city.guests.page params[:page]
+  end
+
+  def hosts
+    add_breadcrumb @city, [:admin, @city]
+    add_breadcrumb 'Hôtes'
+    @users = @city.hosts.page params[:page]
+  end
+
   def edit
     add_breadcrumb @city, [:admin, @city]
     add_breadcrumb 'Modifier'

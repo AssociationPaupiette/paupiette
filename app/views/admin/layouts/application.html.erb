@@ -12,7 +12,7 @@
   <body>
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <%= link_to 'Paupiette', admin_root_path, class: 'navbar-brand' %>
+        <%= link_to 'Paupiette', root_path, class: 'navbar-brand' %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,7 +20,19 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><%= link_to 'Tableau de bord', admin_root_path, class: 'nav-link' %></li>
             <li class="nav-item"><%= link_to 'Villes', admin_cities_path, class: 'nav-link' %></li>
-            <li class="nav-item"><%= link_to 'Utilisateurs', admin_users_path, class: 'nav-link' %></li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="usersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Utilisateurs
+        </a>
+        <div class="dropdown-menu" aria-labelledby="usersDropdown">
+          <%= link_to 'Tous', admin_users_path, class: 'dropdown-item' %>
+          <%= link_to 'Administrateurs', admins_admin_users_path, class: 'dropdown-item' %>
+          <%= link_to 'Ambassadeurs', ambassadors_admin_users_path, class: 'dropdown-item' %>
+          <%= link_to 'Convives', guests_admin_users_path, class: 'dropdown-item' %>
+          <%= link_to 'Hôtes', hosts_admin_users_path, class: 'dropdown-item' %>
+        </div>
+      </li>
           </ul>
         </div>
       </nav>

@@ -8,7 +8,21 @@ Rails.application.routes.draw do
               }
 
   namespace :admin do
-    resources :cities, :users
+    resources :cities do
+      member do
+        get :ambassadors
+        get :guests
+        get :hosts
+      end
+    end
+    resources :users do
+      collection do
+        get :admins
+        get :ambassadors
+        get :guests
+        get :hosts
+      end
+    end
     root to: 'dashboard#index'
   end
 
@@ -26,11 +40,9 @@ Rails.application.routes.draw do
 
   get 'adverts' => 'adverts#index'
   get 'ambassadors' => 'ambassadors#index'
-
-  get 'press' => 'home#press', as: :press
-  get 'about' => 'home#about', as: :about
-  get 'legals' => 'home#legals', as: :legals
-  get 'privacy' => 'home#privacy', as: :privacy
-  
+  get 'press' => 'statics#press'
+  get 'about' => 'statics#about'
+  get 'legals' => 'statics#legals'
+  get 'privacy' => 'statics#privacy'
   root to: 'home#index'
 end

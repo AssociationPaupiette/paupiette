@@ -26,6 +26,11 @@ class User < ApplicationRecord
   attr_accessor :host_sign_up
   serialize :reception_days, Array
 
+  scope :ambassadors, -> {}
+  scope :guests, -> {}
+  scope :hosts, -> {}
+  scope :admins, -> {}
+
   before_create :set_role
   after_save :set_profile_status
 

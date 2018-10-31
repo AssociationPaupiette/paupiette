@@ -7,6 +7,26 @@ class Admin::UsersController < Admin::ApplicationController
     @users = User.all.page params[:page]
   end
 
+  def admins
+    add_breadcrumb 'Administrateurs'
+    @users = User.admins.page params[:page]
+  end
+
+  def ambassadors
+    add_breadcrumb 'Ambassadeurs'
+    @users = User.ambassadors.page params[:page]
+  end
+
+  def guests
+    add_breadcrumb 'Convives'
+    @users = User.guests.page params[:page]
+  end
+
+  def hosts
+    add_breadcrumb 'Hôtes'
+    @users = User.hosts.page params[:page]
+  end
+
   def new
     @user = User.new
     add_breadcrumb 'Nouvel utilisateur'
