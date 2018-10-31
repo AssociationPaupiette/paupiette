@@ -1,1 +1,24 @@
-<h2>Annonces</h2>
+<h2>Rencontrez nos hôtes</h2>
+
+<p>Choisissez votre ville :</p>
+<ul>
+  <% @cities.each do |city| %>
+  <li><%= link_to city, adverts_path(city: city.id) %></li>
+  <% end %>
+</ul>
+
+<section class="open-meals-section">
+  <h3>TODO : Repas ouverts</h3>
+</section>
+
+<section class="hosts-section">
+  <h3>Contactez un hôte</h3>
+  <div class="hosts-list">
+    <% @hosts.each do |host| %>
+      <%= render 'advert', host: host %>
+    <% end %>
+  </div>
+  <% unless @hosts.empty? || @hosts.last_page? %>
+    <p class="actions"><%= link_to "VOIR PLUS", adverts_path(page: @hosts.current_page+1), class: "btn btn-primary", id: "load-more-hosts", remote: true %></p>
+  <% end %>
+</section>

@@ -1,0 +1,29 @@
+<div class="host-advert">
+  <p class="host-name"><strong><%= host.first_name %></strong></p>
+  <div class="host-infos">
+    <div class="host-photo">
+      <%= image_tag host.photo.variant(resize: '150x150^',
+                                        combine_options: {
+                                          gravity: 'center',
+                                          crop: '150x150+0+0'
+                                        }) if host.photo.attached? %>
+    </div>
+    <div class="host-data">
+      <p class="host-city"><%= host.city %></p>
+      <div class="host-reception-days">
+        <p>Jours préférés</p>
+        <ul>
+          <% host.reception_days.each do |day_index| %>
+            <%# TODO: translate daynames %>
+            <li><%= @days[day_index.to_i] %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="host-description">"<%= host.description %>"</p>
+  <p class="host-specialties"><strong>Mes spécialités</strong> : <%= host.specialties %></p>
+  <div class="actions">
+    <%= link_to "CONTACTER", "#", class: "btn btn-primary contact-btn" %>
+  </div>
+</div>

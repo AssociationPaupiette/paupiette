@@ -1,0 +1,8 @@
+$(".hosts-list").append("<%= j(render(partial: 'advert', collection: @hosts, as: :host)) %>");
+
+<% if @hosts.last_page? %>
+  $("#load-more-hosts").hide();
+<% else %>
+  # hide loader indicator
+  $("#load-more-hosts").attr("href", "<%= adverts_path(page: @hosts.current_page+1) %>");
+<% end %>
