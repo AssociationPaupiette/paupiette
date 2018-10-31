@@ -3,5 +3,6 @@
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.association :city, collection: City.active %>
+  <%= f.association :managed_cities, as: :check_boxes %>
   <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
 <% end %>

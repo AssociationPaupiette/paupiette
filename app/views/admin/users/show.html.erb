@@ -4,4 +4,17 @@
   <%= link_to 'Modifier', edit_admin_user_path(@user), class: 'btn btn-primary' %>
 <% end %>
 
-<p>Ville: <%= link_to @user.city, [:admin, @user.city] %></p>
+<div class="row">
+  <div class="col-md-3">
+    <h2>Coordonnées</h2>
+    <p>Ville: <%= link_to @user.city, [:admin, @user.city] %></p>
+  </div>
+  <div class="col-md-3">
+    <h2>Ambassadeur de :</h2>
+    <ul>
+      <% @user.managed_cities.each do |city| %>
+        <li><%= link_to city, [:admin, city] %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
