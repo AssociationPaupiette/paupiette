@@ -27,7 +27,7 @@ class User < ApplicationRecord
   attr_accessor :host_sign_up
   serialize :reception_days, Array
 
-  before_create :set_role
+  before_create :set_host
   after_save :set_profile_verification
 
   has_one_attached :photo
