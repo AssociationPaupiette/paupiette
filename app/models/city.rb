@@ -23,11 +23,11 @@ class City < ApplicationRecord
   end
 
   def guests
-    users.not_host
+    users.not_hosts
   end
 
   def hosts
-    users.host
+    users.hosts
   end
 
   def to_s
