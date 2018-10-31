@@ -3,15 +3,21 @@ class Ability
 
   def initialize(user)
     @user = user ||= User.new
-    send @user.role.to_sym unless @user.role.nil?
+
+    send :host if @user.host?
+    send :ambassador if @user.ambassador?
+    send :admin if @user.admin?
   end
 
   protected
 
-  def guest
+  def host
+    # TODO: Meal model
+    # can :manage, Meal, user: @user
   end
 
-  def host
+  def ambassador
+    can :verify, User, city_id: @user.managed_cities.pluck(:id)
   end
 
   def admin

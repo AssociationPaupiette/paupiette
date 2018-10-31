@@ -7,7 +7,6 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'mini_magick'
 gem 'newrelic_rpm'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails_autoscale_agent', group: :production

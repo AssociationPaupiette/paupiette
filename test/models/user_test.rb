@@ -14,10 +14,11 @@
 #  description            :text
 #  specialties            :text
 #  reception_days         :string
-#  profile_status         :integer          default("incomplete")
-#  role                   :integer          default("guest")
+#  profile_verification   :integer          default("incomplete")
 #  city_id                :bigint(8)
 #  last_name              :string
+#  host                   :boolean          default(FALSE)
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'test_helper'

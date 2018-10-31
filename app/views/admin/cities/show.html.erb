@@ -14,7 +14,7 @@
       <th scope="col">Email</th>
       <th scope="col">Prénom</th>
       <th scope="col">Nom</th>
-      <th scope="col">Rôle</th>
+      <th scope="col">Hôte ?</th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +23,7 @@
         <td><%= link_to user, [:admin, user] %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.role %></td>
+        <td><%= user.host? %></td>
       </tr>
     <% end %>
   </tbody>

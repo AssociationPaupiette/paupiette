@@ -19,13 +19,11 @@ class City < ApplicationRecord
   scope :active, -> { where(active: true) }
 
   def guests
-    # TODO not hosts
-    users
+    users.not_host
   end
 
   def hosts
-    # TODO hosts
-    users
+    users.host
   end
 
   def to_s
