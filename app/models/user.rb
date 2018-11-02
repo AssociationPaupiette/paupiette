@@ -81,7 +81,6 @@ class User < ApplicationRecord
   end
 
   def create_slug
-    puts "creating slug"
     self.slug = SecureRandom.uuid
   end
 
