@@ -2,7 +2,9 @@
 
 <h3>Vos messages</h3>
 
+<ul class="list-unstyled">
 <% @conversations.each do |conversation| %>
-  <%= conversation.other(current_user).first %>
-
+  <% user = conversation.other(current_user).first %>
+  <li><%= link_to user, dashboard_conversation_path(user_slug: user.slug) %></li>
 <% end %>
+</ul>
