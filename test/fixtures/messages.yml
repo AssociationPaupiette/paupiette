@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: one
+  to: one
+  meal: one
+  content: MyText
+  read_at: 2018-11-02 15:59:45
+
+two:
+  from: two
+  to: two
+  meal: two
+  content: MyText
+  read_at: 2018-11-02 15:59:45

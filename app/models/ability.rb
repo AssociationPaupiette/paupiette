@@ -13,12 +13,11 @@ class Ability
   protected
 
   def guest
-    # can :manage, Message, user: @user
+    can :manage, Message, from: @user
   end
 
   def host
-    # TODO: Meal model
-    # can :manage, Meal, user: @user
+    can :manage, Meal, host: @user
   end
 
   def ambassador
