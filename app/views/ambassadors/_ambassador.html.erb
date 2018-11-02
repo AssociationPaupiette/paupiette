@@ -1,0 +1,18 @@
+<div class="ambassador-advert">
+  <div class="ambassador-data">
+    <p class="ambassador-name"><strong><%= ambassador.first_name %></strong></p>
+    <div class="ambassador-cities">
+      <% ambassador.ambassadorships.each do |ambassadorship| %>
+      <p>
+        <strong>Ambassadeur <%= ambassadorship.city %></strong><br>
+        depuis <%= ambassadorship.created_at.strftime("%B %Y") %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+  <%= image_tag ambassador.photo.variant(resize: '3000x150<'), class: "ambassador-photo" if ambassador.photo.attached? %>
+  <p class="ambassador-description">"<%= ambassador.description %>"</p>
+  <div class="actions">
+    <%= link_to "CONTACTER", "#", class: "btn btn-primary contact-btn" %>
+  </div>
+</div>
