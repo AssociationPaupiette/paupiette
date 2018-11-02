@@ -32,6 +32,8 @@ class User < ApplicationRecord
   belongs_to :city, optional: true
   has_many :ambassadorships
   has_many :managed_cities, through: :ambassadorships, source: :city
+  has_many :messages_sent, class_name: "Message", foreign_key: "from_id"
+  has_many :messages_received, class_name: "Message", foreign_key: "to_id"
 
   has_one_attached :photo
   has_one_attached :identity_card
@@ -60,7 +62,11 @@ class User < ApplicationRecord
   end
 
   def to_s
-    full_name.blank? ? "#{email}" : "#{full_name}"
+    full_name.blank? ? "Utilisateur anonyme #{id}" : "#{full_name}"
+  end
+
+  def to_short_s
+    first_name.blank? ? "Utilisateur anonyme #{id}" : "#{first_name}"
   end
 
   def localized_reception_days

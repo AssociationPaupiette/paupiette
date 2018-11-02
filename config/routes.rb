@@ -23,7 +23,11 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     get 'activity' => 'activity#index'
+
     get 'messages' => 'messages#index'
+    get 'messages/:user_slug' => 'messages#user', as: :conversation
+    post 'messages' => 'messages#create', as: :send_message
+
     get 'profile' => 'profile#index'
     get 'advices' => 'advices#index'
     get 'open_meals' => 'open_meals#index'

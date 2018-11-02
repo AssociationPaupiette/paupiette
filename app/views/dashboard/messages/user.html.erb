@@ -1,0 +1,20 @@
+Conversation avec <%= @user.full_name %>
+
+<hr>
+
+<% if @messages.empty? %>
+<p>Pas de messages</p>
+<% else %>
+  <% @messages.each do |message| %>
+    <%= render 'message', message: message %>
+  <% end %>
+<% end %>
+
+<hr>
+
+<%= simple_form_for @message, url: dashboard_send_message_path do |f| %>
+  <%= f.input :from_id, as: :hidden %>
+  <%= f.input :to_id, as: :hidden %>
+  <%= f.input :content, label: false, placeholder: "Entrez votre message" %>
+  <%= f.submit "Envoyer" %>
+<% end %>

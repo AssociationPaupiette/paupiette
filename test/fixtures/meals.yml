@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-11-02 15:57:50
+  host: one
+  capacity: 1
+
+two:
+  date: 2018-11-02 15:57:50
+  host: two
+  capacity: 1

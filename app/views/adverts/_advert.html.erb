@@ -1,5 +1,5 @@
 <div class="host-advert">
-  <p class="host-name"><strong><%= link_to host.first_name, user_path(slug: host.slug) %></strong></p>
+  <p class="host-name"><strong><%= link_to host.to_short_s, user_path(slug: host.slug) %></strong></p>
   <div class="host-infos">
     <div class="host-photo">
       <%= image_tag host.photo.variant(resize: '150x150^',
@@ -23,6 +23,6 @@
   <p class="host-description">"<%= host.description %>"</p>
   <p class="host-specialties"><strong>Mes spécialités</strong> : <%= host.specialties %></p>
   <div class="actions">
-    <%= link_to "CONTACTER", "#", class: "btn btn-primary contact-btn" %>
+    <%= link_to "CONTACTER", dashboard_conversation_path(user_slug: host.slug), class: "btn btn-primary contact-btn" %>
   </div>
 </div>
