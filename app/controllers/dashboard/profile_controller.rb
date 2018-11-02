@@ -18,7 +18,7 @@ class Dashboard::ProfileController < Dashboard::ApplicationController
 
   def user_params
     params[:user][:reception_days] ||= []
-    params.require(:user).permit(:first_name, :last_name, :city_id, :description, :photo,
+    params.require(:user).permit(:first_name, :last_name, :slug, :city_id, :description, :photo,
                                  :specialties, :identity_card, reception_days: [])
   end
 end

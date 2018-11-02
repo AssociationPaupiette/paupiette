@@ -42,7 +42,8 @@ class User < ApplicationRecord
   validates_presence_of :slug
   validates_uniqueness_of :slug
 
-  before_create :set_host, :set_default_slug
+  before_validation :set_default_slug, on: :create
+  before_create :set_host
   after_save :set_profile_verification
 
   # Every user is a guest

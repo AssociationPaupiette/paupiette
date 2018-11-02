@@ -13,6 +13,7 @@
       <p><strong>Vérification du profil</strong> : <%= @user.profile_verification %></p>
       <%= f.input :first_name, autofocus: true, required: true %>
       <%= f.input :last_name, required: true %>
+      <%= f.input :slug, required: true, label: "Nom de compte", hint: "URL de profil : https://paupiette.co/users/<strong>nom-de-compte</strong>".html_safe %>
       <%= f.association :city, include_blank: false, collection: City.active %>
       <%= f.input :description %>
 
