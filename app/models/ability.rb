@@ -4,12 +4,17 @@ class Ability
   def initialize(user)
     @user = user ||= User.new
 
-    send :host if @user.host?
-    send :ambassador if @user.ambassador?
-    send :admin if @user.admin?
+    guest
+    host if @user.host?
+    ambassador if @user.ambassador?
+    admin if @user.admin?
   end
 
   protected
+
+  def guest
+    # can :manage, Message, user: @user
+  end
 
   def host
     # TODO: Meal model

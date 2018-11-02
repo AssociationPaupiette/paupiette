@@ -8,11 +8,11 @@
     <%= link_to "VOTRE PROFIL", dashboard_profile_path, class: "nav-item nav-link #{'active' if controller_name == 'profile'}" %>
     <%= link_to "VOS AVIS", dashboard_advices_path, class: "nav-item nav-link #{'active' if controller_name == 'advices'}" %>
 
-    <% if current_user.host? %>
+    <% if can? :create, :meals %>
       <%= link_to "VOS REPAS OUVERTS", dashboard_open_meals_path, class: "nav-item nav-link #{'active' if controller_name == 'open_meals'}" %>
     <% end %>
 
-    <% if current_user.admin? %>
+    <% if can? :access, :admin %>
       <%= link_to "ADMIN", admin_root_path, class: "nav-item nav-link" %>
     <% end %>
   </div>
