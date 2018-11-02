@@ -42,8 +42,7 @@ class User < ApplicationRecord
   validates_presence_of :slug
   validates_uniqueness_of :slug
 
-  before_create :set_host
-  before_create :set_default_slug
+  before_create :set_host, :set_default_slug
   after_save :set_profile_verification
 
   # Every user is a guest
@@ -70,6 +69,7 @@ class User < ApplicationRecord
   private
 
   def set_host
+    # FIXME
     self.host = true if host_sign_up == "true"
   end
 
@@ -81,6 +81,7 @@ class User < ApplicationRecord
   end
 
   def create_slug
+    puts "creating slug"
     self.slug = SecureRandom.uuid
   end
 
