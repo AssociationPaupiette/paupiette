@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_145945) do
+ActiveRecord::Schema.define(version: 2018_11_02_162019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2018_11_02_145945) do
     t.string "slug", default: "", null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations_users", id: false, force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.bigint "user_id", null: false
+  end
+
   create_table "meals", force: :cascade do |t|
     t.datetime "date"
     t.bigint "host_id"
@@ -65,15 +75,12 @@ ActiveRecord::Schema.define(version: 2018_11_02_145945) do
 
   create_table "messages", force: :cascade do |t|
     t.bigint "from_id"
-    t.bigint "to_id"
-    t.bigint "meal_id"
     t.text "content"
     t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "conversation_id"
     t.index ["from_id"], name: "index_messages_on_from_id"
-    t.index ["meal_id"], name: "index_messages_on_meal_id"
-    t.index ["to_id"], name: "index_messages_on_to_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,6 +107,5 @@ ActiveRecord::Schema.define(version: 2018_11_02_145945) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "messages", "meals"
   add_foreign_key "users", "cities"
 end

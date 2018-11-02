@@ -13,10 +13,22 @@
     <p>Ville: <%= link_to @user.city, [:admin, @user.city] %></p>
   </div>
   <div class="col-md-3">
-    <h2>Ambassadeur de :</h2>
-    <ul>
+    <h2>Ambassadeur</h2>
+    <ul class="list-unstyled">
       <% @user.managed_cities.each do |city| %>
         <li><%= link_to city, [:admin, city] %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h2>Messages envoyés</h2>
+    <ul class="list-unstyled">
+      <% @user.messages_sent.each do |message| %>
+      <li>
+        <p><%= message %></p>
+        <small>A <%= message&.to %><br/><%= l message.created_at %></small>
+        <hr/>
+      </li>
       <% end %>
     </ul>
   </div>

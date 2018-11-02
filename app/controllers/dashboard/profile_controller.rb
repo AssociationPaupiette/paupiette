@@ -1,4 +1,6 @@
 class Dashboard::ProfileController < Dashboard::ApplicationController
+  add_breadcrumb 'Votre profil'
+
   def index
     @user = current_user
   end

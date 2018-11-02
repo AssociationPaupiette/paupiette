@@ -32,8 +32,8 @@ class User < ApplicationRecord
   belongs_to :city, optional: true
   has_many :ambassadorships
   has_many :managed_cities, through: :ambassadorships, source: :city
-  has_many :messages_sent, class_name: "Message", foreign_key: "from_id"
-  has_many :messages_received, class_name: "Message", foreign_key: "to_id"
+  has_and_belongs_to_many :conversations
+  has_many :messages_sent, class_name: 'Message', foreign_key: :from_id
 
   has_one_attached :photo
   has_one_attached :identity_card

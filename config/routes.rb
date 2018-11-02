@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       collection do
         get :admins
         get :ambassadors
-        get :guests
         get :hosts
+        get :guests
       end
     end
     root to: 'dashboard#index'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
     get 'messages' => 'messages#index'
     get 'messages/:user_slug' => 'messages#user', as: :conversation
-    post 'messages' => 'messages#create', as: :send_message
+    post 'messages/:user_slug' => 'messages#create', as: :send_message
 
     get 'profile' => 'profile#index'
     get 'advices' => 'advices#index'
