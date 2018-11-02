@@ -12,7 +12,7 @@
         <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: 'nav-link' %></li>
       <% else %>
         <% if can? :access, :admin %>
-          <%= link_to "Admin", admin_root_path, class: "nav-link" %>
+        <li class="nav-item"><%= link_to "Admin", admin_root_path, class: "nav-link" %></li>
         <% end %>
         <% title = current_user.first_name.present? ? current_user.first_name : 'Mon espace' %>
         <li class="nav-item"><%= link_to title, dashboard_root_path, class: 'nav-link' %></li>
