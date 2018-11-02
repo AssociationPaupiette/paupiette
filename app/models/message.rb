@@ -13,7 +13,7 @@
 
 class Message < ApplicationRecord
   belongs_to :from, class_name: "User"
-  belongs_to :conversation
+  belongs_to :conversation, touch: true
 
   def to
     return if conversation.nil?

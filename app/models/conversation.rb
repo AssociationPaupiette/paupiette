@@ -11,10 +11,16 @@ class Conversation < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :messages
 
+  default_scope { order(updated_at: :desc) }
+
   def self.between(user, other_user)
     from_ids = user.conversations.pluck(:id)
     to_ids = other_user.conversations.pluck(:id)
     ids = from_ids & to_ids
     find_by id: ids
+  end
+
+  def other(user)
+    users.where.not(id: user.id)
   end
 end
