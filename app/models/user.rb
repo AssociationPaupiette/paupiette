@@ -39,8 +39,11 @@ class User < ApplicationRecord
   enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
 
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
+  validates_presence_of :slug
+  validates_uniqueness_of :slug
 
   before_create :set_host
+  before_create :set_default_slug
   after_save :set_profile_verification
 
   # Every user is a guest
@@ -68,6 +71,21 @@ class User < ApplicationRecord
 
   def set_host
     self.host = true if host_sign_up == "true"
+  end
+
+  def set_default_slug
+    create_slug
+    while slug_already_in_use?
+      create_slug
+    end
+  end
+
+  def create_slug
+    self.slug = SecureRandom.uuid
+  end
+
+  def slug_already_in_use?
+    User.where(slug: self.slug).where.not(id: id).exists?
   end
 
   def set_profile_verification
