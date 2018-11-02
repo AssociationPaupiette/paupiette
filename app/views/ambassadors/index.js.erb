@@ -1,0 +1,7 @@
+$(".ambassadors-list").append("<%= j(render(partial: 'ambassador', collection: @ambassadors, as: :ambassador)) %>");
+
+<% if @ambassadors.last_page? %>
+  $("#load-more-ambassadors").hide();
+<% else %>
+  $("#load-more-ambassadors").attr("href", "<%= ambassadors_path(page: @ambassadors.current_page+1) %>");
+<% end %>

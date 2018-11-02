@@ -1,1 +1,12 @@
-<h2>Ambassadeurs</h2>
+<h2>Rencontrez nos ambassadeurs</h2>
+
+<section class="ambassadors-section">
+  <div class="ambassadors-list">
+    <% @ambassadors.each do |ambassador| %>
+      <%= render 'ambassador', ambassador: ambassador %>
+    <% end %>
+  </div>
+  <% unless @ambassadors.empty? || @ambassadors.last_page? %>
+    <p class="actions"><%= link_to "VOIR PLUS", ambassadors_path(page: @ambassadors.current_page+1), class: "btn btn-primary", id: "load-more-ambassadors", remote: true %></p>
+  <% end %>
+</section>
