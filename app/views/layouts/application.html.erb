@@ -13,6 +13,9 @@
     <%= render 'nav' %>
     <main>
       <div class="container-fluid">
+        <ol class="breadcrumb">
+          <%= render_breadcrumbs tag: :li, separator: '&nbsp;/&nbsp;' %>
+        </ol>
         <%= yield %>
       </div>
     </main>

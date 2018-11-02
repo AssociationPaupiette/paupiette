@@ -9,7 +9,7 @@ namespace :app do
         sh 'DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:drop'
         sh 'bundle exec rails db:create'
         begin
-          sh 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d extranet2_development db/latest.dump'
+          sh 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d paupiette_development db/latest.dump'
         rescue
           'There were some warnings or errors while restoring'
         end

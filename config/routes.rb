@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end
 
   get 'adverts' => 'adverts#index'
-  get 'adverts/:city_slug' => 'adverts#city'
+  get 'adverts/:city_slug' => 'adverts#city', as: :city_adverts
   get 'ambassadors' => 'ambassadors#index'
   get 'press' => 'statics#press'
   get 'about' => 'statics#about'

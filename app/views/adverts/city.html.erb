@@ -1,11 +1,4 @@
-<h2>Rencontrez nos hôtes</h2>
-
-<p>Choisissez votre ville :</p>
-<ul>
-  <% @cities.each do |city| %>
-  <li><%= link_to city, city_adverts_path(city_slug: city.slug) %></li>
-  <% end %>
-</ul>
+<h2>Rencontrez nos hôtes à <%= @city %></h2>
 
 <section class="open-meals-section">
   <h3>TODO : Repas ouverts</h3>

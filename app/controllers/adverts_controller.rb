@@ -1,11 +1,16 @@
 class AdvertsController < ApplicationController
   respond_to :html, :js, only: [:index]
 
+  add_breadcrumb 'Annonces', :adverts_path
+
   def index
     @cities = City.active
-    @days = Date::DAYNAMES.rotate
+    @hosts = User.hosts.page params[:page]
+  end
 
-    @filter_city = City.find_by(id: params[:city]) unless params[:city].nil?
-    @hosts = @filter_city.nil? ? User.hosts.page(params[:page]).per(3) : @filter_city.hosts.page(params[:page]).per(3)
+  def city
+    @city = City.find_by slug: params[:city_slug]
+    @hosts = @city.hosts.page params[:page]
+    add_breadcrumb @city
   end
 end

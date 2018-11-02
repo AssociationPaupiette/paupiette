@@ -17,11 +17,11 @@ class City < ApplicationRecord
 
   has_one_attached :photo
 
-  scope :active, -> { where(active: true) }
-
   validates_uniqueness_of :slug
 
-  before_save :set_slug
+  before_validation :set_slug
+
+  scope :active, -> { where(active: true) }
 
   def inactive?
     !active?
