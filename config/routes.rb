@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
-  resources :ambassadorships
-  devise_for  :users,
-              path: '',
-              path_names: {
-                sign_up: 'register',
-                sign_in: 'login',
-                sign_out: 'logout'
-              }
+  devise_for  :users
 
   namespace :admin do
+    resources :ambassadorships
     resources :cities do
       member do
         get :ambassadors
@@ -40,6 +34,7 @@ Rails.application.routes.draw do
   end
 
   get 'adverts' => 'adverts#index'
+  get 'adverts/:city_slug' => 'adverts#city'
   get 'ambassadors' => 'ambassadors#index'
   get 'press' => 'statics#press'
   get 'about' => 'statics#about'

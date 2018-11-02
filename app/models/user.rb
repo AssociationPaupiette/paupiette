@@ -19,6 +19,8 @@
 #  last_name              :string
 #  host                   :boolean          default(FALSE)
 #  admin                  :boolean          default(FALSE)
+#  slug                   :string           default(""), not null
+#  active                 :boolean          default(TRUE), not null
 #
 
 class User < ApplicationRecord

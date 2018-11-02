@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  active     :boolean          default(FALSE)
+#  slug       :string           default(""), not null
 #
 
 require 'test_helper'

@@ -3,7 +3,7 @@
 <p>Choisissez votre ville :</p>
 <ul>
   <% @cities.each do |city| %>
-  <li><%= link_to city, adverts_path(city: city.id) %></li>
+  <li><%= link_to city, adverts_path(city_slug: city.slug) %></li>
   <% end %>
 </ul>
 

@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  active     :boolean          default(FALSE)
+#  slug       :string           default(""), not null
 #
 
 class City < ApplicationRecord
@@ -17,6 +18,10 @@ class City < ApplicationRecord
   has_one_attached :photo
 
   scope :active, -> { where(active: true) }
+
+  validates_uniqueness_of :slug
+
+  before_save :set_slug
 
   def inactive?
     !active?
@@ -32,5 +37,11 @@ class City < ApplicationRecord
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def set_slug
+    self.slug = name.parameterize
   end
 end
