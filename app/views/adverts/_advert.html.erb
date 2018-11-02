@@ -1,5 +1,5 @@
 <div class="host-advert">
-  <p class="host-name"><strong><%= link_to host.first_name, user_path(slug: host.slug) %></strong></p>
+  <p class="host-name"><strong><%= link_to host.first_name, user_path(user_slug: host.slug) %></strong></p>
   <div class="host-infos">
     <div class="host-photo">
       <%= image_tag host.photo.variant(resize: '150x150^',

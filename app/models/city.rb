@@ -22,6 +22,7 @@ class City < ApplicationRecord
   before_validation :set_slug
 
   scope :active, -> { where(active: true) }
+  default_scope { order(:name) }
 
   def inactive?
     !active?

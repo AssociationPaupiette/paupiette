@@ -54,6 +54,7 @@ class User < ApplicationRecord
   scope :not_ambassadors, -> { where.not(id: ambassadors) }
   scope :admins, -> { where(admin: true) }
   scope :not_admins, -> { where.not(id: admins) }
+  default_scope { order(:last_name, :first_name) }
 
   def full_name
     "#{first_name} #{last_name}".strip
