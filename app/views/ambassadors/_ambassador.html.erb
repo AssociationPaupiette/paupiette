@@ -4,8 +4,8 @@
     <div class="ambassador-cities">
       <% ambassador.ambassadorships.each do |ambassadorship| %>
       <p>
-        <strong>Ambassadeur <%= ambassadorship.city %></strong><br>
-        depuis <%= ambassadorship.created_at.strftime("%B %Y") %>
+        <strong>Ambassadeur "<%= ambassadorship.city %>"</strong><br>
+        depuis <%= l ambassadorship.created_at, format: "%B %Y" %>
       </p>
       <% end %>
     </div>

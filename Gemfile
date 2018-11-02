@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 # Infrastructure
-gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'newrelic_rpm'
@@ -14,6 +13,10 @@ gem 'aws-sdk-s3'
 gem 'bugsnag'
 
 # Back
+gem 'rails', '~> 5.2.1'
+gem 'rails-i18n'
+gem 'devise'
+gem 'devise-i18n'
 gem 'simple_form'
 gem 'breadcrumbs_on_rails'
 gem 'jbuilder', '~> 2.5'
@@ -28,7 +31,6 @@ gem 'jquery-ui-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap', '~> 4.1.3'
 gem 'uglifier', '>= 1.3.0'
-gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
