@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     root to: 'profile#index'
   end
 
+  get 'users/:slug' => 'users#show', as: :user
+
   get 'adverts' => 'adverts#index'
   get 'adverts/:city_slug' => 'adverts#city', as: :city_adverts
   get 'ambassadors' => 'ambassadors#index'

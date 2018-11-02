@@ -62,6 +62,11 @@ class User < ApplicationRecord
     full_name.blank? ? "#{email}" : "#{full_name}"
   end
 
+  def localized_reception_days
+    days = I18n.t("date.day_names").rotate
+    return reception_days.map { |index| days[index.to_i].capitalize }
+  end
+
   def ambassador?
     self.managed_cities.count > 0
   end

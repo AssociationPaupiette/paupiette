@@ -1,5 +1,5 @@
 <div class="host-advert">
-  <p class="host-name"><strong><%= host.first_name %></strong></p>
+  <p class="host-name"><strong><%= link_to host.first_name, user_path(slug: host.slug) %></strong></p>
   <div class="host-infos">
     <div class="host-photo">
       <%= image_tag host.photo.variant(resize: '150x150^',
@@ -13,8 +13,8 @@
       <div class="host-reception-days">
         <p>Jours préférés</p>
         <ul>
-          <% host.reception_days.each do |day_index| %>
-            <li><%# TODO: translate daynames %></li>
+          <% host.localized_reception_days.each do |day| %>
+            <li><%= day %></li>
           <% end %>
         </ul>
       </div>

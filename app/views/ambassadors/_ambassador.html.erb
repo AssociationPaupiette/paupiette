@@ -1,6 +1,6 @@
 <div class="ambassador-advert">
   <div class="ambassador-data">
-    <p class="ambassador-name"><strong><%= ambassador.first_name %></strong></p>
+    <p class="ambassador-name"><strong><%= link_to ambassador.first_name, user_path(slug: ambassador.slug) %></strong></p>
     <div class="ambassador-cities">
       <% ambassador.ambassadorships.each do |ambassadorship| %>
       <p>

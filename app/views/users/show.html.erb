@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @user.photo, class: "img-fluid" if @user.photo.attached? %>
+  </div>
+  <div class="col-md-8">
+    <h2><%= @user.full_name %></h2>
+    <h3><%= @user.host? ? "Hôte" : "Convive" %> à <%= @user.city %></h3>
+    <% if @user.ambassador? %>
+      <p>Ambassadeur : <%= @user.managed_cities.join(', ') %></p>
+    <% end %>
+
+    <p><%= @user.profile_verification_approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
+    <%= link_to "ENVOYER UN MESSAGE", "#", class: "btn btn-primary contact-btn" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <p><strong>Description :</strong> <%= @user.description %></p>
+    <% if @user.host? %>
+      <p><strong>Spécialités :</strong> <%= @user.specialties %></p>
+      <p><strong>Jours de réception :</strong></p>
+      <ul>
+        <% @user.localized_reception_days.each do |day| %>
+        <li><%= day %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
