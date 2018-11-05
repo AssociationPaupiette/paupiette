@@ -1,0 +1,11 @@
+<%= content_for :title, 'Utilisateurs en attente' %>
+
+<%= render 'dashboard/nav' %>
+
+<h2>Utilisateurs en attente à <%= @city %></h2>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user %></li>
+  <% end %>
+</ul>

@@ -1,4 +1,10 @@
-Conversation avec <%= @user.full_name %>
+<%= content_for :title, 'Vos messages' %>
+
+<%= render 'dashboard/nav' %>
+
+<h2>Vos messages</h2>
+
+<h3>Conversation avec <%= @user.full_name %></h3>
 
 <hr>
 

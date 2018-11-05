@@ -22,19 +22,24 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    get 'activity' => 'activity#index'
+    namespace :ambassador do
+      get 'activity' => 'activity#index'
+      get ':city_slug/users/pending' => 'users#pending', as: :users_pending
+      root to: 'application#index'
+    end
 
     get 'messages' => 'messages#index'
     get 'messages/:user_slug' => 'messages#user', as: :conversation
     post 'messages/:user_slug' => 'messages#create', as: :send_message
 
     get 'profile' => 'profile#index'
-    get 'advices' => 'advices#index'
-    get 'open_meals' => 'open_meals#index'
-
     put 'profile' => 'profile#update'
 
-    root to: 'profile#index'
+    get 'advices' => 'advices#index'
+
+    get 'open_meals' => 'open_meals#index'
+
+    root to: 'application#index'
   end
 
   get 'users/:user_slug' => 'users#show', as: :user

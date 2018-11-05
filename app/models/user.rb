@@ -38,7 +38,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :identity_card
 
-  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
+  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }
 
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
   validates_presence_of :slug
@@ -46,7 +46,6 @@ class User < ApplicationRecord
 
   before_validation :set_default_slug, on: :create
   before_create :set_host
-  after_save :set_profile_verification
 
   # Every user is a guest
   scope :guests, -> {}
@@ -99,9 +98,5 @@ class User < ApplicationRecord
 
   def slug_already_in_use?
     User.where(slug: self.slug).where.not(id: id).exists?
-  end
-
-  def set_profile_verification
-    update_column :profile_verification, :pending if profile_verification_incomplete? && identity_card.attached?
   end
 end

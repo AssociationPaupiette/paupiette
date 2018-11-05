@@ -21,6 +21,7 @@ class Ability
   end
 
   def ambassador
+    can :manage, :city
     can :verify, User, city_id: @user.managed_cities.pluck(:id)
   end
 

@@ -1,5 +1,4 @@
 class Dashboard::MessagesController < Dashboard::ApplicationController
-
   add_breadcrumb 'Vos messages', :dashboard_messages_path
 
   def index

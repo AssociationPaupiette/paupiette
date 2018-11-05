@@ -10,9 +10,9 @@ class Dashboard::ProfileController < Dashboard::ApplicationController
     @user.assign_attributes(user_params)
     if @user.valid?(:update_profile)
       @user.save
-      redirect_to dashboard_root_path
+      redirect_to :dashboard_profile, notice: 'Profil mis à jour'
     else
-      render "index"
+      render :index
     end
   end
 
@@ -20,7 +20,7 @@ class Dashboard::ProfileController < Dashboard::ApplicationController
 
   def user_params
     params[:user][:reception_days] ||= []
-    params.require(:user).permit(:first_name, :last_name, :slug, :city_id, :description, :photo,
-                                 :specialties, :identity_card, reception_days: [])
+    params.require(:user).permit(:first_name, :last_name, :email, :slug, :city_id, :description,
+                                 :photo, :specialties, :identity_card, reception_days: [])
   end
 end

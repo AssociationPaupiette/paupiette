@@ -14,6 +14,7 @@ class City < ApplicationRecord
   has_many :users
   has_many :ambassadorships
   has_many :ambassadors, through: :ambassadorships, source: :user
+  has_many :conversations, through: :users
 
   has_one_attached :photo
 

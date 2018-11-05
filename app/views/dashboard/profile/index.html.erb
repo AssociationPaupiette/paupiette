@@ -1,6 +1,8 @@
-<%= render 'dashboard/partials/nav' %>
+<%= content_for :title, 'Votre profil' %>
 
-<h3>Votre profil</h3>
+<%= render 'dashboard/nav' %>
+
+<h2>Votre profil</h2>
 
 <%= simple_form_for(@user, url: dashboard_profile_path, html: { class: "dashboard_edit_profile", method: :put }, wrapper: :vertical_form) do |f| %>
   <div class="row">
@@ -13,7 +15,8 @@
       <p><strong>Vérification du profil</strong> : <%= @user.profile_verification %></p>
       <%= f.input :first_name, autofocus: true, required: true %>
       <%= f.input :last_name, required: true %>
-      <%= f.input :slug, required: true, label: "Nom de compte", hint: "URL de profil : https://paupiette.co/users/<strong>nom-de-compte</strong>".html_safe %>
+      <%= f.input :email, required: true %>
+      <%= f.input :slug, required: true, label: "Nom de compte", hint: "URL de profil : #{user_url(user_slug: @user.slug)}".html_safe %>
       <%= f.association :city, include_blank: false, collection: City.active %>
       <%= f.input :description %>
 

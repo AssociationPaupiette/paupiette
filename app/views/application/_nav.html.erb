@@ -5,17 +5,16 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item"><%= link_to "Annonces", adverts_path, class: 'nav-link' %></li>
-      <li class="nav-item"><%= link_to "Ambassadeurs", ambassadors_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Annonces', adverts_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to 'Ambassadeurs', ambassadors_path, class: 'nav-link' %></li>
       <% if current_user.nil? %>
-        <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Se connecter', new_user_session_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'S\'inscrire', new_user_registration_path, class: 'nav-link' %></li>
       <% else %>
+        <li class="nav-item"><%= link_to 'Mon espace', dashboard_root_path, class: 'nav-link' %></li>
         <% if can? :access, :admin %>
-        <li class="nav-item"><%= link_to "Admin", admin_root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to 'Admin', admin_root_path, class: 'nav-link' %></li>
         <% end %>
-        <% title = current_user.first_name.present? ? current_user.first_name : 'Mon espace' %>
-        <li class="nav-item"><%= link_to title, dashboard_root_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Se déconnecter', destroy_user_session_path, class: 'nav-link' %></li>
       <% end %>
     </ul>

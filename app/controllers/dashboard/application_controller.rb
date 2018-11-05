@@ -1,6 +1,7 @@
 class Dashboard::ApplicationController < ApplicationController
-  before_action :authenticate_user!
+  add_breadcrumb 'Mon espace', :dashboard_root_path
 
-  add_breadcrumb 'Tableau de bord', :dashboard_root_path
-
+  def index
+    redirect_to :dashboard_messages
+  end
 end

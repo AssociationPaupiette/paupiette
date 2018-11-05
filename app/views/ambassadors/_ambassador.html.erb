@@ -13,6 +13,6 @@
   <%= image_tag ambassador.photo.variant(resize: '3000x150<'), class: "ambassador-photo" if ambassador.photo.attached? %>
   <p class="ambassador-description">"<%= ambassador.description %>"</p>
   <div class="actions">
-    <%= link_to "CONTACTER", "#", class: "btn btn-primary contact-btn" %>
+    <%= link_to "CONTACTER", dashboard_conversation_path(user_slug: ambassador.slug), class: "btn btn-primary contact-btn" %>
   </div>
 </div>

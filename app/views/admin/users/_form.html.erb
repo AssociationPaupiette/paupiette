@@ -1,10 +1,19 @@
 <%= simple_form_for [:admin, user] do |f| %>
-  <%= f.input :email %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :host %>
-  <%= f.input :admin %>
-  <%= f.association :city, collection: City.active %>
-  <%= f.association :managed_cities, as: :check_boxes %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.input :email %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :profile_verification, as: :radio_buttons, collection: User.profile_verifications %>
+      <%= f.input :host %>
+      <%= f.input :admin %>
+    </div>
+    <div class="col-md-4">
+      <%= f.association :city, collection: City.active %>
+      <%= f.association :managed_cities, as: :check_boxes %>
+    </div>
+  </div>
   <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
 <% end %>

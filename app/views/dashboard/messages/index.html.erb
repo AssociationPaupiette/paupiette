@@ -1,6 +1,8 @@
-<%= render 'dashboard/partials/nav' %>
+<%= content_for :title, 'Vos messages' %>
 
-<h3>Vos messages</h3>
+<%= render 'dashboard/nav' %>
+
+<h2>Vos messages</h2>
 
 <ul class="list-unstyled">
 <% @conversations.each do |conversation| %>
