@@ -29,8 +29,10 @@
   src: url(PlaylistScript-Regular.eot)
 
 @font-face
-  font-family: "Butler-Black"
-  src: url(Butler-Black.eot)
+  font-family: 'Butler'
+  src: asset-url('Butler-Black.eot?#iefix')
+  src: asset-url('Butler-Black.eot?#iefix') format('eot'), asset-url('Butler-Black.woff') format('woff'), asset-url('Butler-Black.ttf') format('truetype'), asset-url('Butler-Black.svg') format('svg')
+
 
 
 .breadcrumb
@@ -236,7 +238,3 @@
   &--circle
     +circle(24px)
     background-color: #fff
-
-
-
-
