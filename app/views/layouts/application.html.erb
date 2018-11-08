@@ -12,13 +12,11 @@
   <body>
     <%= render 'nav' %>
     <main>
-      <div class="container-fluid">
-        <ol class="breadcrumb">
-          <%= render_breadcrumbs tag: :li, separator: '&nbsp;/&nbsp;' %>
-        </ol>
-        <%= render 'flash' %>
-        <%= yield %>
-      </div>
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs tag: :li, separator: '&nbsp;/&nbsp;' %>
+      </ol>
+      <%= render 'flash' %>
+      <%= yield %>
     </main>
     <%= render 'footer' %>
   </body>

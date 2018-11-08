@@ -12,10 +12,11 @@
   </div>
 </header>
 
+<!-- Where to find us -->
 <section class="section__container container">
   <div class="d-flex bd-highlight">
     <div class="flex-grow-1 bd-highlight">
-      <h1>Paupiette est à
+      <h1 class="section__title">Paupiette est à
         <span class="color--blue">Paris</span>,<br>
         <span class="color--blue">Bordeaux</span> &amp;
         <span class="color--blue">Quimper</span> !
@@ -38,6 +39,56 @@
   </div>
 </section>
 
+
+<!-- About us -->
+<section class="about__section section__container container">
+  <div class="row">
+
+    <div class="col-lg-6 align-self-center">
+      <div>
+        <%= image_tag "about-us.jpg", class: "img-fluid" %>
+      </div>
+    </div>
+
+    <div class="col-lg-6 align-self-center mb-5">
+      <h2 class="section__title">L'histoire de <span class="color--blue"> Paupiette</span></h2>
+      <h3 class="section__subtitle">Paupiette réunit séniors et étudiants sur le temps du <span class="text-nowrap"> déjeuner !</span></h3>
+      <p class="text--default pt-3 mb-md-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="steps__container container-fluid">
+  <div class="container">
+    <h2 class="section__title--white pb-4">Paupiette en 3 étapes</h2>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="steps__illustration">
+          <%= image_tag "illustration-step1.png", class: 'img-fluid', width: '333', height: '264' %>
+        </div>
+        <p class="steps__description">Remplissez votre profil hôte, vos spécialités et disponibilités</p>
+      </div>
+
+      <div class="col-md-4">
+        <div class="steps__illustration">
+          <%= image_tag "illustration-step2.png", class: 'img-fluid', width: '305', height: '201' %>
+        </div>
+        <p class="steps__description">Les convives contactent les hôtes et décident ensemble de leur rencontre</p>
+      </div>
+
+      <div class="col-md-4">
+        <div class="steps__illustration">
+          <%= image_tag "illustration-step3.png", class: 'img-fluid', width: '335', height: '208' %>
+        </div>
+        <p class="steps__description">Accueillez les convives à votre domicile</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
 

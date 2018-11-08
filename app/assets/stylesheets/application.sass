@@ -33,12 +33,6 @@
   src: url(Butler-Black.eot)
 
 
-h1
-  margin: 50px 0
-
-h2
-  margin: 20px 0
-
 .breadcrumb
   background: none
   font-size: 12px
@@ -96,6 +90,27 @@ h2
     color: rgb(204, 89, 121)
 
 
+// -----------------------------
+// Section steps
+// -----------------------------
+.steps
+  &__container
+    padding: 245px 0 200px 0
+    background-color: $color_redwine
+    background-color: #cc5979
+    @include media-breakpoint-up(lg)
+      margin-top: -180px
+
+  &__illustration
+    max-width: 350px
+    height: 265px
+
+  &__description
+    +font_props($font_lato, $light, 16px, 1.2)
+    max-width: 250px
+    text-align: center
+    color: #fff
+
 
 // -----------------------------
 // Footer
@@ -142,14 +157,29 @@ h2
 // Section
 .section
   &__container
-    padding-top: 150px
+    padding: 70px 0
+
+  &__title,
+  &__title--white
+    +font_props($font_butler, $black, 49px, 0.9)
+    padding-bottom: 50px
 
   &__title
-    font-family: "Butler-Black"
-    font-size: 49px
-    line-height: 0.9
-    text-align: left
     color: $color_greydark
+
+  &__title--white
+    color: #fff
+
+  &__subtitle
+    +font_props($font_lato, $regular, 20px, 1.4)
+    color: $color_redwinelight
+
+
+// Text
+.text
+  &--default
+    +font_props($font_lato, $regular, 16px, 1.3)
+    color: $color_greylight
 
 
 // Button
