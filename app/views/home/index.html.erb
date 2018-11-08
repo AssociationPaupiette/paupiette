@@ -1,21 +1,48 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Bienvenue</h1>
-    <p class="lead">Ce midi, c'est chez Mamie !</p>
-  <p class="lead">
-    <%= link_to "Je suis hôte", new_user_registration_path(host_sign_up: true), class: "btn btn-primary btn-lg" %>
-    <%= link_to "Je suis convive", new_user_registration_path(host_sign_up: false), class: "btn btn-primary btn-lg" %>
-  </p>
+<header class="header__container container">
+
+  <div class="w-100 d-flex align-items-center bd-highlight">
+    <p class="header__title flex-grow-1 bd-highlight">Bienvenue, ce midi c'est chez <span class="text-nowrap">Mamie !</span></p>
+    <div class="bd-highlight">
+      <%= link_to "Je suis hôte", new_user_registration_path(host_sign_up: true), class: "button--brown mx-2 my-2 bd-highlight" %>
+      <%= link_to "Je suis convive", new_user_registration_path(host_sign_up: false), class: "button--blue mx-2 my-2 bd-highlight" %>
+    </div>
   </div>
-</div>
 
-test
+  <div class="hero__container">
+  </div>
+</header>
 
-Paupiette est à Paris, Bordeaux & Quimper !
+<section class="section__container container">
+  <div class="d-flex bd-highlight">
+    <div class="flex-grow-1 bd-highlight">
+      <h1>Paupiette est à
+        <span class="color--blue">Paris</span>,<br>
+        <span class="color--blue">Bordeaux</span> &amp;
+        <span class="color--blue">Quimper</span> !
+      </h1>
+      <p class="newsletter__description">Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
+
+      <!-- Newsletter -->
+      <form>
+        <input class="input__field" type="text" name="firstname" placeholder="Prénom"><br>
+        <input class="input__field" type="text" name="location" placeholder="Ville ou région"><br>
+        <input class="input__field" type="email" name="firstname" placeholder="Email"><br>
+        <input class="button--blue mt-3" type="submit" value="Tenez-moi informé">
+      </form>
+    </div>
+
+    <!-- Map -->
+    <div class="bd-highlight">
+      <%= image_tag "map.jpg", class: "img-fluid" %>
+    </div>
+  </div>
+</section>
+
+
+
 
 Et peut-être bientôt dans votre ville.
 
-Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :
 
 
   Prénom

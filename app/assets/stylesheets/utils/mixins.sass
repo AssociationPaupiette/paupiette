@@ -1,0 +1,50 @@
+// =font-face($name, $file, $weight, $style)
+//   @font-face
+//     font-family: $name
+//     src: asset-url('#{$file}.eot')
+//     // src: asset-url('#{$file}.eot?#iefix')
+//     // src: asset-url('#{$file}.eot?#iefix') format('eot'), asset-url('#{$file}.woff') format('woff'), asset-url('#{$file}.ttf') format('truetype'), asset-url('#{$file}.svg#{$file}') format('svg')
+//     font-weight: $weight
+//     font-style:  $style
+
+
+=font($name, $weight, $size)
+  font-family: $name
+  font-weight: $weight
+  font-size: $size
+
+
+=font_props($name, $weight, $size, $lineHeight)
+  font-family: $name
+  font-weight: $weight
+  font-size: $size
+  line-height: $lineHeight
+
+
+=size($width, $height)
+  width: $width
+  height: $height
+
+
+=circle($size)
+  width: $size
+  height: $size
+  border-radius: 50%
+
+
+// Usage :
+// .classname
+//   +placeholder
+//     color: blue 
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+
+

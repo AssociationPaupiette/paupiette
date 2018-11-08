@@ -1,28 +1,43 @@
-<footer class="page-footer font-small">
-  <div class="container-fluid text-center text-md-left">
-    <div class="row">
-      <div class="col-md-3 mt-md-0 mt-3">
-        <h5 class="text-uppercase font-weight-bold">A propos</h5>
-        <p><%= link_to 'Espace presse', press_path %></p>
-        <p><%= link_to 'Qui sommes-nous', about_path %></p>
-      </div>
-      <div class="col-md-3 mt-md-0 mt-3">
-        <h5 class="text-uppercase font-weight-bold">Mentions légales</h5>
-        <p><%= link_to 'Conditions générales d\'utilisation', legals_path %></p>
-        <p><%= link_to 'Confidentialité', privacy_path %></p>
+<footer class="footer__container">
+    <div class="container d-flex justify-content-between">
+
+      <div class="d-flex">
+        <!-- About -->
+        <div class="footer__col">
+          <h5 class="footer__text footer__title">A propos</h5>
+          <p><%= link_to 'Espace presse', press_path, class: "footer__text footer__description" %></p>
+          <p><%= link_to 'Qui sommes-nous', about_path, class: "footer__text footer__description" %></p>
+        </div>
+
+        <!-- Mentions -->
+        <div class="footer__col">
+          <h5 class="footer__text footer__title">Mentions légales</h5>
+          <p><%= link_to 'Conditions générales d\'utilisation', legals_path, class: "footer__text footer__description" %></p>
+          <p><%= link_to 'Confidentialité', privacy_path, class: "footer__text footer__description" %></p>
+        </div>
       </div>
 
-      <div class="col-md-6 mb-md-0 mb-3">
-        <h5 class="text-uppercase font-weight-bold">Suivez-nous</h5>
-        <p>Facebook, Instagram</p>
-        <h5 class="text-uppercase font-weight-bold">Nos partenaires</h5>
-        <ul class="list-inline">
-          <li class="list-inline-item">Logo partenaire</li>
-          <li class="list-inline-item">Logo partenaire</li>
-          <li class="list-inline-item">Logo partenaire</li>
-          <li class="list-inline-item">Logo partenaire</li>
-        </ul>
+      <div class="d-flex">
+        <!-- Networks -->
+        <div class="footer__col">
+          <h5 class="footer__text footer__title">Suivez-nous</h5>
+          <div>
+            <a class="networks__link d-inline-block" href="#"><%= image_tag "icon-instagram.png", class: "", width: '38' %></a>
+            <a class="networks__link d-inline-block" href="#"><%= image_tag "icon-facebook.png", class: "", width: '38'  %></a>
+          </div>
+        </div>
+
+        <!-- Partnerships -->
+        <div class="footer__col">
+          <h5 class="footer__text footer__title">Nos partenaires</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item"><div class="placeholder--circle"></div></li>
+            <li class="list-inline-item"><div class="placeholder--circle"></div></li>
+            <li class="list-inline-item"><div class="placeholder--circle"></div></li>
+            <li class="list-inline-item"><div class="placeholder--circle"></div></li>
+          </ul>
+        </div>
       </div>
+
     </div>
-  </div>
 </footer>
