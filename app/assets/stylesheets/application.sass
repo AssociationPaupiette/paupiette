@@ -2,6 +2,7 @@
 @import "application/**/*"
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700')
 @import "utils/**/*"
+@import "owl.carousel"
 
 @font-face
   font-family: 'Butler'
@@ -23,15 +24,18 @@
     transition: color 0.3s ease-out
     @include media-breakpoint-up(lg)
       text-align: center
-    .menu__link--active:after
-        +size(100%, 3px)
-        content: ""
-        display: inline-block
-        background-color: $color_blue
 
     &:hover,
     &:focus
       color: $color_blue !important
+
+  &__link--active:after
+    @include media-breakpoint-up(lg)
+      +size(100%, 3px)
+      content: ""
+      display: inline-block
+      background-color: $color_blue
+
 
 
 // -----------------------------
@@ -63,6 +67,7 @@
 .newsletter
   &__description
     +font_props($font_lato, $bold, 16px, 1.6)
+    max-width: 340px
     color: rgb(204, 89, 121)
 
 
@@ -103,17 +108,67 @@
     max-width: 420px
     padding: 35px 35px 0 35px
 
+
+// -----------------------------
+// Section testimony
+// -----------------------------
+.testimony
+  &__container
+    position: relative
+    padding: 70px 30px
+    @include media-breakpoint-up(md)
+      padding: 70px 30px 200px 30px
+
+  &__caption
+    +font_props($font_lato, $bold, 18px, 1.5)
+    padding-top: 20px
+
+
+// -----------------------------
+// Carousel
+// -----------------------------
+.carousel
+  &__item
+    will-change: transform
+    margin: 0 5px
+
+  &__controls
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 100%
+    z-index: 2
+
+  &__control--prev,
+  &__control--next
+    +size(60px, 60px)
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    background-color: $color_redwine
+    @include media-breakpoint-up(lg)
+      +size(93px, 93px)
+
+
 // -----------------------------
 // Footer
 // -----------------------------
 .footer
   &__container
-    padding: 100px 0
+    padding: 90px 0
     background-color: $color_redwine
+    @include media-breakpoint-up(md)
+      padding: 45px 0
 
   &__col
-    max-width: 300px
-    padding: 0 30px
+    padding: 15px 30px
+    @include media-breakpoint-up(md)
+      width: 280px
 
   &__text
     margin-top: 15px
@@ -127,6 +182,7 @@
   &__description
     +font_props($font_lato, $light, 16px, 1.3)
     font-style: italic
+    display: block
     text-align: left
     color: #fff
 
@@ -148,11 +204,12 @@
 // Section
 .section
   &__container
-    padding: 70px 0
+    padding-top: 70px
+    padding-bottom: 70px
 
   &__title,
   &__title--white
-    +font_props($font_butler, $black, 49px, 0.9)
+    +font_props($font_butler, $black, 49px, 1)
     padding-bottom: 50px
 
   &__title
@@ -171,7 +228,6 @@
   &--default
     +font_props($font_lato, $regular, 16px, 1.3)
     color: $color_greylight
-
 
 // Button
 .button
@@ -201,12 +257,18 @@
 .color
   &--blue
     color: $color_blue
-
   &--brownlight
     color: $color_brownlight
-
   &--redwine
     color: $color_redwine
+  &--greydark
+    color: $color_greydark
+  &--greylight
+    color: $color_greylight
+
+.bg
+  &--transparent
+    background-color: transparent
 
 // Input
 .input

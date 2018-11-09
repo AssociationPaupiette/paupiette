@@ -1,21 +1,23 @@
 <header class="header__container container">
+  <div class="d-md-flex align-items-center justify-content-md-between justify-content-xs-center">
+    <p class="header__title text-md-left text-center">Bienvenue, ce midi c'est chez <span class="text-nowrap">Mamie !</span></p>
 
-  <div class="w-100 d-flex align-items-center bd-highlight">
-    <p class="header__title flex-grow-1 bd-highlight">Bienvenue, ce midi c'est chez <span class="text-nowrap">Mamie !</span></p>
-    <div class="bd-highlight">
+    <div class="text-md-right text-center">
       <%= link_to "Je suis hôte", new_user_registration_path(host_sign_up: true), class: "button--brown mx-2 my-2 bd-highlight" %>
       <%= link_to "Je suis convive", new_user_registration_path(host_sign_up: false), class: "button--blue mx-2 my-2 bd-highlight" %>
     </div>
   </div>
 
+  <!-- Hero -->
   <div class="hero__container">
   </div>
 </header>
 
 <!-- Where to find us -->
 <section class="section__container container">
-  <div class="d-flex bd-highlight">
-    <div class="flex-grow-1 bd-highlight">
+  <div class="row">
+
+    <div class="col-md-6 align-self-center">
       <h1 class="section__title">Paupiette est à
         <span class="color--blue">Paris</span>,<br>
         <span class="color--blue">Bordeaux</span> &amp;
@@ -24,17 +26,19 @@
       <p class="newsletter__description">Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
 
       <!-- Newsletter -->
-      <form>
+      <form class="mb-3">
         <input class="input__field" type="text" name="firstname" placeholder="Prénom"><br>
         <input class="input__field" type="text" name="location" placeholder="Ville ou région"><br>
         <input class="input__field" type="email" name="firstname" placeholder="Email"><br>
-        <input class="button--blue mt-3" type="submit" value="Tenez-moi informé">
+        <input class="button--blue bg--transparent mt-3" type="submit" value="Tenez-moi informé">
       </form>
     </div>
 
-    <!-- Map -->
-    <div class="bd-highlight">
-      <%= image_tag "map.jpg", class: "img-fluid" %>
+    <div class="col-md-6 align-self-center">
+      <!-- Map -->
+      <div>
+        <%= image_tag "map.jpg", class: "img-fluid" %>
+      </div>
     </div>
   </div>
 </section>
@@ -119,5 +123,56 @@
 
   </div>
 </section>
+
+
+<!-- Caroussel -->
+<section class="testimony__container container-fluid">
+  <h2 class="section__title text-center"><span class="color--blue">Paupiette </span> en image</h2>
+
+  <!-- Carousel items -->
+  <div class="owl-carousel">
+    <div class="carousel__item">
+      <%= image_tag "testimony-1.jpg", class: '' %>
+      <p class="testimony__caption"><span class="color--redwine">@</span><span class="color--greydark">Laura73</span></p>
+      <p class="text--default">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+    <div class="carousel__item">
+      <%= image_tag "testimony-2.jpg", class: '' %>
+      <p class="testimony__caption"><span class="color--redwine">@</span><span class="color--greydark">Laura73</span></p>
+      <p class="text--default">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+    <div class="carousel__item">
+      <%= image_tag "testimony-3.jpg", class: '' %>
+      <p class="testimony__caption"><span class="color--redwine">@</span><span class="color--greydark">Laura73</span></p>
+      <p class="text--default">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+    <div class="carousel__item">
+      <%= image_tag "testimony-4.jpg", class: '' %>
+      <p class="testimony__caption"><span class="color--redwine">@</span><span class="color--greydark">Laura73</p>
+      <p class="text--default">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="carousel__controls">
+    <div class="carousel__control--prev">
+      <%= image_tag "icon-arrow-left.png", width: '12', height: '21' %>
+    </div>
+    <div class="carousel__control--next">
+      <%= image_tag "icon-arrow-right.png", width: '12', height: '21' %>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
 
 
