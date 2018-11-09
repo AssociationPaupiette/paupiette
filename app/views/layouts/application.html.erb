@@ -9,9 +9,9 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-  <body>
+  <body class="<%= controller.controller_name %>">
     <%= render 'nav' %>
-    <main>
+    <main class="container">
       <ol class="breadcrumb">
         <%= render_breadcrumbs tag: :li, separator: '&nbsp;/&nbsp;' %>
       </ol>
