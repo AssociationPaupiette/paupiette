@@ -9,7 +9,7 @@
   <div class="col-md-3">
     <h2><%= @city.ambassadors.count %> ambassadeur<%= 's' if @city.ambassadors.many? %></h2>
     <p><%= link_to 'Voir la liste', ambassadors_admin_city_path(@city), class: 'btn btn-primary' %></p>
-    <ul>
+    <ul class="list-unstyled">
       <% @city.ambassadors.each do |user| %>
         <li><%= link_to user, [:admin, user] %></li>
       <% end %>
@@ -23,7 +23,9 @@
     <h2><%= @city.hosts.count %> hôte<%= 's' if @city.hosts.many? %></h2>
     <p><%= link_to 'Voir la liste', hosts_admin_city_path(@city), class: 'btn btn-primary' %></p>
   </div>
+  <!--
   <div class="col-md-3">
     <h2>0 repas</h2>
   </div>
+  -->
 </div>
