@@ -5,9 +5,9 @@ ruby '2.5.1'
 
 # Infrastructure
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma'
 gem 'newrelic_rpm'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 gem 'rails_autoscale_agent', group: :production
 gem 'aws-sdk-s3'
 gem 'bugsnag'
@@ -19,7 +19,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'simple_form'
 gem 'breadcrumbs_on_rails'
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder'
 gem 'cancancan'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
@@ -28,9 +28,11 @@ gem 'image_processing'
 # Front
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'sass-rails', '~> 5.0'
-gem 'bootstrap', '~> 4.1.3'
-gem 'uglifier', '>= 1.3.0'
+gem 'sassc'
+gem 'bootstrap'
+gem 'uglifier'
+gem 'owlcarousel-rails'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

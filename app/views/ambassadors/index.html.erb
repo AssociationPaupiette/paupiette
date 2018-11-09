@@ -1,7 +1,7 @@
 <h2>Rencontrez nos ambassadeurs</h2>
 
 <section class="ambassadors-section">
-  <div class="ambassadors-list">
+  <div class="row">
     <% @ambassadors.each do |ambassador| %>
       <%= render 'ambassador', ambassador: ambassador %>
     <% end %>

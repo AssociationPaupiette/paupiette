@@ -38,7 +38,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :identity_card
 
-  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }
+  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
 
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
   validates_presence_of :slug
