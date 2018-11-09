@@ -6,7 +6,7 @@
 
 <section class="hosts-section">
   <h3>Contactez un hôte</h3>
-  <div class="hosts-list">
+  <div class="row">
     <% @hosts.each do |host| %>
       <%= render 'advert', host: host %>
     <% end %>
