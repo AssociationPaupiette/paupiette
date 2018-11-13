@@ -1,22 +1,39 @@
 <%= content_for :title, 'Tableau de bord' %>
 
-<div class="card-columns">
-  <% @cities.each do |city| %>
-    <%= link_to [:admin, city] do %>
-      <div class="card">
-        <% if city.photo.attached? %>
-        <%= image_tag city.photo.variant( resize: '600x300^', 
-                                          combine_options: { 
-                                            gravity: 'center', 
-                                            crop: '600x300+0+0'
-                                          }), 
-                      class: 'card-img-top' %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= city %></h5>
-          <p class="card-text"><%= city.users.count %> utilisateurs</p>
-        </div>
-      </div>
+<h2><%= @active_cities.count %> villes actives</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Utilisateurs</th>
+      <th>Ambassadeurs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @active_cities.each do |city| %>
+      <tr>
+        <td><%= link_to city, [:admin, city] %></td>
+        <td><%= city.users.count %></td>
+        <td><%= city.users.ambassadors.count %></td>
+      </tr>
     <% end %>
-  <% end %>
-</div>
+  </tbody>
+</table>
+
+<h2><%= @inactive_cities.count %> villes inactives</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Préinscriptions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inactive_cities.each do |city| %>
+      <tr>
+        <td><%= link_to city, [:admin, city] %></td>
+        <td><%= city.preregisters.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

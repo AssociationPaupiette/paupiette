@@ -1,4 +1,4 @@
-<%= render 'header', city: @city %>
+<%= content_for :title, @city %>
 
 <%= content_for :subtitle do %>
   <% if @city.inactive? %><span class="badge badge-light">Ville non active</span><br/><br/><% end %>
@@ -22,6 +22,10 @@
   <div class="col-md-3">
     <h2><%= @city.hosts.count %> hôte<%= 's' if @city.hosts.many? %></h2>
     <p><%= link_to 'Voir la liste', hosts_admin_city_path(@city), class: 'btn btn-primary' %></p>
+  </div>
+  <div class="col-md-3">
+    <h2><%= @city.preregisters.count %> préinscription<%= 's' if @city.preregisters.many? %></h2>
+    <p><%= link_to 'Voir la liste', preregisters_admin_city_path(@city), class: 'btn btn-primary' %></p>
   </div>
   <!--
   <div class="col-md-3">

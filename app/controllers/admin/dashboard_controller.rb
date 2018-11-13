@@ -1,6 +1,7 @@
 class Admin::DashboardController < Admin::ApplicationController
   def index
     authorize! :read, :Dashboard
-    @cities = City.all
+    @active_cities = City.active
+    @inactive_cities = City.inactive
   end
 end

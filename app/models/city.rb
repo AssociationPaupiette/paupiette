@@ -8,6 +8,8 @@
 #  updated_at :datetime         not null
 #  active     :boolean          default(FALSE)
 #  slug       :string           default(""), not null
+#  latitude   :float
+#  longitude  :float
 #
 
 class City < ApplicationRecord
@@ -15,14 +17,14 @@ class City < ApplicationRecord
   has_many :ambassadorships
   has_many :ambassadors, through: :ambassadorships, source: :user
   has_many :conversations, through: :users
-
-  has_one_attached :photo
+  has_many :preregisters
 
   validates_uniqueness_of :slug
 
   before_validation :set_slug
 
   scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
   default_scope { order(:name) }
 
   def inactive?

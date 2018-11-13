@@ -1,4 +1,4 @@
-<%= render 'header', city: @city %>
+<%= content_for :title, @city %>
 
 <h2><%= @users.count %> hôtes<%= 's' if @users.many? %></h2>
 

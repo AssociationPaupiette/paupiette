@@ -1,2 +1,0 @@
-<%= content_for :title, city %>
-<%= content_for :photo, url_for(city.photo.variant(resize: 1920)) if city.photo.attached? %>

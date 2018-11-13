@@ -16,18 +16,15 @@
 <section class="soon">
   <div class="row">
     <div class="col-md-6"> 
-      <h1>Paupiette est à
-        <span>Paris</span>,<br>
-        <span>Bordeaux</span> &amp;
-        <span>Quimper</span> !
+      <h1>Paupiette est à Paris, Bordeaux &amp; Quimper&nbsp;!
       </h1>
       <p>Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
-      <form>
-        <input type="text" name="firstname" placeholder="Prénom"><br>
-        <input type="text" name="location" placeholder="Ville ou région"><br>
-        <input type="email" name="firstname" placeholder="Email"><br>
-        <input type="submit" value="Tenez-moi informé">
-      </form>
+      <%= simple_form_for @preregister do |f| %>
+        <%= f.input :first_name, label: false, placeholder: 'Prénom' %> 
+        <%= f.input :email, label: false, placeholder: 'Email' %> 
+        <%= f.association :city, label: false, include_blank: 'Ville' %> 
+        <%= f.submit 'Enregistrer', class: 'btn btn-primary' %> 
+      <% end %>
     </div>
     <div class="col-md-6"> 
       <%= image_tag "map.jpg", class: "img-fluid" %>
