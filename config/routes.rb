@@ -22,13 +22,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
   end
 
-  namespace :dashboard do
-    namespace :ambassador do
-      get 'activity' => 'activity#index'
-      get ':city_slug/users/pending' => 'users#pending', as: :users_pending
-      root to: 'application#index'
-    end
-
+  namespace :my do
     get 'messages' => 'messages#index'
     get 'messages/:user_slug' => 'messages#user', as: :conversation
     post 'messages/:user_slug' => 'messages#create', as: :send_message
@@ -38,8 +32,14 @@ Rails.application.routes.draw do
 
     get 'advices' => 'advices#index'
 
-    get 'open_meals' => 'open_meals#index'
+    get 'meals' => 'meals#index'
 
+    root to: 'application#index'
+  end
+
+  namespace :my_cities do
+    get 'activity' => 'activity#index'
+    get ':city_slug/users/pending' => 'users#pending', as: :users_pending
     root to: 'application#index'
   end
 
@@ -49,8 +49,8 @@ Rails.application.routes.draw do
   get 'adverts/:city_slug' => 'adverts#city', as: :city_adverts
   get 'ambassadors' => 'ambassadors#index'
   get 'press' => 'statics#press'
-  get 'about' => 'statics#about'
-  get 'legals' => 'statics#legals'
+  get 'who' => 'statics#who'
+  get 'terms' => 'statics#terms'
   get 'privacy' => 'statics#privacy'
 
   root to: 'home#index'

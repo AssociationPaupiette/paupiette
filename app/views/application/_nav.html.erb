@@ -8,17 +8,40 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><%= link_to 'Annonces', adverts_path, class: 'menu__link--active nav-link' %></li>
-        <li class="nav-item"><%= link_to 'Ambassadeurs', ambassadors_path, class: 'menu__link nav-link' %></li>
+        <li class="nav-item"><%= link_to t('menu.adverts'), adverts_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to t('menu.ambassadors'), ambassadors_path, class: 'nav-link' %></li>
         <% if current_user.nil? %>
-          <li class="nav-item"><%= link_to 'Se connecter', new_user_session_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'S\'inscrire', new_user_registration_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link' %></li>
         <% else %>
-          <li class="nav-item"><%= link_to 'Mon espace', dashboard_root_path, class: 'nav-link' %></li>
-          <% if can? :access, :admin %>
-          <li class="nav-item"><%= link_to 'Admin', admin_root_path, class: 'nav-link' %></li>
-          <% end %>
-          <li class="nav-item"><%= link_to 'Se déconnecter', destroy_user_session_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to t('menu.my.name'), my_root_path, class: 'nav-link' %></li>
+
+          <li class="nav-item dropdown">
+            <a  id="navbarDropdownMenuUser" 
+                class="nav-link dropdown-toggle" 
+                href="#" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false">
+              <%= current_user %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
+              <%= link_to t('menu.my.messages'), my_messages_path, class: 'dropdown-item' %>
+              <%= link_to t('menu.my.profile'), my_profile_path, class: 'dropdown-item' %>
+              <!--
+              <%= link_to t('menu.my.advices'), my_advices_path, class: 'dropdown-item' %>
+              <%= link_to t('menu.my.meals'), my_meals_path, class: 'dropdown-item' %>
+              -->
+              <% if can? :manage, :city %>
+                <%= link_to t('menu.my_cities.name'), my_cities_root_path, class: 'dropdown-item' %>
+              <% end %>
+              <% if can? :access, :admin %>
+                <%= link_to t('menu.admin'), admin_root_path, class: 'dropdown-item' %>
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <%= link_to t('menu.signout'), destroy_user_session_path, class: 'dropdown-item' %>
+            </div>
+          </li>
         <% end %>
       </ul>
     </div>

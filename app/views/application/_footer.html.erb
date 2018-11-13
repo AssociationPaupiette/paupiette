@@ -2,17 +2,17 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2 offset-md-1">
-        <h2>A propos</h2>
+        <h2><%= t('menu.about.name') %></h2>
         <ul class="list-unstyled">
-          <li><%= link_to 'Espace presse', press_path %></li>
-          <li><%= link_to 'Qui sommes-nous', about_path %></li>
+          <li><%= link_to t('menu.about.press'), press_path %></li>
+          <li><%= link_to t('menu.about.who'), who_path %></li>
         </ul>
       </div>
       <div class="col-md-5">
-        <h2>Mentions légales</h2>
+        <h2><%= t('menu.legal.name') %></h2>
         <ul class="list-unstyled">
-          <li><%= link_to 'Conditions générales d\'utilisation', legals_path %></li>
-          <li><%= link_to 'Confidentialité', privacy_path %></li>
+          <li><%= link_to t('menu.legal.terms'), terms_path %></li>
+          <li><%= link_to t('menu.legal.privacy'), privacy_path %></li>
         </ul>
       </div>
       <div class="col-md-2">

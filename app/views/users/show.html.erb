@@ -10,7 +10,7 @@
     <% end %>
 
     <p><%= @user.profile_verification_approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
-    <%= link_to "ENVOYER UN MESSAGE", dashboard_conversation_path(user_slug: @user.slug), class: "btn btn-primary contact-btn" %>
+    <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary contact-btn" %>
   </div>
 </div>
 <div class="row">

@@ -1,17 +1,17 @@
 class StaticsController < ApplicationController
   def press
-    add_breadcrumb 'Espace presse'
+    add_breadcrumb t('menu.about.press')
   end
 
-  def about
-    add_breadcrumb 'Qui sommes-nous ?'
+  def who
+    add_breadcrumb t('menu.about.who')
   end
 
-  def legals
-    add_breadcrumb 'Conditions générales d’utilisation'
+  def terms
+    add_breadcrumb t('menu.legal.terms')
   end
 
   def privacy
-    add_breadcrumb 'Confidentialité'
+    add_breadcrumb t('menu.legal.privacy')
   end
 end

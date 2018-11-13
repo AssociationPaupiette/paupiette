@@ -2,37 +2,41 @@
 
 <section class="hero">
   <div class="row mb-5">
-    <div class="col-lg-8">
+    <div class="col-md-8">
       <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
     </div>
-    <div class="col-lg-2">
-      <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-default btn-block' %>
-    </div>
-    <div class="col-lg-2">
-      <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-default btn-block' %>
-    </div>
+    <% if current_user.nil? %>
+      <div class="col-md-2">
+        <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-light btn-block' %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-light btn-block' %>
+      </div>
+    <% end %>
   </div>
   <%= image_tag 'hero.jpg', class: 'img-fluid' %>
 </section>
 
-<section class="soon">
-  <div class="row">
-    <div class="col-md-6"> 
-      <h1>Paupiette est à Paris, Bordeaux &amp; Quimper&nbsp;!
-      </h1>
-      <p>Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
-      <%= simple_form_for @preregistration do |f| %>
-        <%= f.input :first_name, label: false, placeholder: 'Prénom' %> 
-        <%= f.input :email, label: false, placeholder: 'Email' %> 
-        <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %> 
-        <%= f.submit 'Enregistrer', class: 'btn btn-primary' %> 
-      <% end %>
+<% if current_user.nil? %>
+  <section class="soon">
+    <div class="row">
+      <div class="col-md-5"> 
+        <h1>Paupiette est à Paris, Bordeaux &amp;&nbsp;Quimper&nbsp;!
+        </h1>
+        <p>Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
+        <%= simple_form_for @preregistration do |f| %>
+          <%= f.input :first_name, label: false, placeholder: 'Prénom' %> 
+          <%= f.input :email, label: false, placeholder: 'Email' %> 
+          <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %> 
+          <%= f.submit 'Enregistrer', class: 'btn btn-primary' %> 
+        <% end %>
+      </div>
+      <div class="col-md-6 offset-md-1 "> 
+        <%= image_tag "map.jpg", class: "img-fluid" %>
+      </div>
     </div>
-    <div class="col-md-6"> 
-      <%= image_tag "map.jpg", class: "img-fluid" %>
-    </div>
-  </div>
-</section>
+  </section>
+<% end %>
 
 <section class="history">
   <div class="row">

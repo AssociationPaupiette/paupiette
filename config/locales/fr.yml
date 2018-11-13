@@ -1,1 +1,26 @@
 fr:
+  menu: 
+    adverts: 'Annonces'
+    ambassadors: 'Ambassadeurs'
+    signin: 'Se connecter'
+    signup: "S'inscrire"
+    signout: 'Se déconnecter'
+    admin: 'Admin'
+    about:
+      name: 'À propos'
+      press: 'Espace presse'
+      who: 'Qui sommes-nous?'
+    legal:
+      name: 'Mentions légales'
+      terms: "Conditions générales d'utilisation"
+      privacy: 'Confidentialité'
+    my: 
+      name: 'Mon espace'
+      messages: 'Mes messages'
+      profile: 'Mon profil'
+      advices: 'Mes avis'
+      meals: 'Mes repas ouverts'
+    my_cities:
+      name: 'Mon espace ambassadeur'
+      activity: 'Mon activité'
+      users_pending: 'Utilisateurs en attente'

@@ -1,0 +1,25 @@
+<%= content_for :title, 'Vos messages' %>
+
+<%= render 'my/nav' %>
+
+<h2>Vos messages</h2>
+
+<h3>Conversation avec <%= @user.full_name %></h3>
+
+<hr>
+
+<% if @conversation %>
+  <% @conversation.messages.each do |message| %>
+    <%= render 'message', message: message %>
+  <% end %>
+<% else %>
+  <p>Pas de messages</p>
+<% end %>
+
+<hr>
+
+<%= simple_form_for @message, url: my_send_message_path(user_slug: @user.slug) do |f| %>
+  <%= f.input :from_id, as: :hidden %>
+  <%= f.input :content, label: false, placeholder: "Entrez votre message" %>
+  <%= f.submit "Envoyer" %>
+<% end %>
