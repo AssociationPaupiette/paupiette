@@ -15,9 +15,20 @@ class Message < ApplicationRecord
   belongs_to :from, class_name: "User"
   belongs_to :conversation, touch: true
 
+  scope :received_from, -> (user) { where(from_id: user.id) }
+  scope :read, -> { where.not(read_at: nil) }
+  scope :unread, -> { where(read_at: nil) }
+
   def to
     return if conversation.nil?
     conversation.users.where.not(id: from).first
+  end
+
+  def mark_as_read_by!(user)
+    if self.read_at.nil?
+      self.read_at = DateTime.now
+      save
+    end
   end
 
   def to_s

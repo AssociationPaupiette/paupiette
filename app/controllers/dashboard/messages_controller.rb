@@ -8,6 +8,7 @@ class Dashboard::MessagesController < Dashboard::ApplicationController
   def user
     @user = User.find_by(slug: params[:user_slug])
     @conversation = Conversation.between(current_user, @user)
+    @conversation.mark_as_read_by!(current_user)
     @message = Message.new(from: current_user)
     add_breadcrumb @user
   end

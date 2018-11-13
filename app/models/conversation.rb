@@ -23,4 +23,10 @@ class Conversation < ApplicationRecord
   def other(user)
     users.where.not(id: user.id)
   end
+
+  def mark_as_read_by!(user)
+    messages.where.not(from_id: user.id).each do |message|
+      message.mark_as_read_by!(user)
+    end
+  end
 end
