@@ -1,6 +1,17 @@
 <%= simple_form_for [:admin, city] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :active %>
-  <%= f.input :photo %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :name %>
+      <%= f.input :active %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :latitude %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :longitude %>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
   <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
 <% end %>
