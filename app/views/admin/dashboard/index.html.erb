@@ -32,7 +32,7 @@
     <% @inactive_cities.each do |city| %>
       <tr>
         <td><%= link_to city, [:admin, city] %></td>
-        <td><%= city.preregisters.count %></td>
+        <td><%= city.preregistrations.count %></td>
       </tr>
     <% end %>
   </tbody>

@@ -17,7 +17,7 @@ class City < ApplicationRecord
   has_many :ambassadorships
   has_many :ambassadors, through: :ambassadorships, source: :user
   has_many :conversations, through: :users
-  has_many :preregisters
+  has_many :preregistrations
 
   validates_uniqueness_of :slug
 

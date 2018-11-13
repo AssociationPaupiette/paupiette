@@ -16,10 +16,10 @@ class Admin::CitiesController < Admin::ApplicationController
     add_breadcrumb @city
   end
 
-  def preregisters
+  def preregistrations
     add_breadcrumb @city, [:admin, @city]
     add_breadcrumb 'Préinscriptions'
-    @preregisters = @city.preregisters
+    @preregistrations = @city.preregistrations
   end
 
   def ambassadors

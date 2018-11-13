@@ -8,7 +8,7 @@ Rails.application.routes.draw do
         get :ambassadors
         get :guests
         get :hosts
-        get :preregisters
+        get :preregistrations
       end
     end
     resources :users do
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     root to: 'application#index'
   end
 
-  post 'preregisters' => 'preregisters#create'
+  post 'preregistrations' => 'preregistrations#create'
   get 'users/:user_slug' => 'users#show', as: :user
   get 'adverts' => 'adverts#index'
   get 'adverts/:city_slug' => 'adverts#city', as: :city_adverts

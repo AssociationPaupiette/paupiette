@@ -24,8 +24,8 @@
     <p><%= link_to 'Voir la liste', hosts_admin_city_path(@city), class: 'btn btn-primary' %></p>
   </div>
   <div class="col-md-3">
-    <h2><%= @city.preregisters.count %> préinscription<%= 's' if @city.preregisters.many? %></h2>
-    <p><%= link_to 'Voir la liste', preregisters_admin_city_path(@city), class: 'btn btn-primary' %></p>
+    <h2><%= @city.preregistrations.count %> préinscription<%= 's' if @city.preregistrations.many? %></h2>
+    <p><%= link_to 'Voir la liste', preregistrations_admin_city_path(@city), class: 'btn btn-primary' %></p>
   </div>
   <!--
   <div class="col-md-3">

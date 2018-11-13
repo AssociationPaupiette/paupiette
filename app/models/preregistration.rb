@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: preregisters
+# Table name: preregistrations
 #
 #  id         :bigint(8)        not null, primary key
 #  first_name :string
@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Preregister < ApplicationRecord
+class Preregistration < ApplicationRecord
   belongs_to :city, optional: true
   validates_presence_of :email
   validates_uniqueness_of :email

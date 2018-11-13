@@ -19,10 +19,10 @@
       <h1>Paupiette est à Paris, Bordeaux &amp; Quimper&nbsp;!
       </h1>
       <p>Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
-      <%= simple_form_for @preregister do |f| %>
+      <%= simple_form_for @preregistration do |f| %>
         <%= f.input :first_name, label: false, placeholder: 'Prénom' %> 
         <%= f.input :email, label: false, placeholder: 'Email' %> 
-        <%= f.association :city, label: false, include_blank: 'Ville' %> 
+        <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %> 
         <%= f.submit 'Enregistrer', class: 'btn btn-primary' %> 
       <% end %>
     </div>
