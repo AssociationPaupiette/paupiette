@@ -8,7 +8,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><%= link_to t('menu.adverts'), adverts_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to t('menu.hosts'), hosts_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to t('menu.ambassadors'), ambassadors_path, class: 'nav-link' %></li>
         <% if current_user.nil? %>
           <li class="nav-item"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link' %></li>

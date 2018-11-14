@@ -1,7 +1,7 @@
-class AdvertsController < ApplicationController
+class HostsController < ApplicationController
   respond_to :html, :js, only: [:index]
 
-  add_breadcrumb 'Annonces', :adverts_path
+  add_breadcrumb I18n.t('menu.hosts'), :hosts_path
 
   def index
     @cities = City.active

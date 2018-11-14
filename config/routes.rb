@@ -45,8 +45,8 @@ Rails.application.routes.draw do
 
   post 'preregistrations' => 'preregistrations#create'
   get 'users/:user_slug' => 'users#show', as: :user
-  get 'adverts' => 'adverts#index'
-  get 'adverts/:city_slug' => 'adverts#city', as: :city_adverts
+  get 'hosts' => 'hosts#index'
+  get 'hosts/:city_slug' => 'hosts#city', as: :city_hosts
   get 'ambassadors' => 'ambassadors#index'
   get 'press' => 'statics#press'
   get 'who' => 'statics#who'

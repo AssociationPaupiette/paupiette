@@ -12,10 +12,10 @@
   <h3>Contactez un hôte</h3>
   <div class="row">
     <% @hosts.each do |host| %>
-      <%= render 'advert', host: host %>
+      <%= render 'host', host: host %>
     <% end %>
   </div>
   <% unless @hosts.empty? || @hosts.last_page? %>
-    <p class="actions"><%= link_to "VOIR PLUS", adverts_path(page: @hosts.current_page+1, city: @filter_city&.id), class: "btn btn-primary", id: "load-more-hosts", remote: true %></p>
+    <p class="actions"><%= link_to "VOIR PLUS", hosts_path(page: @hosts.current_page+1, city: @filter_city&.id), class: "btn btn-primary", id: "load-more-hosts", remote: true %></p>
   <% end %>
 </section>

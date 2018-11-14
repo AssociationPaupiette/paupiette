@@ -3,5 +3,5 @@ $(".hosts-list").append("<%= j(render(partial: 'advert', collection: @hosts, as:
 <% if @hosts.last_page? %>
   $("#load-more-hosts").hide();
 <% else %>
-  $("#load-more-hosts").attr("href", "<%= adverts_path(page: @hosts.current_page+1, city: @filter_city&.id) %>");
+  $("#load-more-hosts").attr("href", "<%= hosts_path(page: @hosts.current_page+1, city: @filter_city&.id) %>");
 <% end %>
