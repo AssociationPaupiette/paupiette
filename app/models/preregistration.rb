@@ -25,9 +25,9 @@ class Preregistration < ApplicationRecord
 
   def self.import_line(line)
     values = line.split ';'
-    email = values[0].chop
-    first_name = values[1].chop
-    city_name = values[2].chop
+    email = values[0].strip
+    first_name = values[1].strip
+    city_name = values[2].strip
     preregistration = where(email: email).first_or_create
     preregistration.first_name = first_name
     city = City.where(name: city_name).first
