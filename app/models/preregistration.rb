@@ -28,7 +28,6 @@ class Preregistration < ApplicationRecord
     email = values[0].chop
     first_name = values[1].chop
     city_name = values[2].chop
-    byebug
     preregistration = where(email: email).first_or_create
     preregistration.first_name = first_name
     city = City.where(name: city_name).first
