@@ -2,19 +2,19 @@
 
 <div class="row">
   <div class="col-md-3">
-    <h2><%= @users.admins.count %> administrateur<%= 's' if @users.admins.many? %></h2>
+    <h2><%= @admins.count %> administrateur<%= 's' if @admins.many? %></h2>
     <p><%= link_to 'Voir la liste', admins_admin_users_path, class: 'btn btn-primary' %></p>
   </div>
   <div class="col-md-3">
-    <h2><%= @users.ambassadors.count %> ambassadeur<%= 's' if @users.ambassadors.many? %></h2>
+    <h2><%= @ambassadors.count %> ambassadeur<%= 's' if @ambassadors.many? %></h2>
     <p><%= link_to 'Voir la liste', ambassadors_admin_users_path, class: 'btn btn-primary' %></p>
   </div>
   <div class="col-md-3">
-    <h2><%= @users.guests.count %> convive<%= 's' if @users.guests.many? %></h2>
+    <h2><%= @guests.count %> convive<%= 's' if @guests.many? %></h2>
     <p><%= link_to 'Voir la liste', guests_admin_users_path, class: 'btn btn-primary' %></p>
   </div>
   <div class="col-md-3">
-    <h2><%= @users.hosts.count %> hôte<%= 's' if @users.hosts.many? %></h2>
+    <h2><%= @hosts.count %> hôte<%= 's' if @hosts.many? %></h2>
     <p><%= link_to 'Voir la liste', hosts_admin_users_path, class: 'btn btn-primary' %></p>
   </div>
 </div>

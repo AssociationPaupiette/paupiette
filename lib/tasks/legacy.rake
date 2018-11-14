@@ -49,4 +49,26 @@ namespace :legacy do
       file.puts preregistrations.values.map { |p| "#{p[:email]};#{p[:first_name]};#{p[:city]}" }.join("\n")
     end
   end
+
+
+  task import_users: :environment  do |args|
+    desc "rake legacy:import_users url=https://url_du_csv"
+    if ENV.has_key?('url')
+      url = ENV['url']
+      csv = CSV.new open(url), headers: :first_row
+    else
+      csv = CSV.read './tmp/legacy/users.csv'
+    end
+    csv.each_with_index do |line, index|
+      next if index.zero?
+      user = User.where(email: line[1]).first_or_initialize
+      user.encrypted_password = line[2]
+      user.last_name = line[20]
+      user.first_name = line[21]
+      user.host = line[14] == 'true'
+      city = City.where(name: line[15]).first
+      user.city = city unless city.nil?
+      user.save validate: false
+    end
+  end
 end

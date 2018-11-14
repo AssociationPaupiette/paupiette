@@ -4,7 +4,10 @@ class Admin::UsersController < Admin::ApplicationController
   add_breadcrumb 'Utilisateurs', :admin_users_path
 
   def index
-    @users = User.all.page params[:page]
+    @admins = User.admins
+    @ambassadors = User.ambassadors
+    @guests = User.guests
+    @hosts = User.hosts
   end
 
   def admins
