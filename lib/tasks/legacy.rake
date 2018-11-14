@@ -69,6 +69,7 @@ namespace :legacy do
       city = City.where(name: line[15]).first
       user.city = city unless city.nil?
       user.save validate: false
+      puts "#{user.email}, #{user.first_name} #{user.last_name} @ #{user.city}"
     end
   end
 end
