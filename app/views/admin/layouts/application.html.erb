@@ -26,19 +26,19 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><%= link_to 'Admin', admin_root_path, class: 'nav-link' %></li>
             <li class="nav-item"><%= link_to 'Villes', admin_cities_path, class: 'nav-link' %></li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="usersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Utilisateurs
-        </a>
-        <div class="dropdown-menu" aria-labelledby="usersDropdown">
-          <%= link_to 'Synthèse', admin_users_path, class: 'dropdown-item' %>
-          <%= link_to 'Administrateurs', admins_admin_users_path, class: 'dropdown-item' %>
-          <%= link_to 'Ambassadeurs', ambassadors_admin_users_path, class: 'dropdown-item' %>
-          <%= link_to 'Hôtes', hosts_admin_users_path, class: 'dropdown-item' %>
-          <%= link_to 'Convives', guests_admin_users_path, class: 'dropdown-item' %>
-        </div>
-      </li>
+            <li class="nav-item"><%= link_to 'Préinscriptions', admin_preregistrations_path, class: 'nav-link' %></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="usersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Utilisateurs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="usersDropdown">
+                <%= link_to 'Synthèse', admin_users_path, class: 'dropdown-item' %>
+                <%= link_to 'Administrateurs', admins_admin_users_path, class: 'dropdown-item' %>
+                <%= link_to 'Ambassadeurs', ambassadors_admin_users_path, class: 'dropdown-item' %>
+                <%= link_to 'Hôtes', hosts_admin_users_path, class: 'dropdown-item' %>
+                <%= link_to 'Convives', guests_admin_users_path, class: 'dropdown-item' %>
+              </div>
+            </li>
           </ul>
         </div>
       </nav>

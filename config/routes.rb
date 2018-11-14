@@ -19,6 +19,8 @@ Rails.application.routes.draw do
         get :guests
       end
     end
+    get 'preregistrations' => 'preregistrations#index'
+    post 'preregistrations' => 'preregistrations#import'
     root to: 'dashboard#index'
   end
 

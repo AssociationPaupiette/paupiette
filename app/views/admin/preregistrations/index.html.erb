@@ -1,0 +1,37 @@
+<%= content_for :title, 'Préinscriptions' %>
+
+<div class="row">
+  <div class="col-md-8">
+    <h2><%= @preregistrations.count %> préinscription<%= 's' if @preregistrations.many? %></h2>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Ville</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @preregistrations.each do |preregistration| %>
+            <tr>
+              <td><%= preregistration.email %></td>
+              <td><%= preregistration.first_name %></td>
+              <td><%= preregistration.city %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2>Export csv</h2>
+    <textarea style="width: 100%" rows="10" class="form-control" disabled><% @preregistrations.each do |preregistration| %><%= preregistration.email %>;<%= preregistration.first_name %>;<%= preregistration.city %>
+<% end %></textarea>
+    <h2>Import csv</h2>
+    <%= form_tag admin_preregistrations_path, method: :post do %>
+      <textarea name="csv" style="width: 100%" placeholder="email;prénom;ville" class="form-control"></textarea><br/>
+      <input type="submit" value="Importer" class="btn btn-primary" />
+    <% end %>
+  </div>
+</div>
