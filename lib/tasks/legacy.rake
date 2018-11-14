@@ -1,5 +1,4 @@
 require 'csv'
-require 'byebug'
 
 class Cities
   LIST = ['Paris','Bordeaux','Quimper','Marseille','Lyon','Toulouse','Nice','Nantes','Strasbourg','Montpellier','Lille','Rennes','Reims', 'Le Havre''Saint Étienne','Toulon','Grenoble','Dijon','Angers','Brest','Le Mans','Nîmes','Aix en Provence','Clermont Ferrand','Limoges','Tours','Amiens','Villeurbanne','Metz','Nanterre','Besançon','Caen','Rouen','Orléans','Boulogne Billancourt','Nancy','Montreuil']
