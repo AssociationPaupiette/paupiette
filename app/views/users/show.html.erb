@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4">
-    <%= image_tag @user.photo, class: "img-fluid" if @user.photo.attached? %>
+    <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
   </div>
   <div class="col-md-8">
     <h2><%= @user.full_name %></h2>

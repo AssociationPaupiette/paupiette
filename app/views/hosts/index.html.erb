@@ -3,9 +3,9 @@
 <h1><%= t('menu.hosts') %></h1>
 
 <p>Choisissez votre ville :</p>
-<ul>
+<ul class="list-inline">
   <% @cities.each do |city| %>
-  <li><%= link_to city, city_hosts_path(city_slug: city.slug) %></li>
+  <li class="list-inline-item"><%= link_to city, city_hosts_path(city_slug: city.slug), class: 'btn btn-primary' %></li>
   <% end %>
 </ul>
 

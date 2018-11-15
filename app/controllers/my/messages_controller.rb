@@ -8,7 +8,7 @@ class My::MessagesController < My::ApplicationController
   def user
     @user = User.find_by(slug: params[:user_slug])
     @conversation = Conversation.between(current_user, @user)
-    @conversation.mark_as_read_by!(current_user)
+    @conversation.mark_as_read_by!(current_user) unless @conversation.nil?
     @message = Message.new(from: current_user)
     add_breadcrumb @user
   end

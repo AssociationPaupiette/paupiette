@@ -62,10 +62,18 @@ namespace :legacy do
     csv.each_with_index do |line, index|
       next if index.zero?
       user = User.where(email: line[1]).first_or_initialize
+      user.created_at = line[11]
       user.encrypted_password = line[2]
       user.last_name = line[20]
       user.first_name = line[21]
       user.host = line[14] == 'true'
+      photo = line[24]
+      unless photo.blank?
+        id_padded = line[0].to_s.rjust(3, '0')
+        url = "https://paupiette.s3-eu-central-1.amazonaws.com/users/images/000/000/#{id_padded}/original/#{photo}"
+        file = open(URI.escape(url))
+        user.photo.attach(io: file, filename: photo, content_type: file.content_type_parse.first)
+      end
       city = City.where(name: line[15]).first
       user.city = city unless city.nil?
       user.save validate: false

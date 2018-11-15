@@ -1,4 +1,4 @@
-$(".hosts-list").append("<%= j(render(partial: 'advert', collection: @hosts, as: :host)) %>");
+$(".hosts-list").append("<%= j(render(partial: 'host', collection: @hosts, as: :host)) %>");
 
 <% if @hosts.last_page? %>
   $("#load-more-hosts").hide();
