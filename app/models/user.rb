@@ -30,10 +30,10 @@ class User < ApplicationRecord
   serialize :reception_days, Array
 
   belongs_to :city, optional: true
-  has_many :ambassadorships
+  has_many :ambassadorships, dependent: :destroy
   has_many :managed_cities, through: :ambassadorships, source: :city
-  has_and_belongs_to_many :conversations
-  has_many :messages_sent, class_name: 'Message', foreign_key: :from_id
+  has_and_belongs_to_many :conversations, dependent: :destroy
+  has_many :messages_sent, class_name: 'Message', foreign_key: :from_id, dependent: :destroy
 
   has_one_attached :photo
   has_one_attached :identity_card
