@@ -1,6 +1,6 @@
 <%= content_for :title, @city %>
 
-<h2><%= @users.count %> convive<%= 's' if @users.many? %></h2>
+<h2><%= @users.total_count %> convive<%= 's' if @users.many? %></h2>
 
 <%= paginate @users, theme: 'twitter-bootstrap-4' %>
 <table class="table">

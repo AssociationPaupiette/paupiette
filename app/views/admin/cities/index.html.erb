@@ -11,6 +11,7 @@
       <th scope="col">Ambassadeurs</th>
       <th scope="col">Convives</th>
       <th scope="col">Hôtes</th>
+      <th scope="col">Préinscriptions</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,7 @@
         </td>
         <td><%= city.guests.count %></td>
         <td><%= city.hosts.count %></td>
+        <td><%= city.preregistrations.count %></td>
       </tr>
     <% end %>
   </tbody>

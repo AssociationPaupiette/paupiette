@@ -1,28 +1,41 @@
 <%= content_for :title, t('menu.hosts') %>
 
-<h1><%= t('menu.hosts') %></h1>
-
-<p>Choisissez votre ville :</p>
-<ul class="list-inline">
-  <% @cities.each do |city| %>
-  <li class="list-inline-item"><%= link_to city, city_hosts_path(city_slug: city.slug), class: 'btn btn-primary' %></li>
-  <% end %>
-</ul>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 offset-md-1">
+      <h1><%= t('menu.hosts') %></h1>
+      <p>Choisissez votre ville :</p>
+      <ul class="list-inline">
+        <% @cities.each do |city| %>
+        <li class="list-inline-item"><%= link_to city, city_hosts_path(city_slug: city.slug), class: 'btn btn-primary' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 <!--
 <section class="open-meals-section">
   <h3>TODO : Repas ouverts</h3>
 </section>
 -->
 
-<section>
-  <h3>Contactez un hôte</h3>
-  <div class="row">
-    <% @hosts.each do |host| %>
-      <%= render 'host', host: host %>
+<section class="users__list">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 offset-md-1">
+        <h2>Contactez un hôte</h2>
+      </div>
+    </div>
+    <div class="row">
+      <%= render partial: 'users/user', collection: @users %>
+    </div>
+    <% unless @users.empty? || @users.last_page? %>
+      <br/>
+      <%= link_to 'Voir plus', 
+                  hosts_path(page: @users.current_page+1),
+                  class: "btn btn-primary",
+                  id: "load-more-users",
+                  remote: true %>
     <% end %>
   </div>
-  <% unless @hosts.empty? || @hosts.last_page? %>
-    <%= link_to "VOIR PLUS", hosts_path(page: @hosts.current_page+1, city: @filter_city&.id), class: "btn btn-primary", id: "load-more-hosts", remote: true %>
-  <% end %>
 </section>

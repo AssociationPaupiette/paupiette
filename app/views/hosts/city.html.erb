@@ -1,6 +1,12 @@
 <%= content_for :title, @city %>
 
-<h1><%= @city %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 offset-md-1">
+      <h1><%= @city %></h1>
+    </div>
+  </div>
+</div>
 
 <!--
 <section class="open-meals-section">
@@ -8,14 +14,22 @@
 </section>
 -->
 
-<section class="hosts-section">
-  <h3>Contactez un hôte</h3>
-  <div class="row">
-    <% @hosts.each do |host| %>
-      <%= render 'host', host: host %>
+<section class="users__list">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 offset-md-1">
+        <h2>Contactez un hôte</h2>
+      </div>
+    </div>
+    <div class="row">
+      <%= render partial: 'users/user', collection: @users %>
+    </div>
+    <% unless @users.empty? || @users.last_page? %>
+      <%= link_to 'Voir plus',
+                  city_hosts_path(page: @hosts.current_page+1, city: @city.id),
+                  class: "btn btn-primary",
+                  id: "load-more-hosts",
+                  remote: true %>
     <% end %>
   </div>
-  <% unless @hosts.empty? || @hosts.last_page? %>
-    <p class="actions"><%= link_to "VOIR PLUS", hosts_path(page: @hosts.current_page+1, city: @filter_city&.id), class: "btn btn-primary", id: "load-more-hosts", remote: true %></p>
-  <% end %>
 </section>

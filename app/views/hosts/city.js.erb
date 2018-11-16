@@ -1,0 +1,7 @@
+$(".hosts-list").append("<%= j(render(partial: 'host', collection: @hosts, as: :host)) %>");
+
+<% if @hosts.last_page? %>
+  $("#load-more-hosts").hide();
+<% else %>
+  $("#load-more-hosts").attr("href", "<%= city_hosts_path(page: @hosts.current_page+1, city_slug: @city.slug ) %>");
+<% end %>

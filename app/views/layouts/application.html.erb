@@ -11,11 +11,11 @@
   </head>
   <body class="<%= controller.controller_name %>">
     <%= render 'nav' %>
-    <main class="container">
-      <ol class="breadcrumb">
-        <%= render_breadcrumbs tag: :li, separator: '&nbsp;/&nbsp;' %>
-      </ol>
+    <div class="container">
+      <%= render 'breadcrumb' %>
       <%= render 'flash' %>
+    </div>
+    <main>
       <%= yield %>
     </main>
     <%= render 'footer' %>
