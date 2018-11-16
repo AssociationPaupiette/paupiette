@@ -1,5 +1,5 @@
-<nav class="navbar navbar-light navbar-expand-md">
-  <div class="container-fluid global-large">
+<nav class="navbar nav-marg navbar-light navbar-expand-md">
+  <div class="container-fluid global-large offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1 offset-sm-0 col-sm-12 offset-sm-0">
     <%= link_to image_tag('logo.png', width: 208), root_path, class: 'navbar-brand' %>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +11,7 @@
         <li class="nav-item"><%= link_to t('menu.hosts'), hosts_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to t('menu.ambassadors'), ambassadors_path, class: 'nav-link' %></li>
         <% if current_user.nil? %>
-          <li class="nav-item"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link' %> / <%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link' %></li>
         <% else %>
           <li class="nav-item"><%= link_to t('menu.my.name'), my_root_path, class: 'nav-link' %></li>
 
