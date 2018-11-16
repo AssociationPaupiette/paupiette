@@ -1,6 +1,6 @@
 <%= content_for :title, 'Bienvenue' %>
 
-<section class="hero">
+<section class="hero container">
   <div class="row mb-5">
     <div class="col-md-8">
       <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
@@ -18,7 +18,7 @@
 </section>
 
 <% if current_user.nil? %>
-  <section class="soon">
+  <section class="soon container">
     <div class="row">
       <div class="col-md-5"> 
         <h1>Paupiette est à Paris, Bordeaux &amp;&nbsp;Quimper&nbsp;!
@@ -38,7 +38,7 @@
   </section>
 <% end %>
 
-<section class="history">
+<section class="history container">
   <div class="row">
     <div class="col-md-5">
       <%= image_tag "about-us.jpg", class: "img-fluid" %>
@@ -52,31 +52,32 @@
 </section>
 
 <section class="how">
+  <div class="container">
   <h1>Paupiette en 3 étapes</h1>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="steps__illustration">
-        <%= image_tag "illustration-step1.png", class: 'img-fluid', width: '333', height: '264' %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="steps__illustration">
+          <%= image_tag "illustration-step1.png", class: 'img-fluid', width: '333', height: '264' %>
+        </div>
+        <p>Remplissez votre profil hôte, vos spécialités et disponibilités</p>
       </div>
-      <p>Remplissez votre profil hôte, vos spécialités et disponibilités</p>
-    </div>
-    <div class="col-md-4">
-      <div class="steps__illustration">
-        <%= image_tag "illustration-step2.png", class: 'img-fluid', width: '305', height: '201' %>
+      <div class="col-md-4">
+        <div class="steps__illustration">
+          <%= image_tag "illustration-step2.png", class: 'img-fluid', width: '305', height: '201' %>
+        </div>
+        <p>Les convives contactent les hôtes et décident ensemble de leur rencontre</p>
       </div>
-      <p>Les convives contactent les hôtes et décident ensemble de leur rencontre</p>
-    </div>
-    <div class="col-md-4">
-      <div class="steps__illustration">
-        <%= image_tag "illustration-step3.png", class: 'img-fluid', width: '335', height: '208' %>
+      <div class="col-md-4">
+        <div class="steps__illustration">
+          <%= image_tag "illustration-step3.png", class: 'img-fluid', width: '335', height: '208' %>
+        </div>
+        <p>Accueillez les convives à votre domicile</p>
       </div>
-      <p>Accueillez les convives à votre domicile</p>
     </div>
   </div>
 </section>
 
-<section class="pricing">
+<section class="pricing container">
   <h1>Les formules de <span>Paupiette</span></h1>
   <div class="row">
     <div class="col-md-4 text-center">

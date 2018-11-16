@@ -1,29 +1,31 @@
-<div class="row">
-  <div class="col-md-4">
-    <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
-  </div>
-  <div class="col-md-8">
-    <h2><%= @user.full_name %></h2>
-    <h3><%= @user.host? ? "Hôte" : "Convive" %> à <%= @user.city %></h3>
-    <% if @user.ambassador? %>
-      <p>Ambassadeur : <%= @user.managed_cities.join(', ') %></p>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
+    </div>
+    <div class="col-md-8">
+      <h2><%= @user.full_name %></h2>
+      <h3><%= @user.host? ? "Hôte" : "Convive" %> à <%= @user.city %></h3>
+      <% if @user.ambassador? %>
+        <p>Ambassadeur : <%= @user.managed_cities.join(', ') %></p>
+      <% end %>
 
-    <p><%= @user.profile_verification_approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
-    <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary contact-btn" %>
+      <p><%= @user.profile_verification_approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
+      <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary contact-btn" %>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <p><strong>Description :</strong> <%= @user.description %></p>
-    <% if @user.host? %>
-      <p><strong>Spécialités :</strong> <%= @user.specialties %></p>
-      <p><strong>Jours de réception :</strong></p>
-      <ul>
-        <% @user.localized_reception_days.each do |day| %>
-        <li><%= day %></li>
-        <% end %>
-      </ul>
-    <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Description :</strong> <%= @user.description %></p>
+      <% if @user.host? %>
+        <p><strong>Spécialités :</strong> <%= @user.specialties %></p>
+        <p><strong>Jours de réception :</strong></p>
+        <ul>
+          <% @user.localized_reception_days.each do |day| %>
+          <li><%= day %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
   </div>
 </div>

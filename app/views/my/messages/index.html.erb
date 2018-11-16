@@ -1,15 +1,17 @@
 <%= content_for :title, t('menu.my.messages') %>
 
-<%= render 'my/nav' %>
+<div class="container">
+  <%= render 'my/nav' %>
 
-<h2><%= t('menu.my.messages') %></h2>
+  <h2><%= t('menu.my.messages') %></h2>
 
-<ul class="list-unstyled">
-<% @conversations.each do |conversation| %>
-  <% user = conversation.other(current_user).first %>
-  <li>
-    <%= link_to user, my_conversation_path(user_slug: user.slug) %>
-    <span class="badge"><%= conversation.messages.unread.received_from(user).count %> messages non lus</span>
-  </li>
-<% end %>
-</ul>
+  <ul class="list-unstyled">
+  <% @conversations.each do |conversation| %>
+    <% user = conversation.other(current_user).first %>
+    <li>
+      <%= link_to user, my_conversation_path(user_slug: user.slug) %>
+      <span class="badge"><%= conversation.messages.unread.received_from(user).count %> messages non lus</span>
+    </li>
+  <% end %>
+  </ul>
+</div>

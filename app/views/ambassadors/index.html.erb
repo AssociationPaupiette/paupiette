@@ -1,14 +1,25 @@
 <%= content_for :title, t('menu.ambassadors') %>
 
-<h1><%= t('menu.ambassadors') %></h1>
-
-<section class="ambassadors-section">
+<div class="container">
   <div class="row">
-    <% @ambassadors.each do |ambassador| %>
-      <%= render 'ambassador', ambassador: ambassador %>
+    <div class="col-md-11 offset-md-1">
+      <h1><%= t('menu.ambassadors') %></h1>
+    </div>
+  </div>
+</div>
+
+<section class="users__list">
+  <div class="container">
+    <div class="row">
+      <%= render partial: 'users/user', collection: @users %>
+    </div>
+    <% unless @users.empty? || @users.last_page? %>
+      <br/>
+      <%= link_to 'Voir plus',
+                  ambassadors_path(page: @users.current_page+1),
+                  class: "btn btn-primary",
+                  id: "load-more-users",
+                  remote: true %></p>
     <% end %>
   </div>
-  <% unless @ambassadors.empty? || @ambassadors.last_page? %>
-    <p class="actions"><%= link_to "VOIR PLUS", ambassadors_path(page: @ambassadors.current_page+1), class: "btn btn-primary", id: "load-more-ambassadors", remote: true %></p>
-  <% end %>
 </section>

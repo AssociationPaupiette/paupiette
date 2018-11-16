@@ -5,12 +5,12 @@ class HostsController < ApplicationController
 
   def index
     @cities = City.active
-    @hosts = User.hosts.page params[:page]
+    @users = User.hosts.page params[:page]
   end
 
   def city
     @city = City.find_by slug: params[:city_slug]
-    @hosts = @city.hosts.page params[:page]
+    @users = @city.hosts.page params[:page]
     add_breadcrumb @city
   end
 end

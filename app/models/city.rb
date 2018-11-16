@@ -32,7 +32,7 @@ class City < ApplicationRecord
   end
 
   def guests
-    users.not_hosts
+    users.guests
   end
 
   def hosts
