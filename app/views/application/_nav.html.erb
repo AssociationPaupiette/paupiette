@@ -11,7 +11,8 @@
         <li class="nav-item"><%= link_to t('menu.hosts'), hosts_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to t('menu.ambassadors'), ambassadors_path, class: 'nav-link' %></li>
         <% if current_user.nil? %>
-          <li class="nav-item"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link' %> / <%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link' %></li>
+          <li><%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link' %></li>
         <% else %>
           <li class="nav-item"><%= link_to t('menu.my.name'), my_root_path, class: 'nav-link' %></li>
 

@@ -34,6 +34,7 @@ gem 'bootstrap'
 gem 'uglifier'
 gem 'owlcarousel-rails'
 gem 'font-awesome-sass'
+gem 'gdpr'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
