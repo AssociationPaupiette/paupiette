@@ -112,7 +112,7 @@ GEM
     ffi (1.9.25)
     font-awesome-sass (5.5.0.1)
       sassc (>= 1.11)
-    gdpr (1.0.7)
+    gdpr (1.0.9)
       js_cookie_rails
       rails
       sass-rails
