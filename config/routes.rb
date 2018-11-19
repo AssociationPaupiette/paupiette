@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         get :ambassadors
         get :hosts
         get :guests
+        get :search
       end
     end
     get 'preregistrations' => 'preregistrations#index'

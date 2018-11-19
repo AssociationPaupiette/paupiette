@@ -9,7 +9,7 @@
 
 class Conversation < ApplicationRecord
   has_and_belongs_to_many :users
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   default_scope { order(updated_at: :desc) }
 

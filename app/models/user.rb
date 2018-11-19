@@ -32,7 +32,7 @@ class User < ApplicationRecord
   belongs_to :city, optional: true
   has_many :ambassadorships, dependent: :destroy
   has_many :managed_cities, through: :ambassadorships, source: :city
-  has_and_belongs_to_many :conversations, dependent: :destroy
+  has_and_belongs_to_many :conversations
   has_many :messages_sent, class_name: 'Message', foreign_key: :from_id, dependent: :destroy
 
   has_one_attached :photo
@@ -46,6 +46,7 @@ class User < ApplicationRecord
 
   before_validation :set_default_slug, on: :create
   before_create :set_host
+  before_destroy { conversations.clear }
 
   # Every user is a guest
   scope :guests, -> {}

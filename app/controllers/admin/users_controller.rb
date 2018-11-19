@@ -30,6 +30,11 @@ class Admin::UsersController < Admin::ApplicationController
     @users = User.hosts.page params[:page]
   end
 
+  def search
+    add_breadcrumb 'Recherche'
+    @users = User.where(email: params[:term])
+  end
+
   def new
     @user = User.new
     add_breadcrumb 'Nouvel utilisateur'
@@ -63,6 +68,11 @@ class Admin::UsersController < Admin::ApplicationController
       add_breadcrumb 'Modifier'
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to admin_users_path
   end
 
   private
