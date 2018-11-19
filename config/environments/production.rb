@@ -64,8 +64,20 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "paupiette_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'paupiette.co' }
-
+  config.action_mailer.default_url_options = {
+    host: ENV['DOMAIN'],
+    protocol: ENV['PROTOCOL']
+  }
+  config.action_mailer.smtp_settings = {
+    domain: ENV['DOMAIN'],
+    address: ENV['SMTP_ADDRESS'],
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true,
+    port: "587"
+  }
+  
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
