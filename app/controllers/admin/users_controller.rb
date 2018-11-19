@@ -32,7 +32,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def search
     add_breadcrumb 'Recherche'
-    @users = User.where(email: params[:term])
+    @users = User.search(params[:term])
   end
 
   def new

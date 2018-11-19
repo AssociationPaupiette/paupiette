@@ -19,6 +19,8 @@ class Message < ApplicationRecord
   scope :read, -> { where.not(read_at: nil) }
   scope :unread, -> { where(read_at: nil) }
 
+  after_create :send_mail
+
   def to
     return if conversation.nil?
     conversation.users.where.not(id: from).first
@@ -33,5 +35,11 @@ class Message < ApplicationRecord
 
   def to_s
     "#{content}"
+  end
+
+  protected
+
+  def send_mail
+    MessageMailer.with(from: from, to: to).notification_email.deliver_now
   end
 end

@@ -56,6 +56,7 @@ class User < ApplicationRecord
   scope :not_ambassadors, -> { where.not(id: ambassadors) }
   scope :admins, -> { where(admin: true) }
   scope :not_admins, -> { where.not(id: admins) }
+  scope :search, -> (term) { where('email LIKE ? OR slug LIKE ? OR first_name LIKE ? OR last_name LIKE ?', term, term, "%#{term}%", "%#{term}%")}
   default_scope { order(:last_name, :first_name) }
 
   def full_name

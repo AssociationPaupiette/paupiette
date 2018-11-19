@@ -1,7 +1,7 @@
 <% content_for :title, 'Recherche' %>
 
 <%= form_tag search_admin_users_path, class: 'form-inline', method: :get do %>
-  <%= search_field_tag 'term', params[:term], placeholder: 'Email recherché', class: 'form-control' %>
+  <%= search_field_tag 'term', params[:term], placeholder: 'Email ou identifiant recherché', class: 'form-control' %>
   <%= submit_tag 'Chercher', class: 'btn btn-primary' %>
 <% end %>
 
