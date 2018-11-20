@@ -1,28 +1,26 @@
-<%= content_for :title, t('menu.my_cities.activity') %>
+<%= content_for :title, t('menu.my_cities.name') %>
 
 <div class="container">
-  <h1><%= t('menu.my_cities.activity') %></h1>
+  <h1><%= t('menu.my_cities.name') %></h1>
 
-  <% if current_user.managed_cities.none? %>
+  <% if @cities.none? %>
     <p>Pas de ville gérée.</p>
   <% end %>
 
-  <% current_user.managed_cities.each do |city| %>
-    <h3><%= city %></h3>
+  <% @cities.each do |city| %>
+    <h2><%= city %></h2>
     <div class="row">
 
       <div class="col-md-3">
         <h1><%= city.users.guests.count %></h1>
-        <p>convives inscrits</p>
-        <!--<p class="small">dont 120 actifs</p>-->
-        <%= link_to 'Voir la liste', '', class: 'btn btn-primary' %>
+        <p>Convives</p>
+        <%= link_to 'Voir la liste', my_cities_users_guests_path(city_slug: city.slug), class: 'btn btn-primary' %>
       </div>
 
       <div class="col-md-3">
         <h1><%= city.users.hosts.count %></h1>
-        <p>hôtes inscrits</p>
-        <!--<p class="small">dont 120 actifs</p>-->
-        <%= link_to 'Voir la liste', '', class: 'btn btn-primary' %>
+        <p>Hôtes</p>
+        <%= link_to 'Voir la liste', my_cities_users_hosts_path(city_slug: city.slug), class: 'btn btn-primary' %>
       </div>
 
       <div class="col-md-3">
@@ -33,7 +31,7 @@
 
       <div class="col-md-3">
         <h1><%= city.conversations.count %></h1>
-        <p>conversations en cours</p>
+        <p>Conversations</p>
       </div>
 
       <!--

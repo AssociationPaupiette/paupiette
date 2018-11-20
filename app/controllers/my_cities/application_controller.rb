@@ -4,7 +4,8 @@ class MyCities::ApplicationController < ApplicationController
   add_breadcrumb I18n.t('menu.my_cities.name'), :my_cities_root_path
 
   def index
-    redirect_to :my_cities_activity
+    @cities = current_user.managed_cities
+    render 'my_cities/index'
   end
 
   private

@@ -1,0 +1,6 @@
+<%= content_for :title, t('menu.my_cities.hosts') %>
+
+<div class="container">
+  <h1><%= t('menu.my_cities.hosts') %></h1>
+  <%= render 'list', users: @users %>
+</div>

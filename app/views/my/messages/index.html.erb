@@ -15,4 +15,11 @@
     </li>
   <% end %>
   </ul>
+
+  <h3>Contacter mes ambassadeurs</h3>
+  <ul class="list-unstyled">
+    <% current_user.city.ambassadors.each do |ambassador| %>
+      <li><%= link_to ambassador, my_conversation_path(user_slug: ambassador.slug) %></li>
+    <% end unless current_user.city.nil? %>
+  </ul>
 </div>

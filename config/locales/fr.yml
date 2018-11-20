@@ -23,4 +23,6 @@ fr:
     my_cities:
       name: 'Mon espace ambassadeur'
       activity: 'Mon activité'
+      guests: 'Convives'
+      hosts: 'Hôtes'
       users_to_approve: "Utilisateurs en attente d'approbation"
