@@ -3,8 +3,8 @@
 <div class="nav nav-tabs mb-5" id="nav-tab" role="tablist">
   <%= link_to t('menu.my.messages'), my_messages_path, class: "nav-item nav-link #{'active' if controller_name == 'messages'}" %>
   <%= link_to t('menu.my.profile'), my_profile_path, class: "nav-item nav-link #{'active' if controller_name == 'profile'}" %>
+  <%= link_to t('menu.my.reviews'), my_reviews_path, class: "nav-item nav-link #{'active' if controller_name == 'reviews'}" %>
   <!--
-  <%= link_to t('menu.my.advices'), my_advices_path, class: "nav-item nav-link #{'active' if controller_name == 'advices'}" %>
   <% if can? :create, :meals %>
     <%= link_to t('menu.my.meals'), my_meals_path, class: "nav-item nav-link #{'active' if controller_name == 'meals'}" %>
   <% end %>

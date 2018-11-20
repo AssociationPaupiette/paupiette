@@ -18,7 +18,7 @@ fr:
       name: 'Mon espace'
       messages: 'Mes messages'
       profile: 'Mon profil'
-      advices: 'Mes avis'
+      reviews: 'Mes avis'
       meals: 'Mes repas ouverts'
     my_cities:
       name: 'Mon espace ambassadeur'

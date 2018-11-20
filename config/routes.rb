@@ -29,14 +29,10 @@ Rails.application.routes.draw do
     get 'messages' => 'messages#index'
     get 'messages/:user_slug' => 'messages#user', as: :conversation
     post 'messages/:user_slug' => 'messages#create', as: :send_message
-
     get 'profile' => 'profile#index'
     put 'profile' => 'profile#update'
-
-    get 'advices' => 'advices#index'
-
+    get 'reviews' => 'reviews#index'
     get 'meals' => 'meals#index'
-
     root to: 'application#index'
   end
 

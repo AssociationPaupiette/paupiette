@@ -1,0 +1,13 @@
+<%= content_for :title, t('menu.my.reviews') %>
+
+<div class="container">
+  <%= render 'my/nav' %>
+  <h2><%= t('menu.my.reviews') %></h2>
+  <ul class="list-unstyled">
+    <% @conversations.each do |conversation| %>
+      <% user = conversation.other(current_user).first %>
+      <% next if user.nil? # Deleted user %>
+      <li><%= link_to user, '' %></li>
+    <% end %>
+  </ul>
+</div>

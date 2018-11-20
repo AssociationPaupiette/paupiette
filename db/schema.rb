@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_132741) do
+ActiveRecord::Schema.define(version: 2018_11_20_163937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -94,6 +94,17 @@ ActiveRecord::Schema.define(version: 2018_11_20_132741) do
     t.index ["city_id"], name: "index_preregistrations_on_city_id"
   end
 
+  create_table "user_reviews", force: :cascade do |t|
+    t.bigint "from_id"
+    t.bigint "about_id"
+    t.text "text"
+    t.boolean "approved", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["about_id"], name: "index_user_reviews_on_about_id"
+    t.index ["from_id"], name: "index_user_reviews_on_from_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -119,5 +130,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_132741) do
   end
 
   add_foreign_key "preregistrations", "cities"
+  add_foreign_key "user_reviews", "users", column: "about_id"
+  add_foreign_key "user_reviews", "users", column: "from_id"
   add_foreign_key "users", "cities"
 end
