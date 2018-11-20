@@ -3,14 +3,39 @@
 <div class="container">
   <h1><%= t('menu.my_cities.activity') %></h1>
 
+  <% if current_user.managed_cities.none? %>
+    <p>Pas de ville gérée.</p>
+  <% end %>
+
   <% current_user.managed_cities.each do |city| %>
     <h3><%= city %></h3>
     <div class="row">
+
       <div class="col-md-3">
-        <h1><%= city.users.profile_verification_pending.count %></h1>
-        <p>en attente de confirmation</p>
-        <%= link_to 'Valider', my_cities_users_pending_path(city_slug: city.slug), class: 'btn btn-primary' %>
+        <h1><%= city.users.guests.count %></h1>
+        <p>convives inscrits</p>
+        <!--<p class="small">dont 120 actifs</p>-->
+        <%= link_to 'Voir la liste', '', class: 'btn btn-primary' %>
       </div>
+
+      <div class="col-md-3">
+        <h1><%= city.users.hosts.count %></h1>
+        <p>hôtes inscrits</p>
+        <!--<p class="small">dont 120 actifs</p>-->
+        <%= link_to 'Voir la liste', '', class: 'btn btn-primary' %>
+      </div>
+
+      <div class="col-md-3">
+        <h1><%= city.users.to_approve.count %></h1>
+        <p><%= t 'menu.my_cities.users_to_approve' %></p>
+        <%= link_to 'Voir la liste', my_cities_users_approval_path(city_slug: city.slug), class: 'btn btn-primary' %>
+      </div>
+
+      <div class="col-md-3">
+        <h1><%= city.conversations.count %></h1>
+        <p>conversations en cours</p>
+      </div>
+
       <!--
       <div class="col-md-3">
         <h1>1</h1>
@@ -18,28 +43,13 @@
         <%= link_to 'Valider', '', class: 'btn btn-primary' %>
       </div>
       -->
-      <div class="col-md-3">
-        <h1><%= city.conversations.count %></h1>
-        <p>conversations en cours</p>
-      </div>
+
       <!--
       <div class="col-md-3">
         <h1>1</h1>
         <p>repas ouvert</p>
       </div>
       -->
-      <div class="col-md-3">
-        <h1><%= city.users.hosts.count %></h1>
-        <p>hôtes inscrits</p>
-        <!--<p class="small">dont 120 actifs</p>-->
-        <%= link_to 'Voir la liste', '', class: 'btn btn-primary' %>
-      </div>
-      <div class="col-md-3">
-        <h1><%= city.users.guests.count %></h1>
-        <p>convives inscrits</p>
-        <!--<p class="small">dont 120 actifs</p>-->
-        <%= link_to 'Voir la liste', '', class: 'btn btn-primary' %>
-      </div>
     </div>
   <% end %>
 </div>

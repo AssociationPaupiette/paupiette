@@ -14,13 +14,13 @@
 #  description            :text
 #  specialties            :text
 #  reception_days         :string
-#  profile_verification   :integer          default("incomplete")
 #  city_id                :bigint(8)
 #  last_name              :string
 #  host                   :boolean          default(FALSE)
 #  admin                  :boolean          default(FALSE)
 #  slug                   :string           default(""), not null
 #  active                 :boolean          default(TRUE), not null
+#  approved               :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -38,8 +38,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :identity_card
 
-  enum profile_verification: { incomplete: 0, pending: 1, approved: 2, refused: 3 }, _prefix: true
-
   validates_presence_of :first_name, :last_name, :city_id, on: :update_profile
   validates_presence_of :slug
   validates_uniqueness_of :slug
@@ -51,12 +49,18 @@ class User < ApplicationRecord
   # Every user is a guest
   scope :guests, -> {}
   scope :hosts, -> { where(host: true) }
-  scope :not_hosts, -> { where.not(id: hosts) }
+  scope :not_hosts, -> { where(host: false) }
   scope :ambassadors, -> { includes(:ambassadorships).where.not(ambassadorships: { user_id: nil }) }
   scope :not_ambassadors, -> { where.not(id: ambassadors) }
   scope :admins, -> { where(admin: true) }
-  scope :not_admins, -> { where.not(id: admins) }
-  scope :search, -> (term) { where('email LIKE ? OR slug LIKE ? OR first_name LIKE ? OR last_name LIKE ?', term, term, "%#{term}%", "%#{term}%")}
+  scope :not_admins, -> { where(admin: false) }
+  scope :approved, -> { where(approved: true) }
+  scope :not_approved, -> { where(approved: false) }
+  scope :to_approve, -> { not_approved.joins(identity_card_attachment: :blob) }
+  scope :search, -> (term) { 
+    where('email LIKE ? OR slug LIKE ? OR first_name LIKE ? OR last_name LIKE ?', 
+      term, term, "%#{term}%", "%#{term}%")
+  }
   default_scope { order(:last_name, :first_name) }
 
   def full_name

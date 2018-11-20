@@ -23,4 +23,4 @@ fr:
     my_cities:
       name: 'Mon espace ambassadeur'
       activity: 'Mon activité'
-      users_pending: 'Utilisateurs en attente'
+      users_to_approve: "Utilisateurs en attente d'approbation"

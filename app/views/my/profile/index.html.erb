@@ -8,12 +8,12 @@
   <%= simple_form_for(@user, url: my_profile_path, html: { method: :put }, wrapper: :vertical_form) do |f| %>
     <div class="row">
       <div class="col col-md-4">
+        <%= image_tag @user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
         <%= f.input :photo %>
-        <%= image_tag @user.photo.variant(resize: "200x200^") if @user.photo.attached? %>
       </div>
 
       <div class="col col-md-8">
-        <p><strong>Vérification du profil</strong> : <%= @user.profile_verification %></p>
+        <p><strong>Vérification du profil</strong> : <%= @user.approved ? 'Approuvé' : 'Non approuvé' %></p>
         <%= f.input :first_name, autofocus: true, required: true %>
         <%= f.input :last_name, required: true %>
         <%= f.input :email, required: true %>
@@ -29,7 +29,7 @@
             <%= f.input :reception_days, as: :check_boxes, collection: [["0", 'Lundi'], ["1", 'Mardi'], ["2", 'Mercredi'], ["3", 'Jeudi'], ["4", 'Vendredi'], ["5", 'Samedi'], ["6", 'Dimanche']], label_method: :second, value_method: :first, include_hidden: false, checked: @user.reception_days %>
           </div>
         <% end %>
-        <%= f.submit %>
+        <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
       </div>
     </div>
   <% end %>

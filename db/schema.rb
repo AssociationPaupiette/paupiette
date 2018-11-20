@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_094109) do
+ActiveRecord::Schema.define(version: 2018_11_20_132741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -106,13 +106,13 @@ ActiveRecord::Schema.define(version: 2018_11_13_094109) do
     t.text "description"
     t.text "specialties"
     t.string "reception_days"
-    t.integer "profile_verification", default: 0
     t.bigint "city_id"
     t.string "last_name"
     t.boolean "host", default: false
     t.boolean "admin", default: false
     t.string "slug", default: "", null: false
     t.boolean "active", default: true, null: false
+    t.boolean "approved", default: false
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -1,0 +1,26 @@
+<%= content_for :title, t('menu.my_cities.users_to_approve') %>
+
+<div class="container">
+  <h1><%= t('menu.my_cities.users_to_approve') %></h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Prénom</th>
+        <th width="300">Nom</th>
+        <th>Carte d'identité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user, my_conversation_path(user_slug: user.slug) %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= image_tag user.identity_card, class: 'img-fluid' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
