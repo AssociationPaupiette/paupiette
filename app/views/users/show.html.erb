@@ -10,7 +10,7 @@
         <p>Ambassadeur : <%= @user.managed_cities.join(', ') %></p>
       <% end %>
 
-      <p><%= @user.profile_verification_approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
+      <p><%= @user.approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
       <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary contact-btn" %>
     </div>
   </div>

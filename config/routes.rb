@@ -44,6 +44,8 @@ Rails.application.routes.draw do
     get 'activity' => 'activity#index'
     scope ':city_slug' do
       get 'users/approval' => 'users#approval', as: :users_approval
+      post 'users/:user_slug/approve' => 'users#approve', as: :user_approve
+      post 'users/:user_slug/unapprove' => 'users#unapprove', as: :user_unapprove
     end
     root to: 'application#index'
   end

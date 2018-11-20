@@ -13,20 +13,28 @@
       </div>
 
       <div class="col col-md-8">
-        <p><strong>Vérification du profil</strong> : <%= @user.approved ? 'Approuvé' : 'Non approuvé' %></p>
-        <%= f.input :first_name, autofocus: true, required: true %>
-        <%= f.input :last_name, required: true %>
-        <%= f.input :email, required: true %>
-        <%= f.input :slug, required: true, label: "Nom de compte", hint: "URL de profil : #{user_url(user_slug: @user.slug)}".html_safe %>
-        <%= f.association :city, include_blank: false, collection: City.active %>
+        <p><%= @user.approved ? 'Profil approuvé' : 'Profil non approuvé, envoyez votre carte d\'identité' %></p>
+        <%= f.input :first_name, autofocus: true, label: 'Prénom' %>
+        <%= f.input :last_name, label: 'Nom' %>
+        <%= f.input :email, required: true, label: 'Email' %>
+        <%= f.input :slug, 
+                    required: true, 
+                    label: 'Nom du compte', 
+                    hint: "URL de profil : #{user_url(user_slug: @user.slug)}".html_safe %>
+        <%= f.association :city, include_blank: false, collection: City.active, label: 'Ville' %>
         <%= f.input :description %>
-
-        <%= f.input :identity_card, as: :file %>
-
+        <%= f.input :identity_card, as: :file, label: 'Carte d\'identité' %>
         <% if @user.host? %>
-          <%= f.input :specialties, as: :text %>
+          <%= f.input :specialties, as: :text, label: 'Spécialités' %>
           <div class="reception_days">
-            <%= f.input :reception_days, as: :check_boxes, collection: [["0", 'Lundi'], ["1", 'Mardi'], ["2", 'Mercredi'], ["3", 'Jeudi'], ["4", 'Vendredi'], ["5", 'Samedi'], ["6", 'Dimanche']], label_method: :second, value_method: :first, include_hidden: false, checked: @user.reception_days %>
+            <%= f.input :reception_days,
+                        label: 'Jours préférés',
+                        as: :check_boxes,
+                        collection: [["0", 'Lundi'], ["1", 'Mardi'], ["2", 'Mercredi'], ["3", 'Jeudi'], ["4", 'Vendredi'], ["5", 'Samedi'], ["6", 'Dimanche']],
+                        label_method: :second,
+                        value_method: :first,
+                        include_hidden: false,
+                        checked: @user.reception_days %>
           </div>
         <% end %>
         <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
