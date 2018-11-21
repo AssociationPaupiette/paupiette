@@ -8,6 +8,13 @@ class MyCities::ApplicationController < ApplicationController
     render 'my_cities/index'
   end
 
+  protected
+
+  def load_city
+    @city = City.find_by(slug: params[:city_slug])
+    add_breadcrumb @city
+  end
+
   private
 
   def redirect_if_unauthorized

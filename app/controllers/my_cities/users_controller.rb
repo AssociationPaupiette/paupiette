@@ -39,11 +39,4 @@ class MyCities::UsersController < MyCities::ApplicationController
     @users = @city.users.guests.page params[:page]
     add_breadcrumb t('menu.my_cities.guests')
   end
-
-  protected
-
-  def load_city
-    @city = City.find_by(slug: params[:city_slug])
-    add_breadcrumb @city
-  end
 end

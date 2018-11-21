@@ -34,13 +34,11 @@
         <p>Conversations</p>
       </div>
 
-      <!--
       <div class="col-md-3">
-        <h1>1</h1>
-        <p>avis à valider</p>
-        <%= link_to 'Valider', '', class: 'btn btn-primary' %>
+        <h1><%= city.reviews.count %></h1>
+        <p>Avis en attente d'approbation</p>
+        <%= link_to 'Voir la liste', my_cities_reviews_approval_path(city_slug: city.slug), class: 'btn btn-primary' %>
       </div>
-      -->
 
       <!--
       <div class="col-md-3">

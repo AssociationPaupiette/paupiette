@@ -47,6 +47,9 @@ Rails.application.routes.draw do
         post ':user_slug/approve' => 'users#approve', as: :user_approve
         post ':user_slug/unapprove' => 'users#unapprove', as: :user_unapprove
       end
+      scope 'reviews' do
+        get 'approval' => 'reviews#approval', as: :reviews_approval
+      end
     end
     root to: 'application#index'
   end
