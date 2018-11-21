@@ -13,7 +13,7 @@
         <% if current_user.nil? %>
           <li class="nav-item nav-item-3"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link link-2' %> / <%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link link-2' %></li>
         <% else %>
-          <li class="nav-item"><%= link_to t('menu.my.name'), my_root_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to t('my.name'), my_root_path, class: 'nav-link' %></li>
 
           <li class="nav-item dropdown">
             <a  id="navbarDropdownMenuUser" 
@@ -25,14 +25,14 @@
               <%= current_user %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
-              <%= link_to t('menu.my.messages'), my_messages_path, class: 'dropdown-item' %>
-              <%= link_to t('menu.my.profile'), my_profile_path, class: 'dropdown-item' %>
-              <%= link_to t('menu.my.reviews'), my_reviews_path, class: 'dropdown-item' %>
+              <%= link_to t('my.messages'), my_messages_path, class: 'dropdown-item' %>
+              <%= link_to t('my.profile'), my_profile_path, class: 'dropdown-item' %>
+              <%= link_to t('my.reviews'), my_reviews_path, class: 'dropdown-item' %>
               <!--
-              <%= link_to t('menu.my.meals'), my_meals_path, class: 'dropdown-item' %>
+              <%= link_to t('my.meals'), my_meals_path, class: 'dropdown-item' %>
               -->
               <% if can? :manage, :city %>
-                <%= link_to t('menu.my_cities.name'), my_cities_root_path, class: 'dropdown-item' %>
+                <%= link_to t('my_cities.name'), my_cities_root_path, class: 'dropdown-item' %>
               <% end %>
               <% if can? :access, :admin %>
                 <%= link_to t('menu.admin'), admin_root_path, class: 'dropdown-item' %>

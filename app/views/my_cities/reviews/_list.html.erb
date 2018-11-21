@@ -1,0 +1,44 @@
+<%= paginate reviews, theme: 'twitter-bootstrap-4' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Avis de</th>
+      <th>Sur</th>
+      <th>Contenu</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% reviews.each do |review| %>
+      <tr>
+          <td>
+            <%= render 'users/user_small', user: review.from %><br/>
+            <%= link_to 'Envoyer un message',
+                        my_conversation_path(user_slug: review.from.slug),
+                        class: 'btn btn-primary btn-sm' %>
+          </td>
+          <td>
+            <%= render 'users/user_small', user: review.about %><br/>
+            <%= link_to 'Envoyer un message',
+                        my_conversation_path(user_slug: review.about.slug),
+                        class: 'btn btn-primary btn-sm' %>
+          </td>
+        <td><%= simple_format review.text %></td>
+        <td>
+          <% if review.approved %>
+            <%= link_to 'Désapprouver',
+                        my_cities_review_unapprove_path(city_slug: @city.slug, id: review.id),
+                        method: :post,
+                        class: 'btn btn-primary btn-sm' %>
+          <% else %>
+            <%= link_to 'Approuver',
+                        my_cities_review_approve_path(city_slug: @city.slug, id: review.id),
+                        method: :post,
+                        class: 'btn btn-primary btn-sm' %>
+          <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate reviews, theme: 'twitter-bootstrap-4' %>

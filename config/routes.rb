@@ -43,12 +43,15 @@ Rails.application.routes.draw do
       scope 'users' do
         get 'approval' => 'users#approval', as: :users_approval
         get 'hosts' => 'users#hosts', as: :users_hosts
-        get 'guests' => 'users#guests', as: :users_guests
         post ':user_slug/approve' => 'users#approve', as: :user_approve
         post ':user_slug/unapprove' => 'users#unapprove', as: :user_unapprove
+        root to: 'users#index', as: :users
       end
       scope 'reviews' do
         get 'approval' => 'reviews#approval', as: :reviews_approval
+        post ':id/approve' => 'reviews#approve', as: :review_approve
+        post ':id/unapprove' => 'reviews#unapprove', as: :review_unapprove
+        root to: 'reviews#index', as: :reviews
       end
     end
     root to: 'application#index'

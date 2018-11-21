@@ -1,8 +1,8 @@
-<%= content_for :title, t('menu.my.reviews') %>
+<%= content_for :title, t('my.reviews') %>
 
 <div class="container">
   <%= render 'my/nav' %>
-  <h2><%= t('menu.my.reviews') %></h2>
+  <h2><%= t('my.reviews') %></h2>
   <div class="row">
     <% @conversations.each do |conversation| %>
       <% user = conversation.other(current_user).first %>

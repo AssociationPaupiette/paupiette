@@ -1,5 +1,5 @@
 class My::ReviewsController < My::ApplicationController
-  add_breadcrumb I18n.t('menu.my.reviews')
+  add_breadcrumb I18n.t('my.reviews')
 
   def index
     @conversations = current_user.conversations

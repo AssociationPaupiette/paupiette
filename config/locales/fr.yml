@@ -9,15 +9,18 @@ fr:
     press: 'Espace presse'
     who: 'Qui sommes-nous?'
     legal: 'Mentions légales'
-    my: 
-      name: 'Mon espace'
-      messages: 'Mes messages'
-      profile: 'Mon profil'
-      reviews: 'Mes avis'
-      meals: 'Mes repas ouverts'
-    my_cities:
-      name: 'Mon espace ambassadeur'
-      activity: 'Mon activité'
+  my: 
+    name: 'Mon espace'
+    messages: 'Mes messages'
+    profile: 'Mon profil'
+    reviews: 'Mes avis'
+    meals: 'Mes repas ouverts'
+  my_cities:
+    name: 'Mon espace ambassadeur'
+    users:
       guests: 'Convives'
       hosts: 'Hôtes'
-      users_to_approve: "Utilisateurs en attente d'approbation"
+      to_approve: "Utilisateurs en attente d'approbation"
+    reviews:
+      name: 'Avis'
+      to_approve: "Avis en attente d'approbation"

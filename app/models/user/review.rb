@@ -16,4 +16,5 @@ class User::Review < ApplicationRecord
   belongs_to :about, class_name: 'User'
 
   scope :approved, -> { where(approved: true) }
+  scope :unapproved, -> { where(approved: false) }
 end

@@ -1,9 +1,9 @@
-<%= content_for :title, t('menu.my.profile') %>
+<%= content_for :title, t('my.profile') %>
 
 <div class="container">
   <%= render 'my/nav' %>
 
-  <h2><%= t('menu.my.profile') %></h2>
+  <h2><%= t('my.profile') %></h2>
 
   <%= simple_form_for(@user, url: my_profile_path, html: { method: :put }, wrapper: :vertical_form) do |f| %>
     <div class="row">

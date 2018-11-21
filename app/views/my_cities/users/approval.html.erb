@@ -1,7 +1,7 @@
-<%= content_for :title, t('menu.my_cities.users_to_approve') %>
+<%= content_for :title, t('my_cities.users.to_approve') %>
 
 <div class="container">
-  <h1><%= t('menu.my_cities.users_to_approve') %></h1>
+  <h1><%= t('my_cities.users.to_approve') %></h1>
 
   <table class="table">
     <thead>
@@ -21,7 +21,11 @@
               <%= link_to user.identity_card.filename, user.identity_card, target: :_blank %>
             <% end %>
           </td>
-          <td><%= link_to user, user_path(user_slug: user.slug) %></td>
+          <td>
+            <%= link_to user_path(user_slug: user.slug) do %>
+              <%= render 'users/user_small', user: user %>
+            <% end %>
+          </td>
           <td>
             <%= link_to 'Envoyer un message', my_conversation_path(user_slug: user.slug), class: 'btn btn-primary btn-sm' %>
             <%= link_to 'Valider le profil', my_cities_user_approve_path(city_slug: @city.slug, user_slug: user.slug), method: :post, class: 'btn btn-primary btn-sm' %>

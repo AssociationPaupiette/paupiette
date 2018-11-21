@@ -1,5 +1,5 @@
 class My::MealsController < My::ApplicationController
-  add_breadcrumb I18n.t('menu.my.meals')
+  add_breadcrumb I18n.t('my.meals')
 
   def index
   end

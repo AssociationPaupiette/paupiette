@@ -1,5 +1,5 @@
 class My::ProfileController < My::ApplicationController
-  add_breadcrumb I18n.t('menu.my.profile')
+  add_breadcrumb I18n.t('my.profile')
 
   def index
     @user = current_user

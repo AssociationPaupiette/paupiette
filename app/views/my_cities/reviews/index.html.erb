@@ -1,0 +1,6 @@
+<%= content_for :title, t('my_cities.reviews.name') %>
+
+<div class="container">
+  <h1><%= t('my_cities.reviews.name') %></h1>
+  <%= render 'list', reviews: @reviews %>
+</div>

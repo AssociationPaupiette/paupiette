@@ -1,7 +1,7 @@
-<%= content_for :title, t('menu.my_cities.name') %>
+<%= content_for :title, t('my_cities.name') %>
 
 <div class="container">
-  <h1><%= t('menu.my_cities.name') %></h1>
+  <h1><%= t('my_cities.name') %></h1>
 
   <% if @cities.none? %>
     <p>Pas de ville gérée.</p>
@@ -11,37 +11,43 @@
     <h2><%= city %></h2>
     <div class="row">
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h1><%= city.users.guests.count %></h1>
-        <p>Convives</p>
-        <%= link_to 'Voir la liste', my_cities_users_guests_path(city_slug: city.slug), class: 'btn btn-primary' %>
+        <p><%= t 'my_cities.users.guests' %></p>
+        <%= link_to 'Voir la liste', my_cities_users_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h1><%= city.users.hosts.count %></h1>
-        <p>Hôtes</p>
-        <%= link_to 'Voir la liste', my_cities_users_hosts_path(city_slug: city.slug), class: 'btn btn-primary' %>
+        <p><%= t 'my_cities.users.hosts' %></p>
+        <%= link_to 'Voir la liste', my_cities_users_hosts_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h1><%= city.users.to_approve.count %></h1>
-        <p><%= t 'menu.my_cities.users_to_approve' %></p>
-        <%= link_to 'Voir la liste', my_cities_users_approval_path(city_slug: city.slug), class: 'btn btn-primary' %>
+        <p><%= t 'my_cities.users.to_approve' %></p>
+        <%= link_to 'Voir la liste', my_cities_users_approval_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-4">
+        <h1><%= city.reviews.count %></h1>
+        <p><%= t('my_cities.reviews.name') %></p>
+        <%= link_to 'Voir la liste', my_cities_reviews_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
+      </div>
+
+      <div class="col-md-4">
+        <h1><%= city.reviews.unapproved.count %></h1>
+        <p><%= t('my_cities.reviews.to_approve') %></p>
+        <%= link_to 'Voir la liste', my_cities_reviews_approval_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
+      </div>
+
+      <div class="col-md-4">
         <h1><%= city.conversations.count %></h1>
         <p>Conversations</p>
       </div>
 
-      <div class="col-md-3">
-        <h1><%= city.reviews.count %></h1>
-        <p>Avis en attente d'approbation</p>
-        <%= link_to 'Voir la liste', my_cities_reviews_approval_path(city_slug: city.slug), class: 'btn btn-primary' %>
-      </div>
-
       <!--
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h1>1</h1>
         <p>repas ouvert</p>
       </div>

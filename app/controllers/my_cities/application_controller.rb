@@ -1,7 +1,6 @@
 class MyCities::ApplicationController < ApplicationController
   before_action :redirect_if_unauthorized
-
-  add_breadcrumb I18n.t('menu.my_cities.name'), :my_cities_root_path
+  before_action :load_city
 
   def index
     @cities = current_user.managed_cities
@@ -12,10 +11,9 @@ class MyCities::ApplicationController < ApplicationController
 
   def load_city
     @city = City.find_by(slug: params[:city_slug])
-    add_breadcrumb @city
+    add_breadcrumb I18n.t('my_cities.name'), :my_cities_root_path
+    add_breadcrumb @city unless @city.nil?
   end
-
-  private
 
   def redirect_if_unauthorized
     redirect_to :root unless can? :manage, :city

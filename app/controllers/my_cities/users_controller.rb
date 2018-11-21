@@ -1,9 +1,18 @@
 class MyCities::UsersController < MyCities::ApplicationController
-  before_action :load_city
+
+  def index
+    @users = @city.users.guests.page params[:page]
+    add_breadcrumb t('my_cities.users.guests')
+  end
+
+  def hosts
+    @users = @city.users.hosts.page params[:page]
+    add_breadcrumb t('my_cities.users.hosts')
+  end
 
   def approval
     @users = @city.users.to_approve
-    add_breadcrumb t('menu.my_cities.users_to_approve')
+    add_breadcrumb t('my_cities.users.to_approve')
   end
 
   def approve
@@ -28,15 +37,5 @@ class MyCities::UsersController < MyCities::ApplicationController
       flash[:notice] = 'Problème technique'
     end
     redirect_to my_cities_root_path
-  end
-
-  def hosts
-    @users = @city.users.hosts.page params[:page]
-    add_breadcrumb t('menu.my_cities.hosts')
-  end
-
-  def guests
-    @users = @city.users.guests.page params[:page]
-    add_breadcrumb t('menu.my_cities.guests')
   end
 end
