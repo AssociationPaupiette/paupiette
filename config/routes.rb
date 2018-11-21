@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     get 'profile' => 'profile#index'
     put 'profile' => 'profile#update'
     get 'reviews' => 'reviews#index'
+    post 'reviews/:user_slug' => 'reviews#save', as: :review
+    patch 'reviews/:user_slug' => 'reviews#save'
     get 'meals' => 'meals#index'
     root to: 'application#index'
   end
@@ -54,10 +56,8 @@ Rails.application.routes.draw do
   get 'hosts' => 'hosts#index'
   get 'hosts/:city_slug' => 'hosts#city', as: :city_hosts
   get 'ambassadors' => 'ambassadors#index'
-  get 'press' => 'statics#press'
-  get 'who' => 'statics#who'
-  get 'terms' => 'statics#terms'
-  get 'privacy' => 'statics#privacy'
-
-  root to: 'home#index'
+  get 'press' => 'pages#press'
+  get 'who' => 'pages#who'
+  get 'legal' => 'pages#legal'
+  root to: 'pages#index'
 end

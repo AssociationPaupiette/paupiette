@@ -10,16 +10,25 @@
     <% user = conversation.other(current_user).first %>
     <% next if user.nil? # Deleted user %>
     <li>
-      <%= link_to user, my_conversation_path(user_slug: user.slug) %>
-      <span class="badge"><%= conversation.messages.unread.received_from(user).count %> messages non lus</span>
+      <%= link_to my_conversation_path(user_slug: user.slug) do %>
+        <%= render 'users/user_small', user: user %>
+      <% end %>
+      <span class="badge">
+        <% unread_count = conversation.messages.unread.received_from(user).count %>
+        <%= unread_count %> message<%= 's' if unread_count > 1 %> non lu<%= 's' if unread_count > 1 %>
+      </span>
     </li>
   <% end %>
   </ul>
 
   <h3>Contacter mes ambassadeurs</h3>
   <ul class="list-unstyled">
-    <% current_user.city.ambassadors.each do |ambassador| %>
-      <li><%= link_to ambassador, my_conversation_path(user_slug: ambassador.slug) %></li>
+    <% current_user.city.ambassadors.each do |user| %>
+      <li>
+        <%= link_to my_conversation_path(user_slug: user.slug) do %>
+          <%= render 'users/user_small', user: user %>
+        <% end %>
+      </li>
     <% end unless current_user.city.nil? %>
   </ul>
 </div>

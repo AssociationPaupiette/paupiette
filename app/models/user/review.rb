@@ -14,4 +14,6 @@
 class User::Review < ApplicationRecord
   belongs_to :from, class_name: 'User'
   belongs_to :about, class_name: 'User'
+
+  scope :approved, -> { where(approved: true) }
 end

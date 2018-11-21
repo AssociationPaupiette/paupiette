@@ -90,6 +90,10 @@ class User < ApplicationRecord
     !Conversation.between(user, self).nil?
   end
 
+  def review_about(user)
+    reviews_given.where(about: user).first_or_initialize
+  end
+
   private
 
   def set_host

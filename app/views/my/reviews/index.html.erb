@@ -3,11 +3,31 @@
 <div class="container">
   <%= render 'my/nav' %>
   <h2><%= t('menu.my.reviews') %></h2>
-  <ul class="list-unstyled">
+  <div class="row">
     <% @conversations.each do |conversation| %>
       <% user = conversation.other(current_user).first %>
       <% next if user.nil? # Deleted user %>
-      <li><%= link_to user, '' %></li>
+      <% review = current_user.review_about(user) %>
+      <div class="col-md-3">
+        <div class="mb-3">
+          <%= link_to user_path(user_slug: user.slug) do %>
+            <%= render 'users/user_small', user: user %>
+          <% end %>
+        </div>
+        <%= simple_form_for review, url: my_review_path(user_slug: user.slug) do |f| %>
+          <%= f.input :text, label: false %>
+          <%= f.button :submit, 'Enregistrer' %>
+        <% end %>
+        <% unless review.new_record? %>
+          <p class="badge badge-primary">
+            <% if review.approved? %>
+              Avis approuvé
+            <% else %>
+              Avis en attente de relecture
+            <% end %>
+          </p>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>

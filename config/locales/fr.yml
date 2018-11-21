@@ -6,14 +6,9 @@ fr:
     signup: "S'inscrire"
     signout: 'Se déconnecter'
     admin: 'Admin'
-    about:
-      name: 'À propos'
-      press: 'Espace presse'
-      who: 'Qui sommes-nous?'
-    legal:
-      name: 'Mentions légales'
-      terms: "Conditions générales d'utilisation"
-      privacy: 'Confidentialité'
+    press: 'Espace presse'
+    who: 'Qui sommes-nous?'
+    legal: 'Mentions légales'
     my: 
       name: 'Mon espace'
       messages: 'Mes messages'

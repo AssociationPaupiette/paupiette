@@ -40,6 +40,6 @@ class Message < ApplicationRecord
   protected
 
   def send_mail
-    MessageMailer.with(from: from, to: to).notification_email.deliver_now
+    MessageMailer.with(from: from, to: to).notification_email.deliver_later
   end
 end
