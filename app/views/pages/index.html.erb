@@ -1,43 +1,49 @@
 <%= content_for :title, 'Bienvenue' %>
-
-<section class="hero container">
-  <div class="row mb-5">
-    <div class="col-md-8">
+<section class="container-fluid global-large">
+  <div class="row hero">
+    <div class="bienvenue offset-xl-2 col-xl-5">
       <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
     </div>
     <% if current_user.nil? %>
-      <div class="col-md-2">
+    <div class="col-xl-5">
+
+<div class="row">
+      <div class="btn-hote col-xl-6">
         <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-light btn-block' %>
       </div>
-      <div class="col-md-2">
+      <div class="btn-convive col-xl-6">
         <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-light btn-block' %>
       </div>
+    </div>
+
+    </div>
     <% end %>
+    <div class="img-central offset-xl-2 col-xl-10 pr-xl-0">
+      <%= image_tag 'hero.jpg', class: 'img-fluid' %>
+    </div>
   </div>
-  <%= image_tag 'hero.jpg', class: 'img-fluid' %>
 </section>
 
 <% if current_user.nil? %>
-  <section class="soon container">
-    <div class="row">
-      <div class="col-md-5"> 
-        <h1>Paupiette est à <i>Paris</i>, <i>Bordeaux</i> &amp;&nbsp;<i>Quimper</i>&nbsp;!
-        </h1>
-        <p>Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
-        <%= simple_form_for @preregistration do |f| %>
-          <%= f.input :first_name, label: false, placeholder: 'Prénom' %> 
-          <%= f.input :email, label: false, placeholder: 'Email' %> 
-          <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %> 
-          <%= f.button :submit, 'Enregistrer' %>
-        <% end %>
-      </div>
-      <div class="col-md-6 offset-md-1 "> 
-        <%= image_tag "map.jpg", class: "img-fluid" %>
-      </div>
+<section class="soon container">
+  <div class="row">
+    <div class="col-md-5">
+      <h1>Paupiette est à <i>Paris</i>, <i>Bordeaux</i> &amp;&nbsp;<i>Quimper</i>&nbsp;!
+      </h1>
+      <p>Laissez-nous vos coordonnées pour être tenu au courant de l'ouverture dans votre région :</p>
+      <%= simple_form_for @preregistration do |f| %>
+      <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
+      <%= f.input :email, label: false, placeholder: 'Email' %>
+      <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
+      <%= f.button :submit, 'Enregistrer' %>
+      <% end %>
     </div>
-  </section>
+    <div class="col-md-6 offset-md-1 ">
+      <%= image_tag "map.jpg", class: "img-fluid" %>
+    </div>
+  </div>
+</section>
 <% end %>
-
 <section class="history container">
   <div class="row">
     <div class="col-md-5">
@@ -50,10 +56,9 @@
     </div>
   </div>
 </section>
-
 <section class="how">
   <div class="container">
-  <h1>Paupiette en 3 étapes</h1>
+    <h1>Paupiette en 3 étapes</h1>
     <div class="row">
       <div class="col-md-4">
         <div class="steps__illustration">
@@ -76,7 +81,6 @@
     </div>
   </div>
 </section>
-
 <section class="pricing container">
   <h1>Les formules de <span>Paupiette</span></h1>
   <div class="row">
@@ -100,4 +104,3 @@
     </div>
   </div>
 </section>
-
