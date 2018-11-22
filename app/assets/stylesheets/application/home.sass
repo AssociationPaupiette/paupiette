@@ -13,8 +13,23 @@ body.pages.index
     font-weight: 300
   .col-bouton
     padding: 7px 0 0 0
-    .btn-hote
-
+    .bloc-btn
+      justify-content: flex-end !important
+      .btn-hote, .btn-convive
+        text-align: right
+        a
+          border: 1px solid #c6a39e
+          color: #c6a39e
+          border-radius: 0
+          font-weight: bold
+          font-size: 1rem
+        a.btn-1
+          padding: 10px 55px
+        a.btn-2
+          padding: 10px 45px   
+        a:hover
+          border: 1px solid #a6969b
+          color: #a6969b
 
 .how
   background: $color-main
