@@ -1,21 +1,20 @@
 <%= content_for :title, 'Bienvenue' %>
+
 <section class="container-fluid global-large">
   <div class="row hero">
     <div class="bienvenue offset-xl-2 col-xl-5">
       <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
     </div>
     <% if current_user.nil? %>
-    <div class="col-xl-5">
-
-<div class="row">
-      <div class="btn-hote col-xl-6">
-        <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-light btn-block' %>
+    <div class="col-bouton col-xl-5">
+      <div class="row">
+        <div class="btn-hote col-xl-4 ml-xl-5 mr-xl-3">
+          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-light btn-block' %>
+        </div>
+        <div class="btn-convive col-xl-4 ml-xl-3 mr-xl-0">
+          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-light btn-block' %>
+        </div>
       </div>
-      <div class="btn-convive col-xl-6">
-        <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-light btn-block' %>
-      </div>
-    </div>
-
     </div>
     <% end %>
     <div class="img-central offset-xl-2 col-xl-10 pr-xl-0">
