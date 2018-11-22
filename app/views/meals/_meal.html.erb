@@ -1,0 +1,7 @@
+<div class="col-md-3">
+  <div class="card">
+    <h3><%= l meal.date, format: :long unless meal.date.nil?%></h3>
+    <p><%= meal.capacity %> convive<%= 's' if meal.capacity > 1 %></p>
+    <%= link_to 'Participer', '', class: 'btn btn-primary' %>
+  </div>
+</div>

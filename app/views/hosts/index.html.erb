@@ -13,20 +13,27 @@
     </div>
   </div>
 </div>
-<!--
-<section class="open-meals-section">
-  <h3>TODO : Repas ouverts</h3>
-</section>
--->
 
 <section class="users__list">
   <div class="container">
+
+    <% if @meals.any? %>
+      <div class="row">
+        <div class="col-md-11 offset-md-1">
+          <h2>Repas ouverts</h2>
+        </div>
+      </div>
+      <div class="row">
+        <%= render partial: 'meals/meal', collection: @meals %>
+      </div>
+    <% end %>
+
     <div class="row">
       <div class="col-md-11 offset-md-1">
         <h2>Contactez un hôte</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="users">
       <%= render partial: 'users/user', collection: @users %>
     </div>
     <% unless @users.empty? || @users.last_page? %>

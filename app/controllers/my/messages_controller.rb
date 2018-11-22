@@ -1,5 +1,5 @@
 class My::MessagesController < My::ApplicationController
-  add_breadcrumb I18n.t('my.messages'), :my_messages_path
+  add_breadcrumb I18n.t('my.messages.name'), :my_messages_path
 
   def index
     @conversations = current_user.conversations

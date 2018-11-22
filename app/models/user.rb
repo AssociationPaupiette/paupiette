@@ -36,6 +36,7 @@ class User < ApplicationRecord
   has_many :messages_sent, class_name: 'Message', foreign_key: :from_id, dependent: :destroy
   has_many :reviews_received, class_name: 'User::Review', foreign_key: :about_id
   has_many :reviews_given, class_name: 'User::Review', foreign_key: :from_id
+  has_many :meals, foreign_key: :host_id
 
   has_one_attached :photo
   has_one_attached :identity_card

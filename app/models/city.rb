@@ -19,6 +19,7 @@ class City < ApplicationRecord
   has_many :conversations, through: :users
   has_many :preregistrations
   has_many :reviews, through: :users, source: :reviews_received
+  has_many :meals, through: :users
 
   validates_uniqueness_of :slug
 

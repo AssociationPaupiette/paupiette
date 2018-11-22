@@ -11,10 +11,45 @@ fr:
     legal: 'Mentions légales'
   my: 
     name: 'Mon espace'
-    messages: 'Mes messages'
-    profile: 'Mon profil'
-    reviews: 'Mes avis'
-    meals: 'Mes repas ouverts'
+    messages:
+      name: 'Mes messages'
+      contact_my_ambassadors: 'Contacter mes ambassadeurs'
+      conversation_with: 'Conversation avec %{name}'
+      no_messages: 'Pas de messages'
+      type_your_message: 'Entrez votre message'
+      send: 'Envoyer'
+      not_read: 'Message non lu'
+      read_on: 'Lu le %{date}'
+    profile:
+      name: 'Mon profil'
+      approved: 'Profil approuvé'
+      unapproved: "Profil non approuvé, envoyez votre carte d'identité"
+      first_name: 'Prénom'
+      last_name: 'Nom'
+      city: 'Ville'
+      email: 'Email'
+      slug: 'Nom du compte'
+      slug_hint: 'URL de profil : %{url}'
+      identity_card: "Carte d'identité"
+      photo: 'Photo'
+      description: 'Description'
+      specialties: 'Spécialités'
+      reception_days: 'Jours préférés'
+      save: 'Mettre à jour'
+      saved: 'Profil mis à jour'
+    reviews:
+      name: 'Mes avis'
+      save: 'Enregistrer'
+      saved: 'Votre avis va être relu par un ambassadeur avant publication'
+      approved: 'Avis approuvé'
+      unapproved: 'Avis en attente de relecture'
+    meals: 
+      name: 'Mes repas ouverts'
+      new: 'Proposer un repas'
+      edit: 'Modifier un repas'
+      cancel: 'Annuler un repas'
+      save: 'Enregistrer'
+      saved: 'Repas enregistré'
   my_cities:
     name: 'Mon espace ambassadeur'
     users:

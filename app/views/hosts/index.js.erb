@@ -1,4 +1,4 @@
-$(".users__list .row").append("<%= j(render(partial: 'users/user', collection: @users)) %>");
+$("#users").append("<%= j(render(partial: 'users/user', collection: @users)) %>");
 
 <% if @users.last_page? %>
   $("#load-more-users").hide();

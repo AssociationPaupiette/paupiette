@@ -1,0 +1,5 @@
+<%= simple_form_for [:my, @meal] do |f| %>
+  <%= f.input :date, html5: true, as: :date %>
+  <%= f.input :capacity, label: 'Nombre de convives possibles' %>
+  <%= f.button :submit, 'Publier' %>
+<% end %>

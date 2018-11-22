@@ -1,5 +1,5 @@
 class My::ProfileController < My::ApplicationController
-  add_breadcrumb I18n.t('my.profile')
+  add_breadcrumb I18n.t('my.profile.name')
 
   def index
     @user = current_user
@@ -10,7 +10,7 @@ class My::ProfileController < My::ApplicationController
     @user.assign_attributes(user_params)
     if @user.valid?(:update_profile)
       @user.save
-      redirect_to :my_profile, notice: 'Profil mis à jour'
+      redirect_to :my_profile, notice: t('my.profile.saved')
     else
       render :index
     end

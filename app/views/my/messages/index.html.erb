@@ -1,9 +1,9 @@
-<%= content_for :title, t('my.messages') %>
+<%= content_for :title, t('my.messages.name') %>
 
 <div class="container">
   <%= render 'my/nav' %>
 
-  <h2><%= t('my.messages') %></h2>
+  <h2><%= t('my.messages.name') %></h2>
 
   <ul class="list-unstyled">
   <% @conversations.each do |conversation| %>
@@ -21,7 +21,7 @@
   <% end %>
   </ul>
 
-  <h3>Contacter mes ambassadeurs</h3>
+  <h3><%= t 'my.messages.contact_my_ambassadors' %></h3>
   <ul class="list-unstyled">
     <% current_user.city.ambassadors.each do |user| %>
       <li>

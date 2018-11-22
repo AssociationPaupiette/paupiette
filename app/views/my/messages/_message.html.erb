@@ -1,12 +1,11 @@
 <div class="message <%= message.from == current_user ? 'message--from-me' : 'message--from-someone-else' %>">
-  <p><em><strong><%= message.from %></strong>, le <%= l message.created_at, format: :short %> :</em></p>
+  <p><%= message.from %>, <%= l message.created_at, format: :short %></p>
   <p><%= message.content %></p>
-  
   <span class="badge badge-primary">
     <% if message.read_at.nil? %>
-      Message non lu
+      <%= t('my.messages.not_read') %>
     <% else %>
-      Lu le <%= l message.read_at %>
+      <%= t('my.messages.read_on', date: l(message.read_at, format: :long)) %>
     <% end %>
   </span>
 </div>

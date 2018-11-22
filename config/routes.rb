@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     get 'reviews' => 'reviews#index'
     post 'reviews/:user_slug' => 'reviews#save', as: :review
     patch 'reviews/:user_slug' => 'reviews#save'
-    get 'meals' => 'meals#index'
+    resources 'meals'
     root to: 'application#index'
   end
 

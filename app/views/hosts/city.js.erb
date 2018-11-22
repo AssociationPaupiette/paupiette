@@ -1,7 +1,7 @@
-$(".hosts-list").append("<%= j(render(partial: 'host', collection: @hosts, as: :host)) %>");
+$("#users").append("<%= j(render(partial: 'host', collection: @users, as: :host)) %>");
 
-<% if @hosts.last_page? %>
-  $("#load-more-hosts").hide();
+<% if @users.last_page? %>
+  $("#load-more-users").hide();
 <% else %>
-  $("#load-more-hosts").attr("href", "<%= city_hosts_path(page: @hosts.current_page+1, city_slug: @city.slug ) %>");
+  $("#load-more-users").attr("href", "<%= city_hosts_path(page: @users.current_page+1, city_slug: @city.slug ) %>");
 <% end %>

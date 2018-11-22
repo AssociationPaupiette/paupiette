@@ -1,5 +1,5 @@
 class My::ReviewsController < My::ApplicationController
-  add_breadcrumb I18n.t('my.reviews')
+  add_breadcrumb I18n.t('my.reviews.name')
 
   def index
     @conversations = current_user.conversations
@@ -11,7 +11,6 @@ class My::ReviewsController < My::ApplicationController
     @review.text = params[:user_review][:text]
     @review.approved = false
     @review.save
-    flash[:notice] = 'Votre avis va être relu par un ambassadeur avant publication'
-    redirect_to my_reviews_path
+    redirect_to my_reviews_path, notice: t('my.reviews.saved')
   end
 end

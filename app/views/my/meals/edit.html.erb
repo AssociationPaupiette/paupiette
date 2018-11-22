@@ -1,0 +1,7 @@
+<%= content_for :title, t('my.meals.edit') %>
+
+<div class="container">
+  <%= render 'my/nav' %>
+  <h2><%= t('my.meals.edit') %></h2>
+  <%= render 'form', meal: @meal %>
+</div>
