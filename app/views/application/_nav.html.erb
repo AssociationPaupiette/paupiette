@@ -23,7 +23,7 @@
             aria-expanded="false">
             <%= current_user %>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">
             <%= link_to t('my.messages.name'), my_messages_path, class: 'dropdown-item' %>
             <%= link_to t('my.profile.name'), my_profile_path, class: 'dropdown-item' %>
             <%= link_to t('my.reviews.name'), my_reviews_path, class: 'dropdown-item' %>
