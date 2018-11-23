@@ -8,6 +8,8 @@
 #  capacity   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  confirmed  :integer          default(1)
+#  remaining  :integer
 #
 
 require 'test_helper'

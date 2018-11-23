@@ -59,3 +59,6 @@ fr:
     reviews:
       name: 'Avis'
       to_approve: "Avis en attente d'approbation"
+  time:
+    formats:
+      day: "%A %e %B %Y"

@@ -4,11 +4,12 @@ class My::MealsController < My::ApplicationController
   add_breadcrumb I18n.t('my.meals.name'), :my_meals_path
 
   def index
-    @meals = current_user.meals
+    @meals = current_user.meals.future
   end
 
   def new
     add_breadcrumb t('my.meals.new')
+    @meal = Meal.new capacity: 2, confirmed: 1, date: Date.tomorrow
   end
 
   def edit
@@ -25,9 +26,9 @@ class My::MealsController < My::ApplicationController
   end
 
   def update
-    @meal.update user_params
-    if @user.save
-      redirect_to [:admin, @user], notice: 'L\'utilisateur a été modifié'
+    @meal.update meal_params
+    if @meal.save
+      redirect_to :my_meals, notice: t('my.meals.saved')
     else
       add_breadcrumb 'Modifier'
       render :edit
@@ -43,7 +44,7 @@ class My::MealsController < My::ApplicationController
 
   def meal_params
     params.require(:meal)
-          .permit(:date, :capacity)
+          .permit(:date, :capacity, :confirmed)
           .merge({host_id: current_user.id})
   end
 end

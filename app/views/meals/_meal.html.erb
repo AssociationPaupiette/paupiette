@@ -1,7 +1,15 @@
 <div class="col-md-3">
   <div class="card">
-    <h3><%= l meal.date, format: :long unless meal.date.nil?%></h3>
-    <p><%= meal.capacity %> convive<%= 's' if meal.capacity > 1 %></p>
-    <%= link_to 'Participer', '', class: 'btn btn-primary' %>
+    <%= link_to user_path(user_slug: meal.host.slug) do %>
+      <%= render 'users/user_small', user: meal.host %>
+    <% end %>
+    <div class="card-body">
+      <h3><%= l meal.date,  format: :day unless meal.date.nil?%></h3>
+      <p>
+        <%= meal.capacity %> convives attendus, 
+        <%= meal.remaining %> place<%= 's' if meal.remaining >1 %> disponible<%= 's' if meal.remaining >1 %>
+      </p>
+      <%= link_to 'Contacter', my_conversation_path(user_slug: meal.host.slug), class: 'btn btn-primary' %>
+    </div>
   </div>
 </div>

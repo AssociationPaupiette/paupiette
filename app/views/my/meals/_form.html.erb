@@ -1,5 +1,18 @@
 <%= simple_form_for [:my, @meal] do |f| %>
-  <%= f.input :date, html5: true, as: :date %>
-  <%= f.input :capacity, label: 'Nombre de convives possibles' %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.input :date,
+                  html5: true,
+                  as: :date,
+                  label: 'Quand aura lieu le déjeuner?',
+                  input_html: { min: Date.tomorrow } %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :capacity, label: 'Combien de convives peuvent venir?' %>
+    </div>
+    <div class="col-md-5">
+      <%= f.input :confirmed, label: 'Combien de convives ont confirmé leur présence?' %>
+    </div>
+  </div>
   <%= f.button :submit, 'Publier' %>
 <% end %>

@@ -1,27 +1,34 @@
 <div class="col-md-3">
   <%= link_to user_path(user_slug: user.slug) do %>
-    <article class="user">
-      <h2><%= link_to user.first_name, user_path(user_slug: user.slug) %></h2>
+    <div class="card mb-4">
       <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid' if user.photo.attached? %>
-      <p>
-        <% if user.ambassador? %>
-          Ambassadeur
-        <% elsif user.host? %>
-          Hôte
-        <% else %>
-          Convive
+      <div class="card-body">
+        <h2><%= user.first_name %></h2>
+        <p>
+          <% if user.ambassador? %>
+            Ambassadeur
+          <% elsif user.host? %>
+            Hôte
+          <% else %>
+            Convive
+          <% end %>
+          à <%= user.city %> depuis <%= l user.created_at, format: "%B %Y" %>
+        </p>
+        <p><%= simple_format user.description %></p>
+        <% if user.localized_reception_days.any? %>
+          <h3>Jours préférés</h3>
+          <ul>
+            <% user.localized_reception_days.each do |day| %>
+              <li><%= day %></li>
+            <% end %>
+          </ul>
         <% end %>
-        à <%= user.city %> depuis <%= l user.created_at, format: "%B %Y" %></p>
-      <p>Jours préférés</p>
-      <ul>
-        <% user.localized_reception_days.each do |day| %>
-          <li><%= day %></li>
+        <% unless user.specialties.blank? %>
+          <h3>Mes spécialités</h3>
+          <p><%= user.specialties %></p>
         <% end %>
-      </ul>
-      <p>"<%= user.description %>"</p>
-      <h3>Mes spécialités</h3>
-      <p><%= user.specialties %></p>
-      <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-primary' %>
-    </article>
+        <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-primary' %>
+      </div>
+    </div>
   <% end %>
 </div>

@@ -4,22 +4,36 @@
   <%= render 'my/nav' %>
   <h2><%= t('my.meals.name') %></h2>
 
-  <%= link_to 'Proposer un repas', new_my_meal_path, class: 'btn btn-primary' %>
+  <%= link_to 'Proposer un repas', new_my_meal_path, class: 'btn btn-primary' %><br/>
+  <br/>
 
-  <div class="row">
-    <% @meals.each do |meal| %>
-      <div class="col-md-3">
-        <div class="card">
-          <h3><%= l meal.date, format: :long unless meal.date.nil?%></h3>
-          <p><%= meal.capacity %> convive<%= 's' if meal.capacity > 1 %></p>
-          <%= link_to 'Modifier', edit_my_meal_path(meal), class: 'btn btn-primary' %>
-          <%= link_to 'Annuler ce repas', 
-                      my_meal_path(meal), 
-                      method: :delete, 
-                      data: { confirm: 'Attention, l\'annulation est définitive' }, 
-                      class: 'btn btn-danger' %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Places totales</th>
+        <th>Convives confirmés</th>
+        <th>Places disponibles</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @meals.each do |meal| %>
+        <tr>
+          <td><%= l meal.date, format: :day unless meal.date.nil?%></td>
+          <td><%= meal.capacity %></td>
+          <td><%= meal.confirmed %></td>
+          <td><%= meal.remaining %></td>
+          <td>
+            <%= link_to 'Modifier', edit_my_meal_path(meal), class: 'btn btn-primary' %>
+            <%= link_to 'Annuler ce repas', 
+                        my_meal_path(meal), 
+                        method: :delete, 
+                        data: { confirm: 'Attention, l\'annulation est définitive' }, 
+                        class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
