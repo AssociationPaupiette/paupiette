@@ -1,4 +1,4 @@
-/** CSS NAV GLOBAL **/
+/** NAV CSS GLOBAL **/
 
 .global-large
   max-width: 1920px
@@ -15,6 +15,7 @@
       padding: 10px 25px
       color: #a6969b
       font-size: 1rem
+      margin-right: 20px
     a.nav-link.nav-item-1, a.nav-link.nav-item-2
       color: #252424
       font-weight: 600
@@ -31,9 +32,20 @@
     a.nav-link.link-2:hover
       color: #c6a39e  
 
+/** NAV CSS MOBILE **/
 @media screen and (max-width: 767px)
     .nav-marg
       padding: 130px 20px 100px 20px
-      a.nav-link.nav-item-1:active, .nav-marg a.nav-link.nav-item-1:hover
-        color: rgba(0, 0, 0, 0.7)
-        border-bottom: 0
+      .ml-auto    
+        li
+        .nav-item-3
+          border: 0
+          padding: 10px 0
+          margin-right: 0
+        a.nav-link.nav-item-1:active, .nav-marg a.nav-link.nav-item-1:hover
+          color: rgba(0, 0, 0, 0.7)
+          border-bottom: 0
+        a.nav-link.link-2
+          color: #252424
+        a.nav-link.link-2:hover
+          color: rgba(0, 0, 0, 0.7) 
