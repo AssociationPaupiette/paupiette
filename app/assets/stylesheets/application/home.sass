@@ -1,7 +1,10 @@
 /** HOME CSS GLOBAL **/
 body.pages.index
   background-image: asset-url('background-home-1.jpg')
-  background-repeat: repeat-x
+  background-position: center fixed
+  background-repeat: no-repeat
+  background-size: cover
+  -webkit-background-size: cover
   .breadcrumb-div
     display: none
 
@@ -13,7 +16,7 @@ body.pages.index
     .col-bienvenue
     h1
       color: #252525
-      font-size: 2.875rem
+      font-size: 2.675em
       font-weight: 300
     .col-bouton
       padding: 7px 0 0 0
@@ -28,15 +31,38 @@ body.pages.index
             color: #c6a39e
             border-radius: 0
             font-weight: bold
-            font-size: 1rem
+            font-size: 0.9em
           a.btn-1
             padding: 10px 55px
           a.btn-2
             padding: 10px 45px   
           a:hover
-            border: 1px solid #a6969b
-            color: #a6969b
+            border: 1px solid $color-main
+            color: $color-main
 /*****************/
+
+/*** BLOC 2 SOON ***/
+.soon
+  margin-top: 140px
+  .row
+    .col-form
+      h2
+        font-size: 3.125em
+        line-height: 1.1em
+      .style-ville
+        color: $color-main
+        font-style: italic
+      p
+        color: $color-main
+        font-weight: bold
+        font-size: 1.1em
+        line-height: 1.3em
+        margin: 100px 0 60px 0
+      .new_preregistration
+        .form-control
+          width: 40%
+          background-color: transparent
+
 
 .how
   background: $color-main
@@ -52,7 +78,7 @@ body.pages.index
       .row
         .col-bienvenue
         h1
-          font-size: 2.4rem
+          font-size: 2.4em
         .col-bouton
           padding: 30px 0 0 0
           .bloc-btn
@@ -74,7 +100,7 @@ body.pages.index
       .row
         .col-bienvenue
         h1
-          font-size: 2rem
+          font-size: 2em
         .col-bouton
           padding: 20px 0 0 0
           .bloc-btn
