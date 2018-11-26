@@ -30,12 +30,12 @@
         </h2>
         <p>Laissez-nous vos coordonnées pour être tenu<br/>au courant de l'ouverture dans votre région&nbsp;:</p>
         <div class="row form-home">
-            <%= simple_form_for @preregistration do |f| %>
-            <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
-            <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
-            <%= f.input :email, label: false, placeholder: 'Email' %>
-            
-            <%= f.button :submit, 'Tenez-moi informé', class: "btn-form" %>
+          <%= simple_form_for @preregistration do |f| %>
+          <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
+          <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
+          <%= f.input :email, label: false, placeholder: 'Email' %>
+          
+          <%= f.button :submit, 'Tenez-moi informé', class: "btn-form" %>
         </div>
         <% end %>
       </div>
@@ -45,64 +45,68 @@
     </div>
   </div>
   <% end %>
-</section>
-<section class="history container">
-  <div class="row">
-    <div class="col-md-5">
-      <%= image_tag "about-us.jpg", class: "img-fluid" %>
-    </div>
-    <div class="col-md-5 offset-md-1">
-      <h1>L'histoire de <i>Paupiette</i></h1>
-      <h2>Paupiette réunit séniors et étudiants sur le temps du déjeuner&nbsp;!</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-  </div>
-</section>
-<section class="how">
-  <div class="container">
-    <h1>Paupiette en 3 étapes</h1>
+
+  <div class="history offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
     <div class="row">
-      <div class="col-md-4">
-        <div class="steps__illustration">
-          <%= image_tag "illustration-step1.png", class: 'img-fluid', width: '333', height: '264' %>
-        </div>
-        <p>Remplissez votre profil hôte, vos spécialités et disponibilités</p>
+      <div class="img-history col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <%= image_tag "about-us.jpg", class: "img-fluid img-hist" %>
       </div>
-      <div class="col-md-4">
-        <div class="steps__illustration">
-          <%= image_tag "illustration-step2.png", class: 'img-fluid', width: '305', height: '201' %>
-        </div>
-        <p>Les convives contactent les hôtes et décident ensemble de leur rencontre</p>
-      </div>
-      <div class="col-md-4">
-        <div class="steps__illustration">
-          <%= image_tag "illustration-step3.png", class: 'img-fluid', width: '335', height: '208' %>
-        </div>
-        <p>Accueillez les convives à votre domicile</p>
+      <div class="text-history col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+        <h2>L'histoire de <br/><span class="style-name">Paupiette</span></h2>
+        <h3>Paupiette réunit séniors et étudiants sur le temps du déjeuner&nbsp;!</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </div>
   </div>
-</section>
-<section class="pricing container">
-  <h1>Les formules de <span>Paupiette</span></h1>
-  <div class="row">
-    <div class="col-md-4 text-center">
-      <div>
-        <%= image_tag "meal-1.png", class: 'img-fluid', width: '359', height: '387' %>
+
+  <div class="how container-fluid global-large">
+    <div class="offset-xl-2 col-xl-8 offset-xl-2 offset-lg-1 col-lg-10 offset-lg-1 offset-md-0 col-md-12 offset-md-0 offset-sm-0 col-sm-12 offset-sm-0 offset-xs-0 col-xs-12 offset-xs-0">
+      <h2>Paupiette en 3 étapes</h2>
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
+          <div class="steps__illustration">
+            <%= image_tag "illustration-step1.png", class: 'img-fluid', width: '335', height: '277' %>
+          </div>
+          <p>Remplissez votre profil hôte, vos spécialités et disponibilités</p>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
+          <div class="steps__illustration">
+            <%= image_tag "illustration-step2.png", class: 'img-fluid', width: '309', height: '240' %>
+          </div>
+          <p>Les convives contactent les hôtes et décident ensemble de leur rencontre</p>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
+          <div class="steps__illustration">
+            <%= image_tag "illustration-step3.png", class: 'img-fluid', width: '341', height: '248' %>
+          </div>
+          <p>Accueillez les convives à votre domicile</p>
+        </div>
       </div>
-      <p>Plat</p>
     </div>
-    <div class="col-md-4 text-center">
-      <div>
-        <%= image_tag "meal-2.png", class: 'img-fluid', width: '442', height: '472' %>
+  </div>
+
+  <div class="pricing offset-xl-2 col-xl-8 offset-xl-2 offset-lg-1 col-lg-10 offset-lg-1 offset-md-0 col-md-12 offset-md-0 offset-sm-0 col-sm-12 offset-sm-0 offset-xs-0 col-xs-12 offset-xs-0">
+    <h2>Les formules de <span>Paupiette</span></h2>
+    <p>Des formules à prix unique lorem ipsum dolor sit amet</p>
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
+        <div>
+          <%= image_tag "meal-1.png", class: 'img-fluid', width: '373', height: '401' %>
+        </div>
+        <p>Plat</p>
       </div>
-      <p>Entrée + Plat <br> <span> ou </span> Plat + Dessert </p>
-    </div>
-    <div class="col-md-4 text-center">
-      <div>
-        <%= image_tag "meal-3.png", class: 'img-fluid', width: '431', height: '460' %>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
+        <div>
+          <%= image_tag "meal-2.png", class: 'img-fluid', width: '424', height: '461' %>
+        </div>
+        <p>Entrée + Plat <br/> ou Plat + Dessert </p>
       </div>
-      <p>Entrée + Plat <br> + Dessert </p>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
+        <div>
+          <%= image_tag "meal-3.png", class: 'img-fluid', width: '424', height: '465' %>
+        </div>
+        <p>Entrée + Plat <br/> + Dessert </p>
+      </div>
     </div>
   </div>
 </section>
