@@ -1,5 +1,4 @@
 <%= content_for :title, 'Bienvenue' %>
-
 <section class="container-fluid global-large pr-xl-0 pr-lg-0 pr-md-0">
   <div class="hero offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
     <div class="row">
@@ -23,33 +22,30 @@
   <div class="img-central offset-xl-2 col-xl-10 pr-xl-0 offset-lg-1 col-lg-11 pr-lg-0 offset-md-0 col-md-12 pr-md-0 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
     <%= image_tag 'hero.jpg', class: 'img-fluid' %>
   </div>
-
-<% if current_user.nil? %>
-<div class="soon offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
+  <% if current_user.nil? %>
+  <div class="soon offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
     <div class="row">
-    <div class="col-form col-xl-6">
-      <h2>Paupiette est à <span class="style-ville">Paris</span>,<br/><span class="style-ville">Bordeaux</span> &amp;&nbsp;<span class="style-ville">Quimper</span>&nbsp;!
-      </h2>
-      <p>Laissez-nous vos coordonnées pour être tenu<br/>au courant de l'ouverture dans votre région&nbsp;:</p>
-      <%= simple_form_for @preregistration do |f| %>
-      <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
-      <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
-      <%= f.input :email, label: false, placeholder: 'Email' %>
-      
-      <%= f.button :submit, 'Enregistrer' %>
-      <% end %>
-    </div>
-    <div class="col-map col-xl-6">
-      <%= image_tag "map.jpg", class: "img-fluid" %>
+      <div class="col-form col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <h2>Paupiette est à <span class="style-ville">Paris</span>,<br/><span class="style-ville">Bordeaux</span> &amp;&nbsp;<span class="style-ville">Quimper</span>&nbsp;!
+        </h2>
+        <p>Laissez-nous vos coordonnées pour être tenu<br/>au courant de l'ouverture dans votre région&nbsp;:</p>
+        <div class="row form-home">
+            <%= simple_form_for @preregistration do |f| %>
+            <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
+            <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
+            <%= f.input :email, label: false, placeholder: 'Email' %>
+            
+            <%= f.button :submit, 'Tenez-moi informé', class: "btn-form" %>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-map col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <%= image_tag "map.jpg", class: "img-fluid" %>
+      </div>
     </div>
   </div>
-</div>
-<% end %>
-
-
+  <% end %>
 </section>
-
-
 <section class="history container">
   <div class="row">
     <div class="col-md-5">

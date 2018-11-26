@@ -27,8 +27,8 @@ body.pages.index
         .btn-hote, .btn-convive
           text-align: right
           a
-            border: 1px solid #c6a39e
-            color: #c6a39e
+            border: 1px solid $color-main
+            color: $color-main
             border-radius: 0
             font-weight: bold
             font-size: 0.9em
@@ -37,31 +37,51 @@ body.pages.index
           a.btn-2
             padding: 10px 45px   
           a:hover
-            border: 1px solid $color-main
-            color: $color-main
+            border: 1px solid #a6969b
+            color: #a6969b
 /*****************/
 
 /*** BLOC 2 SOON ***/
 .soon
   margin-top: 140px
+  margin-bottom: 120px
   .row
     .col-form
       h2
         font-size: 3.125em
         line-height: 1.1em
+        font-family: '', sans-serif
       .style-ville
         color: $color-main
-        font-style: italic
+        font-family: 'Barlow', sans-serif
+        font-style: italic        
       p
         color: $color-main
         font-weight: bold
         font-size: 1.1em
         line-height: 1.3em
         margin: 100px 0 60px 0
-      .new_preregistration
-        .form-control
-          width: 40%
-          background-color: transparent
+      .form-home
+        margin-left: 0  
+        .new_preregistration
+          .form-control
+            color: #a9a9a9
+            font-style: italic
+            background-color: transparent
+            border-top: 0
+            border-left: 0
+            border-right: 0
+            border-bottom: 1px solid $color-main
+          .btn-form
+            border: 1px solid $color-main
+            color: $color-main
+            background-color: transparent
+            font-weight: bold
+            margin-top: 50px
+            padding: 15px 50px
+          .btn-form:hover
+            border: 1px solid #a6969b
+            color: #a6969b
 
 
 .how
@@ -112,4 +132,45 @@ body.pages.index
               text-align: center 
 /*****************/
 
-/*** BLOC 2 ***/ 
+/*** BLOC 2 SOON MOB ***/ 
+@media screen and (max-width: 1392px)
+    .soon
+      margin-top: 130px
+      .row
+        .col-form
+          h2
+            font-size: 2.5em      
+          p
+            margin: 70px 0 40px 0
+        .col-map
+          padding-top: 30px    
+
+@media screen and (max-width: 1030px)
+    .soon
+      margin-top: 100px
+      .row
+        .col-form
+          h2
+            font-size: 2.2em      
+          p
+            margin: 50px 0 30px 0
+        .col-map
+          padding-top: 50px
+
+@media screen and (max-width: 991px)
+    .soon
+      margin-top: 50px
+      .row
+        .col-form
+          h2
+            font-size: 2.5em
+            text-align: center      
+          p
+            margin: 40px 0 30px 0
+            text-align: center
+          .row
+            justify-content: center !important
+        .col-map
+          text-align: center
+          margin: 0
+          padding: 60px 0 0 0
