@@ -82,7 +82,6 @@ body.pages.index
           .btn-form:hover
             border: 1px solid #a6969b
             color: #a6969b
-
 /*****************/
 
 /*** BLOC 3 HISTORY ***/
@@ -113,12 +112,59 @@ body.pages.index
       line-height: 1.3em
       font-weight: 500
       margin-bottom: 40px
+/*****************/
 
+/*** BLOC 4 HOW ***/
 .how
   background: $color-main
-  padding: 100px 0
+  padding: 220px 0 200px 0
   color: white
-  h1
+  h2
+    font-size: 3.125em
+    line-height: 1em
+    font-family: 'Barlow', sans-serif
+    padding-bottom: 112px
+  .steps-illustration1
+    margin: 0 60px
+    vertical-align: bottom
+  .steps-illustration2
+    margin: 0 70px
+    vertical-align: bottom
+  .steps-illustration3
+    margin: 0 60px
+    vertical-align: bottom
+  p
+    font-size: 1.1em
+    line-height: 1.5em
+    font-weight: 500
+    margin: 80px 20px 20px 20px
+/*****************/
+
+/*** BLOC 5 PRICING ***/
+.pricing
+  h2
+    font-size: 3.125em
+    line-height: 1em
+    font-family: 'Barlow', sans-serif
+    padding: 140px 0 20px 0
+  .style-name
+    color: $color-main
+    font-family: 'Barlow', sans-serif
+    font-style: italic    
+  .text-meal
+    font-weight: 500
+    color: #767575
+    font-size: 1.5em
+    line-height: 1.7em
+    padding-bottom: 160px
+  .meal-illustration1
+    margin: 0 20px 20px 20px
+  .meal-illustration2
+    margin: 0 5px
+  .meal-illustration3
+    margin: 0 5px
+  p
+    
 
 /** HOME CSS MOBILE **/
 /*** BLOC 1 HERO MOB ***/
@@ -204,30 +250,86 @@ body.pages.index
           text-align: center
           margin: 0
           padding: 60px 0 0 0
-
 /*****************/
 
 /*** BLOC 3 HISTORY MOB ***/ 
 @media screen and (max-width: 1382px)
     .history
-      .img-history
-        .img-hist
-          position: relative
-          top: 110px 
       .text-history
         padding-top: 115px
         padding-right: 30px
+        h3
+          margin: 20px 0 20px 0
+        p 
+          margin-bottom: 20px
+
+@media screen and (max-width: 1199px)
+    .history
+      .text-history
+        padding-top: 115px
+        padding-right: 30px
+        h2
+          font-size: 2.5em
+          line-height: 1em
+        h3
+          font-size: 1.2em
+          line-height: 1.3em
+          margin: 20px 0 20px 0
+        p 
+          font-size: 1em
+          line-height: 1.2em
+          font-weight: 500
+          margin-bottom: 20px
+
+@media screen and (max-width: 991px)
+    .history
+      .img-history
+        text-align: center
+        .img-hist
+          margin-top: 80px
+          position: static
+          top: 0
+      .text-history
+        padding-top: 80px
+        padding-right: 20px
         h2
           font-size: 3.125em
           line-height: 1em
         h3
           font-size: 1.3em
           line-height: 1.5em
-          margin: 20px 0 20px 0
+          margin: 50px 0 50px 0
         p 
           font-size: 1.1em
           line-height: 1.3em
-          font-weight: 500
-          margin-bottom: 20px
+          margin-bottom: 40px
+/*****************/
+
+/*** BLOC 4 HOW MOB ***/
+@media screen and (max-width: 1599px)
+    .how
+      h2
+      .steps-illustration1
+        margin: 0 30px
+      .steps-illustration2
+        margin: 0 40px
+      .steps-illustration3
+        margin: 0 30px
 
 @media screen and (max-width: 1199px)
+    .how
+      padding: 200px 0 150px 0
+
+@media screen and (max-width: 991px)
+    .how
+      padding: 100px 0 50px 0
+      h2
+        padding-left: 20px
+      .steps-illustration1
+        margin: 0
+      .steps-illustration2
+        margin: 0
+      .steps-illustration3
+        margin: 0
+      p
+        margin: 40px 20px 120px 20px
