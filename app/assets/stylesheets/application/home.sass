@@ -142,6 +142,7 @@ body.pages.index
 
 /*** BLOC 5 PRICING ***/
 .pricing
+  padding-bottom: 50px
   h2
     font-size: 3.125em
     line-height: 1em
@@ -158,13 +159,16 @@ body.pages.index
     line-height: 1.7em
     padding-bottom: 160px
   .meal-illustration1
-    margin: 0 20px 20px 20px
+    margin: 0 24px 20px 24px
   .meal-illustration2
-    margin: 0 5px
+    margin: 0 5px 30px 5px
   .meal-illustration3
-    margin: 0 5px
+    margin: 0 5px 26px 5px
   p
-    
+    font-size: 1.2em
+    line-height: 1.4em
+    font-weight: 500
+    color: #767575
 
 /** HOME CSS MOBILE **/
 /*** BLOC 1 HERO MOB ***/
@@ -333,3 +337,30 @@ body.pages.index
         margin: 0
       p
         margin: 40px 20px 120px 20px
+/*****************/
+
+/*** BLOC 5 PRICING MOB ***/
+@media screen and (max-width: 1599px)
+    .pricing
+      .meal-illustration1
+        margin: 0 15px 20px 15px
+      .meal-illustration2
+        margin: 0 0 25px 0
+      .meal-illustration3
+        margin: 0 0 23px 0
+
+@media screen and (max-width: 991px)
+    .pricing
+      padding-bottom: 50px
+      h2
+        padding: 100px 0 20px 0 
+      .text-meal
+        padding-bottom: 100px
+      .meal-illustration1
+        margin: 0
+      .meal-illustration2
+        margin: 0
+        padding-top: 100px
+      .meal-illustration3
+        margin: 0
+        padding-top: 100px
