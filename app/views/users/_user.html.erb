@@ -1,7 +1,11 @@
 <div class="col-md-3">
   <%= link_to user_path(user_slug: user.slug) do %>
     <div class="card mb-4">
-      <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid' if user.photo.attached? %>
+      <% if user.photo.attached? %>
+        <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid' %>
+      <% else %>
+        <%= image_tag 'avatar.png', class: 'img-fluid' %>
+      <% end %>
       <div class="card-body">
         <h2><%= user.to_short_s %></h2>
         <p>
