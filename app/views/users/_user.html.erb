@@ -1,16 +1,22 @@
-<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+<div class="card-hote col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
   <%= link_to user_path(user_slug: user.slug) do %>
   <div class="card mb-4">
-    <div class="div-img-hote">
-     <% if user.photo.attached? %>
+    <div class="row">
+      <div class="div-img-hote col-5">
+        <% if user.photo.attached? %>
         <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid img-hote' %>
-      <% else %>
+        <% else %>
         <%= image_tag 'avatar.png', class: 'img-fluid img-hote' %>
-      <% end %>
+        <% end %>
+      </div>
+      <div class="name-hote col-7 pr-0 pl-2">
+        <h2><%= user.to_short_s %></h2>
+        <p>X repas</p>        
+        <hr>
+      </div>
+      <i class="far fa-user-circle"></i>
     </div>
-    <div class="name-hote"><h2><%= user.to_short_s %></h2></div>
     <div class="card-body">
-      <div class="region">   
         <p>
           <% if user.ambassador? %>
           Ambassadeur
@@ -21,27 +27,27 @@
           <% end %>
           à <%= user.city %> depuis <%= l user.created_at, format: "%B %Y" %>
         </p>
-      </div>
-      <div class="desc-hote">
-        <p><%= simple_format user.description %></p>
-      </div>
-      <div class="jours-pref">
+
         <% if user.localized_reception_days.any? %>
-        <h3>Jours préférés</h3>
-        <ul>
-          <% user.localized_reception_days.each do |day| %>
-          <li><%= day %></li>
-          <% end %>
-        </ul>
+        <p>Jours préférés · <span class="style-txt-hote"><% user.localized_reception_days.each do |day| %>
+          <%= day %> /
+          <% end %></span>
+        </p>    
         <% end %>
-      </div>
+
+        <p><span class="style-txt-hote">X repas</span> déjà organisés</p>
+   
+        <p class="desc-hote"><%= simple_format user.description %></p>
+      
       <div class="specialties">
         <% unless user.specialties.blank? %>
-        <h3>Mes spécialités</h3>
-        <p><%= user.specialties %></p>
+        <p>Mes spécialités<br/>
+        <span class="style-txt-hote"><%= user.specialties %></span></p>
         <% end %>
       </div>
-      <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-primary' %>
+      <div class="btn-hote">
+      <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-primary btn-contact-hote' %>
+    </div>
     </div>
   </div>
   <% end %>

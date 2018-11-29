@@ -63,19 +63,68 @@
     color: #d5cbce
     font-size: 2em
 
-.card
-  padding: 50px
-  .div-img-hote
-    float: left
-    .img-hote
-      width: 100px
-      border-radius: 50px
-      webkit-border-radius: 50px
-      moz-border-radius: 50px
-  .name-hote
-    h2
-      padding: 5px 0 0 150px
-      color: #252424
-      font-size: 2.3em
-      line-height: 1em
-      font-family: $font-title
+.card-hote
+  a:hover, a:active, a:focus
+    text-decoration: none
+  .card
+    padding: 50px
+    border: 0
+    min-height: 700px
+    .row
+      .div-img-hote
+        padding: 0 10px 0 15px
+        .img-hote
+          width: 100%
+          max-width: 100px
+          border-radius: 50px
+          webkit-border-radius: 50px
+          moz-border-radius: 50px
+      .name-hote
+        h2
+          padding: 5px 0 0 0
+          color: #252424
+          font-size: 2.2em
+          line-height: 1em
+          font-family: $font-title
+        p
+          color: $color-main
+          font-size: $p-size-base
+          font-weight: 500
+      .fa-user-circle
+        position: absolute
+        right: 0
+        top: 0
+        padding: 7px
+        background-color: $color-main
+        font-size: 1.3em
+        color: #fff
+    .card-body
+      padding: 45px 0 0 0
+      p
+        color: #a1a0a0
+        font-style: italic
+        font-size: $p-size-base
+        font-weight: 500
+      .style-txt-hote
+        color: #252424
+        font-style: normal
+        font-weight: bold
+      .desc-hote
+        font-weight: 500
+        line-height: 1.4em
+        font-style: normal
+        color: #0e0d0e
+      .btn-hote
+        text-align: center
+        margin: 40px 0 0 0
+        a.btn-contact-hote
+          border: 1px solid $color-main
+          background-color: #fff
+          color: $color-main
+          border-radius: 0
+          font-weight: bold
+          font-size: 1em
+          padding: 10px 60px
+        a.btn-contact-hote:hover, a.btn-contact-hote:active, a.btn-contact-hote:focus
+          border: 1px solid #a6969b
+          color: #a6969b
