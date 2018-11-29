@@ -1,11 +1,11 @@
 <%= content_for :title, t('menu.hosts') %>
 
-<div class="container">
+<div class="container-fluid global-large">
   <div class="row">
-    <div class="col-md-11 offset-md-1">
-      <h1><%= t('menu.hosts') %></h1>
-      <p>Choisissez votre ville :</p>
-      <ul class="list-inline">
+    <div class="hote-city col-12">
+      <h1><span class="style-hote">Rencontrez</span> nos <%= t('menu.hosts') %></h1>
+      <p>Choisissez votre ville&nbsp;:</p>
+      <ul class="list-inline btn-city">
         <% @cities.each do |city| %>
         <li class="list-inline-item"><%= link_to city, city_hosts_path(city_slug: city.slug), class: 'btn btn-primary' %></li>
         <% end %>
@@ -15,11 +15,10 @@
 </div>
 
 <section class="users__list">
-  <div class="container">
-
+  <div class="container-fluid global-large">
     <% if @meals.any? %>
+    <div class="title-hote col-xl-11 offset-xl-1 col-lg-11 offset-lg-1 col-md-11 offset-md-1 col-sm-12 offset-sm-0 col-xs-12 offset-xs-0">
       <div class="row">
-        <div class="col-md-11 offset-md-1">
           <h2>Repas ouverts</h2>
         </div>
       </div>
@@ -27,22 +26,26 @@
         <%= render partial: 'meals/meal', collection: @meals %>
       </div>
     <% end %>
-
-    <div class="row">
-      <div class="col-md-11 offset-md-1">
-        <h2>Contactez un hôte</h2>
+    
+    <div class="title-hote col-xl-11 offset-xl-1 col-lg-11 offset-lg-1 col-md-11 offset-md-1 col-sm-12 offset-sm-0 col-xs-12 offset-xs-0">
+      <div class="row">
+        <h2><span class="style-hote">Contactez</span> un hôte</h2>
       </div>
     </div>
-    <div class="row" id="users">
-      <%= render partial: 'users/user', collection: @users %>
+    <div id="users" class="col-12 pl-xl-5 pr-xl-5">
+      <div class="row">
+        <%= render partial: 'users/user', collection: @users %>
+      </div>
     </div>
     <% unless @users.empty? || @users.last_page? %>
-      <br/>
+      <div class="voir-plus">
       <%= link_to 'Voir plus', 
                   hosts_path(page: @users.current_page+1),
                   class: "btn btn-primary",
                   id: "load-more-users",
                   remote: true %>
+        <i class="fas fa-angle-down"></i>
+      </div>
     <% end %>
   </div>
 </section>

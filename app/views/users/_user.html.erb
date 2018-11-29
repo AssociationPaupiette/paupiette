@@ -1,34 +1,44 @@
-<div class="col-md-3">
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
   <%= link_to user_path(user_slug: user.slug) do %>
-    <div class="card mb-4">
-      <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid' if user.photo.attached? %>
-      <div class="card-body">
-        <h2><%= user.to_short_s %></h2>
+  <div class="card mb-4">
+    <div class="div-img-hote">
+      <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid img-hote' if user.photo.attached? %>
+    </div>
+    <div class="name-hote"><h2><%= user.to_short_s %></h2></div>
+    <div class="card-body">
+      <div class="region">
         <p>
           <% if user.ambassador? %>
-            Ambassadeur
+          Ambassadeur
           <% elsif user.host? %>
-            Hôte
+          Hôte
           <% else %>
-            Convive
+          Convive
           <% end %>
           à <%= user.city %> depuis <%= l user.created_at, format: "%B %Y" %>
         </p>
-        <p><%= simple_format user.description %></p>
-        <% if user.localized_reception_days.any? %>
-          <h3>Jours préférés</h3>
-          <ul>
-            <% user.localized_reception_days.each do |day| %>
-              <li><%= day %></li>
-            <% end %>
-          </ul>
-        <% end %>
-        <% unless user.specialties.blank? %>
-          <h3>Mes spécialités</h3>
-          <p><%= user.specialties %></p>
-        <% end %>
-        <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-primary' %>
       </div>
+      <div class="desc-hote">
+        <p><%= simple_format user.description %></p>
+      </div>
+      <div class="jours-pref">
+        <% if user.localized_reception_days.any? %>
+        <h3>Jours préférés</h3>
+        <ul>
+          <% user.localized_reception_days.each do |day| %>
+          <li><%= day %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+      <div class="specialties">
+        <% unless user.specialties.blank? %>
+        <h3>Mes spécialités</h3>
+        <p><%= user.specialties %></p>
+        <% end %>
+      </div>
+      <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-primary' %>
     </div>
+  </div>
   <% end %>
 </div>
