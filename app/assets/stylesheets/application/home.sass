@@ -74,6 +74,8 @@ body.pages.index
             border-left: 0
             border-right: 0
             border-bottom: 1px solid $color-main
+          .form-control::placeholder
+            color: #a9a9a9
           .btn-form
             border: 1px solid $color-main
             color: $color-main
@@ -93,8 +95,7 @@ body.pages.index
       position: relative
       top: 110px 
   .text-history
-    padding-top: 115px
-    padding-right: 30px
+    padding: 115px 100px 0 100px
     h2
       font-size: 3.125em
       line-height: 1em
@@ -179,13 +180,21 @@ body.pages.index
 
 /** HOME CSS MOBILE **/
 /*** BLOC 1 HERO MOB ***/
+@media screen and (max-width: 1499px)
+    .hero
+      .row
+        .col-bienvenue
+        h1
+          font-size: 2.4em        
+
+
 @media screen and (max-width: 1199px)
     .hero
       margin-bottom: 60px
       .row
         .col-bienvenue
         h1
-          font-size: 2.4em
+          font-size: 2.2em
         .col-bouton
           padding: 30px 0 0 0
           .bloc-btn
@@ -226,6 +235,16 @@ body.pages.index
 /*****************/
 
 /*** BLOC 2 SOON MOB ***/ 
+@media screen and (max-width: 1499px)
+    .soon
+      .row
+        .col-form
+          h2
+            font-size: 2.5em
+          p
+            font-size: 1em
+   
+
 @media screen and (max-width: 1392px)
     .soon
       margin-top: 130px
@@ -246,6 +265,7 @@ body.pages.index
           h2
             font-size: 2.2em
           p
+            font-size: 0.9em
             margin: 50px 0 30px 0
         .col-map
           padding-top: 50px
@@ -255,14 +275,11 @@ body.pages.index
       margin-top: 50px
       .row
         .col-form
+          margin-left: 20px
           h2
             font-size: 2.5em
-            text-align: center
           p
             margin: 40px 0 30px 0
-            text-align: center
-          .row
-            justify-content: center !important
         .col-map
           text-align: center
           margin: 0
@@ -270,36 +287,37 @@ body.pages.index
 /*****************/
 
 /*** BLOC 3 HISTORY MOB ***/
-@media screen and (max-width: 1382px)
+@media screen and (max-width: 1499px)
     .history
       .text-history
-        padding-top: 115px
-        padding-right: 30px
-        h3
-          margin: 20px 0 20px 0
-        p 
-          margin-bottom: 20px
-
-@media screen and (max-width: 1199px)
-    .history
-      .text-history
-        padding-top: 115px
-        padding-right: 30px
+        padding: 115px 100px 0 100px
         h2
           font-size: 2.5em
           line-height: 1em
         h3
-          font-size: 1.2em
+          font-size: 1.1em
           line-height: 1.3em
-          margin: 20px 0 20px 0
         p 
           font-size: 1em
           line-height: 1.2em
-          font-weight: 500
-          margin-bottom: 20px
+
+@media screen and (max-width: 1299px)
+    .history
+      .text-history
+        padding: 115px 80px 0 80px
+        h3
+          margin: 30px 0 20px 0
+        p
+          margin-bottom: 25px
+
+@media screen and (max-width: 1199px)
+    .history
+      .text-history
+        padding: 115px 70px 0 70px
 
 @media screen and (max-width: 991px)
     .history
+      margin-left: 20px
       .img-history
         text-align: center
         .img-hist
@@ -307,19 +325,21 @@ body.pages.index
           position: static
           top: 0
       .text-history
-        padding-top: 80px
-        padding-right: 20px
+        padding: 80px 100px 30px 20px
         h2
-          font-size: 3.125em
-          line-height: 1em
+          font-size: 2.5em
         h3
-          font-size: 1.3em
-          line-height: 1.5em
-          margin: 50px 0 50px 0
-        p 
           font-size: 1.1em
           line-height: 1.3em
+          margin: 40px 0 35px 0
+        p 
+          font-size: 1em
+          line-height: 1.2em
           margin-bottom: 40px
+
+@media screen and (max-width: 768px)
+    .history
+      margin-left: 0px
 /*****************/
 
 /*** BLOC 4 HOW MOB ***/
@@ -332,6 +352,13 @@ body.pages.index
         margin: 0 40px
       .steps-illustration3
         margin: 0 30px
+
+@media screen and (max-width: 1499px)
+    .how
+      h2
+        font-size: 2.5em
+      p
+        font-size: 1.1em
 
 @media screen and (max-width: 1199px)
     .how
@@ -362,8 +389,19 @@ body.pages.index
       .meal-illustration3
         margin: 0 0 23px 0
 
+@media screen and (max-width: 1499px)
+    .pricing
+      h2
+        font-size: 2.5em
+      .text-meal
+        font-size: 1.1em
+        line-height: 1.3em
+      p
+        font-size: 1.1em
+
 @media screen and (max-width: 991px)
     .pricing
+      margin-left: 20px
       padding-bottom: 50px
       h2
         padding: 100px 0 20px 0 
@@ -377,3 +415,7 @@ body.pages.index
       .meal-illustration3
         margin: 0
         padding-top: 100px
+
+@media screen and (max-width: 768px)
+    .pricing
+      margin-left: 0px
