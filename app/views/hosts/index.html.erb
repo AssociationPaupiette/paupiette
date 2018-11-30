@@ -38,12 +38,13 @@
     </div>
     <% unless @users.empty? || @users.last_page? %>
       <div class="voir-plus">
-      <%= link_to 'Voir plus', 
-                  hosts_path(page: @users.current_page+1),
+      <%= link_to hosts_path(page: @users.current_page+1),
                   class: "btn btn-primary",
                   id: "load-more-users",
-                  remote: true %>
-        <i class="fas fa-angle-down"></i>
+                  remote: true do %>
+          Voir plus
+          <i class="fas fa-angle-down"></i>
+        <% end %>
       </div>
     <% end %>
   </div>
