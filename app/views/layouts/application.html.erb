@@ -10,8 +10,8 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body class="<%= controller.controller_name %> <%= controller.action_name %>">
-    <%= render 'nav' %>
     <div class="container">
+      <%= render 'nav' %>
       <%= render 'breadcrumb' %>
       <%= render 'flash' %>
     </div>
