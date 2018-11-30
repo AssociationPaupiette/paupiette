@@ -1,46 +1,49 @@
-<nav class="navbar nav-marg navbar-light navbar-expand-md container-fluid global-large">
-  <div class="container-fluid offset-xl-1 col-xl-11 offset-lg-0 col-lg-12 offset-md-0 col-md-12 offset-sm-0 col-sm-12">
-    <%= link_to image_tag('logo.svg', width: 208), root_path, class: 'navbar-brand' %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar nav-marg navbar-light navbar-expand-md container">
+  <%= link_to image_tag('logo.svg', width: 208), root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item mr-xl-5 mr-lg-3 mr-md-2 mr-sm-0"><%= link_to t('menu.hosts'), hosts_path, class: 'nav-link nav-item-1' %></li>
-        <li class="nav-item ml-xl-5 mr-xl-5 ml-lg-3 mr-lg-3 ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"><%= link_to t('menu.ambassadors'), ambassadors_path, class: 'nav-link nav-item-1' %></li>
-        <% if current_user.nil? %>
-        <li class="nav-item nav-item-3 ml-xl-5"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link link-2' %> / <%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link link-2' %></li>
-        <% else %>
-        <li class="nav-item ml-xl-5 mr-xl-5 ml-lg-3 mr-lg-3 ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
-          <%= link_to t('my.name'), my_root_path, class: 'nav-link nav-item-1' %>
-        </li>
-        <li class="nav-item dropdown">
-          <a  id="navbarDropdownMenuUser"
-            class="nav-link dropdown-toggle nav-item-2"
-            href="#"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false">
-            <%= current_user %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">
-            <%= link_to t('my.messages.name'), my_messages_path, class: 'dropdown-item' %>
-            <%= link_to t('my.profile.name'), my_profile_path, class: 'dropdown-item' %>
-            <%= link_to t('my.reviews.name'), my_reviews_path, class: 'dropdown-item' %>
-            <%= link_to t('my.meals.name'), my_meals_path, class: 'dropdown-item' %>
-            <% if can? :manage, :city %>
-            <%= link_to t('my_cities.name'), my_cities_root_path, class: 'dropdown-item' %>
-            <% end %>
-            <% if can? :access, :admin %>
-            <%= link_to t('menu.admin'), admin_root_path, class: 'dropdown-item' %>
-            <% end %>
-            <div class="dropdown-divider"></div>
-            <%= link_to t('menu.signout'), destroy_user_session_path, class: 'dropdown-item' %>
-          </div>
-        </li>
-        <% end %>
-      </ul>
-    </div>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item mr-xl-5 mr-lg-3 mr-md-2 mr-sm-0"><%= link_to t('menu.hosts'), hosts_path, class: 'nav-link nav-item-1' %></li>
+      <li class="nav-item ml-xl-5 mr-xl-5 ml-lg-3 mr-lg-3 ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"><%= link_to t('menu.ambassadors'), ambassadors_path, class: 'nav-link nav-item-1' %></li>
+      <% if current_user.nil? %>
+      <li class="nav-item nav-item-3 ml-xl-5"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link link-2' %> / <%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link link-2' %></li>
+      <% else %>
+      <li class="nav-item ml-xl-5 mr-xl-5 ml-lg-3 mr-lg-3 ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
+        <%= link_to t('my.name'), my_root_path, class: 'nav-link nav-item-1' %>
+      </li>
+      <li class="nav-item dropdown">
+        <a  id="navbarDropdownMenuUser"
+          class="nav-link dropdown-toggle nav-item-2"
+          href="#"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false">
+          <%= current_user %>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">
+          <%= link_to t('my.messages.name'), my_messages_path, class: 'dropdown-item' %>
+          <%= link_to t('my.profile.name'), my_profile_path, class: 'dropdown-item' %>
+          <%= link_to t('my.reviews.name'), my_reviews_path, class: 'dropdown-item' %>
+          <%= link_to t('my.meals.name'), my_meals_path, class: 'dropdown-item' %>
+          <% if can? :manage, :city %>
+          <%= link_to t('my_cities.name'), my_cities_root_path, class: 'dropdown-item' %>
+          <% end %>
+          <% if can? :access, :admin %>
+          <%= link_to t('menu.admin'), admin_root_path, class: 'dropdown-item' %>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to t('menu.signout'), destroy_user_session_path, class: 'dropdown-item' %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
   </div>
-</div>
 </nav>
