@@ -1,122 +1,120 @@
 <%= content_for :title, 'Bienvenue' %>
-<section class="container pr-xl-0 pr-lg-0 pr-md-0 pl-md-0">
-  <div class="hero offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
-    <div class="row">
-      <div class="col-bienvenue col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
-      </div>
-      <% if current_user.nil? %>
-      <div class="col-bouton col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="row bloc-btn">
-          <div class="btn-hote col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-1' %>
-          </div>
-          <div class="btn-convive col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-2' %>
-          </div>
+<div class="hero offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
+  <div class="row">
+    <div class="col-bienvenue col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
+    </div>
+    <% if current_user.nil? %>
+    <div class="col-bouton col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="row bloc-btn">
+        <div class="btn-hote col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-1' %>
         </div>
+        <div class="btn-convive col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-2' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="img-central offset-xl-2 col-xl-10 pr-xl-0 offset-lg-1 col-lg-11 pr-lg-0 offset-md-0 col-md-12 pr-md-0 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
+  <%= image_tag 'hero.jpg', class: 'img-fluid' %>
+</div>
+<% if current_user.nil? %>
+<div class="soon offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
+  <div class="row">
+    <div class="col-form col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <h2>Paupiette est à <span class="style-ville">Paris</span>,<br/><span class="style-ville">Bordeaux</span> &amp;&nbsp;<span class="style-ville">Quimper</span>&nbsp;!
+      </h2>
+      <p>Laissez-nous vos coordonnées pour être tenu<br/>au courant de l'ouverture dans votre région&nbsp;:</p>
+      <div class="row form-home">
+        <%= simple_form_for @preregistration do |f| %>
+        <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
+        <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
+        <%= f.input :email, label: false, placeholder: 'Email' %>
+        
+        <%= f.button :submit, 'Tenez-moi informé', class: "btn-form" %>
       </div>
       <% end %>
     </div>
-  </div>
-  <div class="img-central offset-xl-2 col-xl-10 pr-xl-0 offset-lg-1 col-lg-11 pr-lg-0 offset-md-0 col-md-12 pr-md-0 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
-    <%= image_tag 'hero.jpg', class: 'img-fluid' %>
-  </div>
-  <% if current_user.nil? %>
-  <div class="soon offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
-    <div class="row">
-      <div class="col-form col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-        <h2>Paupiette est à <span class="style-ville">Paris</span>,<br/><span class="style-ville">Bordeaux</span> &amp;&nbsp;<span class="style-ville">Quimper</span>&nbsp;!
-        </h2>
-        <p>Laissez-nous vos coordonnées pour être tenu<br/>au courant de l'ouverture dans votre région&nbsp;:</p>
-        <div class="row form-home">
-          <%= simple_form_for @preregistration do |f| %>
-          <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
-          <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
-          <%= f.input :email, label: false, placeholder: 'Email' %>
-          
-          <%= f.button :submit, 'Tenez-moi informé', class: "btn-form" %>
-        </div>
-        <% end %>
-      </div>
-      <div class="col-map col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-        <%= image_tag "map.jpg", class: "img-fluid" %>
-      </div>
+    <div class="col-map col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <%= image_tag "map.jpg", class: "img-fluid" %>
     </div>
   </div>
-  <% end %>
+</div>
+<% end %>
 
-  <div class="history offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
-    <div class="row">
-      <div class="img-history col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-        <%= image_tag "about-us.jpg", class: "img-fluid img-hist" %>
-      </div>
-      <div class="text-history col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-        <h2>L'histoire de <span class="style-name">Paupiette</span></h2>
-        <h3>Paupiette réunit séniors et étudiants sur le temps du déjeuner&nbsp;!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+<div class="history offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
+  <div class="row">
+    <div class="img-history col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <%= image_tag "about-us.jpg", class: "img-fluid img-hist" %>
+    </div>
+    <div class="text-history col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <h2>L'histoire de <span class="style-name">Paupiette</span></h2>
+      <h3>Paupiette réunit séniors et étudiants sur le temps du déjeuner&nbsp;!</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
   </div>
+</div>
 
-  <div class="how">
-    <div class="container">
-      <div class="row">
-        <div class="col-11 offset-1">
-          <h2><i>Paupiette</i> en 3 étapes</h2>
-          <div class="row">
-            <div class="col-4 text-center">
-              <div class="steps-illustration1">
-                <%= image_tag "illustration-step1.png", class: 'img-fluid', width: '335', height: '277' %>
-              </div>
-              <p>Remplissez votre profil hôte,<br/>vos spécialités et disponibilités</p>
+<div class="how">
+  <div class="container">
+    <div class="row">
+      <div class="col-11 offset-1">
+        <h2><i>Paupiette</i> en 3 étapes</h2>
+        <div class="row">
+          <div class="col-4 text-center">
+            <div class="steps-illustration1">
+              <%= image_tag "illustration-step1.png", class: 'img-fluid', width: '335', height: '277' %>
             </div>
-            <div class="col-4 text-center">
-              <div class="steps-illustration2">
-                <%= image_tag "illustration-step2.png", class: 'img-fluid', width: '309', height: '276' %>
-              </div>
-              <p>Les convives contactent<br/>les hôtes et décident ensemble<br/>de leur rencontre</p>
+            <p>Remplissez votre profil hôte,<br/>vos spécialités et disponibilités</p>
+          </div>
+          <div class="col-4 text-center">
+            <div class="steps-illustration2">
+              <%= image_tag "illustration-step2.png", class: 'img-fluid', width: '309', height: '276' %>
             </div>
-            <div class="col-4 text-center">
-              <div class="steps-illustration3">
-                <%= image_tag "illustration-step3.png", class: 'img-fluid', width: '341', height: '276' %>
-              </div>
-              <p>Accueillez les convives<br/>à votre domicile</p>
+            <p>Les convives contactent<br/>les hôtes et décident ensemble<br/>de leur rencontre</p>
+          </div>
+          <div class="col-4 text-center">
+            <div class="steps-illustration3">
+              <%= image_tag "illustration-step3.png", class: 'img-fluid', width: '341', height: '276' %>
             </div>
+            <p>Accueillez les convives<br/>à votre domicile</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="pricing">
-    <div class="container">
-      <div class="row">
-        <div class="col-11 offset-1">
-          <h2>Les formules de <span class="style-name">Paupiette</span></h2>
-          <p class="text-meal">Des formules à prix unique lorem ipsum dolor sit amet</p>
-          <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
-              <div class="meal-illustration1">
-                <%= image_tag "meal-1.png", class: 'img-fluid', width: '373', height: '463' %>
-              </div>
-              <p>Plat</p>
+<div class="pricing">
+  <div class="container">
+    <div class="row">
+      <div class="col-11 offset-1">
+        <h2>Les formules de <span class="style-name">Paupiette</span></h2>
+        <p class="text-meal">Des formules à prix unique lorem ipsum dolor sit amet</p>
+        <div class="row">
+          <div class="col-4 text-center">
+            <div class="meal-illustration1">
+              <%= image_tag "meal-1.png", class: 'img-fluid', width: '373', height: '463' %>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
-              <div class="meal-illustration2">
-                <%= image_tag "meal-2.png", class: 'img-fluid', width: '424', height: '463' %>
-              </div>
-              <p>Entrée + Plat <br/> ou Plat + Dessert </p>
+            <p>Plat</p>
+          </div>
+          <div class="col-4 text-center">
+            <div class="meal-illustration2">
+              <%= image_tag "meal-2.png", class: 'img-fluid', width: '424', height: '463' %>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center">
-              <div class="meal-illustration3">
-                <%= image_tag "meal-3.png", class: 'img-fluid', width: '424', height: '467' %>
-              </div>
-              <p>Entrée + Plat <br/> + Dessert </p>
+            <p>Entrée + Plat <br/> ou Plat + Dessert </p>
+          </div>
+          <div class="col-4 text-center">
+            <div class="meal-illustration3">
+              <%= image_tag "meal-3.png", class: 'img-fluid', width: '424', height: '467' %>
             </div>
+            <p>Entrée + Plat <br/> + Dessert </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
