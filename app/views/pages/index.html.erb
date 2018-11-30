@@ -10,10 +10,10 @@
       </div>
       <% if current_user.nil? %>
         <div class="col-lg-2 offset-lg-0 col-sm-5 offset-md-1">
-          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block btn-primary btn-1' %>
+          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block btn-default btn-1' %>
         </div>
         <div class="col-lg-2 offset-lg-0 col-sm-5 offset-sm-0">
-          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block btn-primary btn-2' %>
+          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block btn-default btn-2' %>
         </div>
       <% end %>
     </div>
