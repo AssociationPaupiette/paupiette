@@ -22,9 +22,11 @@
   <%= image_tag 'hero.jpg', class: 'img-fluid' %>
 </div>
 <% if current_user.nil? %>
-<div class="soon offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
+
+<div class="soon col-md-11 offset-md-1">
+  <div class="container">
   <div class="row">
-    <div class="col-form col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-form col-lg-6 col-xs-12">
       <h2>Paupiette est à <span class="style-ville">Paris</span>,<br/><span class="style-ville">Bordeaux</span> &amp;&nbsp;<span class="style-ville">Quimper</span>&nbsp;!
       </h2>
       <p>Laissez-nous vos coordonnées pour être tenu<br/>au courant de l'ouverture dans votre région&nbsp;:</p>
@@ -38,10 +40,11 @@
       </div>
       <% end %>
     </div>
-    <div class="col-map col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-map col-lg-6 col-xs-12">
       <%= image_tag "map.jpg", class: "img-fluid" %>
     </div>
   </div>
+</div>
 </div>
 <% end %>
 
