@@ -1,23 +1,26 @@
 <%= content_for :title, 'Bienvenue' %>
-<div class="hero offset-xl-2 col-xl-10 offset-lg-1 col-lg-11 offset-md-0 col-md-12 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
-  <div class="row">
-    <div class="col-bienvenue col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
-    </div>
-    <% if current_user.nil? %>
-    <div class="col-bouton col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="row bloc-btn">
-        <div class="btn-hote col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-1' %>
-        </div>
-        <div class="btn-convive col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-2' %>
+
+<div class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 offset-md-1">
+        <div class="col-bienvenue">
+          <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
       </div>
+      <% if current_user.nil? %>
+        <div class="col-md-2">
+          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block btn-primary btn-1' %>
+        </div>
+        <div class="col-md-2">
+          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block btn-primary btn-2' %>
+        </div>
+      <% end %>
+      </div>
     </div>
-    <% end %>
   </div>
 </div>
+
 <div class="img-central offset-xl-2 col-xl-10 pr-xl-0 offset-lg-1 col-lg-11 pr-lg-0 offset-md-0 col-md-12 pr-md-0 offset-sm-0 col-sm-12 offset-xs-0 col-xs-12">
   <%= image_tag 'hero.jpg', class: 'img-fluid' %>
 </div>
