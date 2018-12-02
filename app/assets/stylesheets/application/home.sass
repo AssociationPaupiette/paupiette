@@ -11,94 +11,61 @@ body.pages.index
 /*** BLOC 1 HERO ***/
 .hero
   margin-bottom: 145px
+  .col-hello
+    h1
+      color: #828282
+      margin: 0 0 90px 0
   .hero__image
+    position: relative
     width: 120%
-  // .row
-  //   margin-right: 0
-  //   .col-bienvenue
-  h1
-    color: #252525
-    font-size: $h1-size-base
-    font-weight: 300
-  //   .col-bouton
-  //     padding: 7px 0 0 0
-  //     .bloc-btn
-  //       justify-content: flex-end !important
-  //       .btn-convive
-  //         padding-right: 20px
-  //       .btn-hote, .btn-convive
-  //         text-align: right
-  //         a
-  //           border: 1px solid $color-main
-  //           color: $color-main
-  //           border-radius: 0
-  //           font-weight: bold
-  //           font-size: 0.9em
-  //         a.btn-1
-  //           padding: 10px 55px
-  //         a.btn-2
-  //           padding: 10px 45px
-  //         a:hover
-  //           border: 1px solid #a6969b
-  //           color: #a6969b
-/*****************/
 
 /*** BLOC 2 SOON ***/
 .soon
   margin-top: 140px
-  margin-bottom: 20px
-  .row
-    .col-form
-      h2
-        font-size: $h2-size-base
-        line-height: 1.1em
-        font-family: $font-title
-        font-weight: 500
-      .style-ville
-        color: $color-main
-        font-family: $font-title
-        font-style: italic
-        font-weight: 500
-      p
-        color: $color-main
-        font-weight: bold
-        font-size: $p-size-base
-        line-height: 1.3em
-        margin: 100px 0 60px 0
-      .form-home
-        margin-left: 0  
-        .new_preregistration
-          .form-control
-            color: #a9a9a9
-            font-style: italic
-            background-color: transparent
-            border-top: 0
-            border-left: 0
-            border-right: 0
-            border-bottom: 1px solid $color-main
-          .form-control::placeholder
-            color: #a9a9a9
-          .btn-form
-            border: 1px solid $color-main
-            color: $color-main
-            background-color: transparent
-            font-weight: bold
-            margin-top: 50px
-            padding: 15px 50px
-          .btn-form:hover
-            border: 1px solid #a6969b
-            color: #a6969b
+  margin-bottom: 100px
+  .col-form
+    h2
+      font-weight: 500
+    .style-ville
+      color: $color-main
+      font-family: $font-title
+      font-style: italic
+      font-weight: 500
+    p
+      color: $color-main
+      font-weight: 500
+      margin: 80px 0 60px 0
+    .form-home
+      margin-left: 0  
+      .new_preregistration
+        .form-control
+          color: #a9a9a9
+          font-style: italic
+          background-color: transparent
+          border-top: 0
+          border-left: 0
+          border-right: 0
+          border-bottom: 1px solid $color-main
+        .form-control::placeholder
+          color: #a9a9a9
+        .btn-form
+          border: 1px solid $color-main
+          color: $color-main
+          background-color: transparent
+          font-weight: bold
+          margin-top: 50px
+          padding: 15px 50px
+        .btn-form:hover
+          border: 1px solid #a6969b
+          color: #a6969b
 /*****************/
 
 /*** BLOC 3 HISTORY ***/
 .history
   margin-bottom: -50px
   .text-history
-    padding: 115px 100px 0 100px
+    padding: 0 40px 0 0
     h2
-      font-size: $h2-size-base
-      line-height: 1em
-      font-family: $font-title
       font-weight: 500
     .style-name
       color: $color-main
@@ -106,14 +73,10 @@ body.pages.index
       font-weight: 500
       font-style: italic
     h3
-      font-size: $h3-size-base
-      line-height: 1.5em
       color: $color-main
-      margin: 50px 0 50px 0
+      margin: 50px 0 30px 0
     p 
       color: #a9a9a9
-      font-size: $p-size-base
-      line-height: 1.3em
       font-weight: 500
       margin-bottom: 40px
 /*****************/
@@ -121,11 +84,9 @@ body.pages.index
 /*** BLOC 4 HOW ***/
 .how
   background: $color-main
-  padding: 220px 0 200px 0
+  padding: 130px 0
   color: white
   h2
-    font-size: $h2-size-base
-    line-height: 1em
     font-family: $font-title
     font-weight: 500
     padding-bottom: 112px
@@ -140,7 +101,7 @@ body.pages.index
     vertical-align: bottom
   p
     font-size: 1.1em
-    line-height: 1.5em
+    line-height: 1.4em
     font-weight: 500
     margin: 80px 20px 20px 20px
 /*****************/
@@ -149,9 +110,6 @@ body.pages.index
 .pricing
   padding-bottom: 50px
   h2
-    font-size: $h2-size-base
-    line-height: 1em
-    font-family: $font-title
     font-weight: 500
     padding: 140px 0 20px 0
   .style-name
@@ -177,164 +135,8 @@ body.pages.index
     font-weight: 500
     color: #767575
 
-/** HOME CSS MOBILE **/
-/*** BLOC 1 HERO MOB ***/
-@media screen and (max-width: 1499px)
-    .hero
-      .row
-        .col-bienvenue
-        h1
-          font-size: 2.4em
 
-@media screen and (max-width: 1199px)
-    .hero
-      margin-bottom: 60px
-      .row
-        .col-bienvenue
-        h1
-          font-size: 2.2em
-        .col-bouton
-          padding: 30px 0 0 0
-          .bloc-btn
-            justify-content: center !important
-            .btn-convive
-              padding-right: 15px
-            .btn-hote, .btn-convive
-              text-align: center
-
-@media screen and (max-width: 959px)
-    .hero
-      .row
-        margin-right: 0px
-        .col-bienvenue
-        h1
-        .col-bouton
-          .bloc-btn
-            .btn-convive
-              padding-right: 0px
-
-@media screen and (max-width: 575px)
-    .hero
-      margin-bottom: 30px
-      .row
-        .col-bienvenue
-        h1
-          font-size: 2em
-        .col-bouton
-          padding: 20px 0 0 0
-          .bloc-btn
-            justify-content: center !important
-            .btn-convive
-              margin-top: 20px
-              padding-right: 15px
-            .btn-hote, .btn-convive
-              text-align: center 
-/*****************/
-
-/*** BLOC 2 SOON MOB ***/ 
-@media screen and (max-width: 1499px)
-    .soon
-      .row
-        .col-form
-          h2
-            font-size: 2.5em  
-
-@media screen and (max-width: 1392px)
-    .soon
-      margin-top: 130px
-      .row
-        .col-form
-          h2
-            font-size: 2.5em
-          p
-            margin: 70px 0 40px 0
-        .col-map
-          padding-top: 30px
-
-@media screen and (max-width: 1030px)
-    .soon
-      margin-top: 100px
-      .row
-        .col-form
-          h2
-            font-size: 2.2em
-          p
-            font-size: 0.9em
-            margin: 50px 0 30px 0
-        .col-map
-          padding-top: 50px
-
-@media screen and (max-width: 991px)
-    .soon
-      margin-top: 50px
-      .row
-        .col-form
-          margin-left: 20px
-          h2
-            font-size: 2.5em
-          p
-            margin: 40px 0 30px 0
-        .col-map
-          text-align: center
-          margin: 0
-          padding: 60px 0 0 0
-/*****************/
-
-/*** BLOC 3 HISTORY MOB ***/
-@media screen and (max-width: 1499px)
-    .history
-      .text-history
-        padding: 115px 100px 0 100px
-        h2
-          font-size: 2.5em
-          line-height: 1em
-        h3
-          font-size: 1.1em
-          line-height: 1.3em
-        p 
-          line-height: 1.2em
-
-@media screen and (max-width: 1299px)
-    .history
-      .text-history
-        padding: 115px 80px 0 80px
-        h3
-          margin: 30px 0 20px 0
-        p
-          margin-bottom: 25px
-
-@media screen and (max-width: 1199px)
-    .history
-      .text-history
-        padding: 115px 70px 0 70px
-
-@media screen and (max-width: 991px)
-    .history
-      margin-left: 20px
-      .img-history
-        text-align: center
-        .img-hist
-          margin-top: 80px
-          position: static
-          top: 0
-      .text-history
-        padding: 80px 100px 30px 20px
-        h2
-          font-size: 2.5em
-        h3
-          font-size: 1.1em
-          line-height: 1.3em
-          margin: 40px 0 35px 0
-        p 
-          line-height: 1.2em
-          margin-bottom: 40px
-
-@media screen and (max-width: 768px)
-    .history
-      margin-left: 0px
-/*****************/
-
-/*** BLOC 4 HOW MOB ***/
+/*** CSS MOBILE HOMEPAGE ***/
 @media screen and (max-width: 1599px)
     .how
       h2
@@ -344,19 +146,76 @@ body.pages.index
         margin: 0 40px
       .steps-illustration3
         margin: 0 30px
+    .pricing
+      .meal-illustration1
+        margin: 0 15px 20px 15px
+      .meal-illustration2
+        margin: 0 0 25px 0
+      .meal-illustration3
+        margin: 0 0 23px 0
 
-@media screen and (max-width: 1499px)
-    .how
-      h2
-        font-size: 2.5em
+@media screen and (max-width: 1392px)
+    .soon
+      margin-top: 130px
+      .row
+        .col-form
+          p
+            margin: 70px 0 40px 0
+        .col-map
+          padding-top: 30px
+
 
 @media screen and (max-width: 1199px)
+    .hero
+      margin-bottom: 60px
     .how
       padding: 200px 0 150px 0
 
+@media screen and (max-width: 1030px)
+    .soon
+      margin-top: 100px
+      .row
+        .col-form
+          p
+            margin: 50px 0 30px 0
+        .col-map
+          padding-top: 50px
+
 @media screen and (max-width: 991px)
+    .hero
+      .col-hello
+        h1
+          margin: 0 0 20px 0
+      .hero__image
+        width: 110%
+        margin-top: 40px
+    .soon
+      margin-top: 50px
+      .row
+        .col-form
+          margin-left: 20px
+          p
+            margin: 40px 0 30px 0
+        .col-map
+          text-align: center
+          margin: 0
+          padding-top: 60px
+    .history
+      margin-bottom: 0
+      .img-history
+        text-align: center
+        .img-hist
+          margin-top: 80px
+          position: static
+          top: 0
+      .text-history
+        padding: 40px 40px 20px 40px
+        h3
+          margin: 20px 0 20px 0
+        p 
+          margin-bottom: 40px
     .how
-      padding: 100px 0 50px 0
+      padding: 100px 0 20px 0
       h2
         padding-left: 20px
       .steps-illustration1
@@ -367,32 +226,11 @@ body.pages.index
         margin: 0
       p
         margin: 40px 20px 120px 20px
-/*****************/
-
-/*** BLOC 5 PRICING MOB ***/
-@media screen and (max-width: 1599px)
     .pricing
-      .meal-illustration1
-        margin: 0 15px 20px 15px
-      .meal-illustration2
-        margin: 0 0 25px 0
-      .meal-illustration3
-        margin: 0 0 23px 0
-
-@media screen and (max-width: 1499px)
-    .pricing
+      margin: 0 20px
+      padding-bottom: 30px
       h2
-        font-size: 2.5em
-      .text-meal
-        font-size: 1.1em
-        line-height: 1.3em
-
-@media screen and (max-width: 991px)
-    .pricing
-      margin-left: 20px
-      padding-bottom: 50px
-      h2
-        padding: 100px 0 20px 0 
+        padding: 80px 0 20px 0 
       .text-meal
         padding-bottom: 100px
       .meal-illustration1
@@ -404,6 +242,23 @@ body.pages.index
         margin: 0
         padding-top: 100px
 
-@media screen and (max-width: 768px)
-    .pricing
+@media screen and (max-width: 767px)
+    .hero
+      .hero__image
+        width: 100%
+    .history
       margin-left: 0px
+
+@media screen and (max-width: 575px)
+    .hero
+      margin-bottom: 30px
+      .container
+        padding-right: 0
+        .row
+          margin-right: 0
+          .col-hello
+            h1
+              font-size: 2em
+          .btn-2
+            margin: 20px 0 0 0
+/************/

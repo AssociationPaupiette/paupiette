@@ -10,7 +10,53 @@
       color: $color-main
       border-color: $color-main
 
+.btn-default
+  border: 1px solid $color-main !important
+  font-weight: 700 !important
+
+
+/*** GLOBAL CSS ***/
 h1
   font-size: $h1-size-base
   font-family: $font-title
-  margin: 0 0 90px 0
+  line-height: 1.2em
+
+h2
+  font-size: $h2-size-base
+  font-family: $font-title
+  line-height: 1.1em
+
+h3
+  font-size: $h3-size-base
+  line-height: 1.5em
+
+p
+  font-size: $p-size-base
+  line-height: 1.5em
+/**********/
+
+/*** GLOBAL CSS MOBILE ***/
+@media screen and (max-width: 1499px)
+    h1
+      font-size: 2.4em
+    h2
+      font-size: 2.5em
+      line-height: 1em
+    h3
+      font-size: 1.2em
+      line-height: 1em
+    p
+      font-size: 1em
+      line-height: 1.2em
+
+@media screen and (max-width: 991px)
+    h1
+      font-size: 2.3em
+    h2
+      font-size: 2.4em
+    h3
+      font-size: 1.1em
+    p
+      font-size: 1em
+      line-height: 1.2em
+/**********/
