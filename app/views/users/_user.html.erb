@@ -12,7 +12,7 @@
       <div class="name-user col-12 pt-3">
         <h2><%= user.to_short_s %></h2>
         <% if user.meals.any? %>
-          <p><%= user.meals.count %> repas</p>
+        <p><%= user.meals.count %> repas</p>
         <% end %>
         <hr>
       </div>
@@ -29,25 +29,22 @@
         <% end %>
         à <%= user.city %> depuis <%= l user.created_at, format: "%B %Y" %>
       </p>
-
       <% if user.localized_reception_days.any? %>
-        <p>Jours préférés · <span class="style-txt-user"><%= user.localized_reception_days.join(' / ') %></span></p>
+      <p>Jours préférés · <span class="style-txt-user"><%= user.localized_reception_days.join(' / ') %></span></p>
       <% end %>
-
       <div class="desc-user">
         <%= simple_format user.description %>
       </div>
 
-      <div class="specialties">
-        <% unless user.specialties.blank? %>
-        <p>Mes spécialités<br/>
+      <% unless user.specialties.blank? %>
+      <p>Mes spécialités<br/>
         <span class="style-txt-user"><%= user.specialties %></span></p>
         <% end %>
+        
+        <div class="btn-user">
+          <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-default btn-block' %>
+        </div>
       </div>
-      <div class="btn-user">
-      <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-default btn-block' %>
     </div>
-    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>

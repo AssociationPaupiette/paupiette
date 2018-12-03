@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="card-user col-lg-4 col-md-6">
   <div class="card">
     <%= link_to user_path(user_slug: meal.host.slug) do %>
       <%= render 'users/user_small', user: meal.host %>
@@ -9,7 +9,7 @@
         <%= meal.capacity %> convives attendus, 
         <%= meal.remaining %> place<%= 's' if meal.remaining >1 %> disponible<%= 's' if meal.remaining >1 %>
       </p>
-      <%= link_to 'Contacter', my_conversation_path(user_slug: meal.host.slug), class: 'btn btn-primary' %>
+      <%= link_to 'Contacter', my_conversation_path(user_slug: meal.host.slug), class: 'btn btn-primary btn-default' %>
     </div>
   </div>
 </div>
