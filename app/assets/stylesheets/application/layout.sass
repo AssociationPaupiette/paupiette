@@ -10,18 +10,18 @@
       color: $color-main
       border-color: $color-main
 
-a.btn-default
+a.btn-default, input.btn-default
   border: 1px solid $color-main !important
   color: $color-main
-  background-color: transparent
+  background-color: transparent !important
   font-weight: bold !important
   padding: 15px 50px
   font-size: 1em
   border-radius: 0
-a.btn-default:hover, a.btn-default:acive, a.btn-default:focus
+a.btn-default:hover, a.btn-default:active, a.btn-default:focus, input.btn-default:hover, input.btn-default:active, input.btn-default:focus
   border: 1px solid #a6969b !important
   color: #a6969b
-  background-color: transparent
+  background-color: transparent !important
 
 
 /*** GLOBAL CSS ***/
@@ -69,3 +69,24 @@ p
       font-size: 1em
       line-height: 1.2em
 /**********/
+
+/*** CSS REGISTRATION ***/
+.registration
+  h2
+    margin: 0 0 30px 0
+  .btn-default
+    margin: 30px 0 0 0
+  .form-actions
+    float: left
+.login
+  a
+    color: #252424
+    position: relative
+    top: 45px
+    left: 40px
+.login-2
+  a
+    color: #252424
+    position: relative
+    top: 30px
+    left: 40px
