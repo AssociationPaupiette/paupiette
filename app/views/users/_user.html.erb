@@ -1,15 +1,15 @@
-<div class="card-user col-md-4 col-sm-6">
+<div class="card-user col-lg-4 col-md-6">
   <%= link_to user_path(user_slug: user.slug) do %>
   <div class="card mb-4">
     <div class="row">
-      <div class="div-img-hote col-5">
+      <div class="div-img-user col-12">
         <% if user.photo.attached? %>
-        <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid img-hote' %>
+        <%= image_tag user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid img-user' %>
         <% else %>
-        <%= image_tag 'avatar.png', class: 'img-fluid img-hote' %>
+        <%= image_tag 'avatar.png', class: 'img-fluid img-user' %>
         <% end %>
       </div>
-      <div class="name-hote col-7 pr-0 pl-2">
+      <div class="name-user col-12 pt-3">
         <h2><%= user.to_short_s %></h2>
         <% if user.meals.any? %>
           <p><%= user.meals.count %> repas</p>
@@ -31,20 +31,20 @@
       </p>
 
       <% if user.localized_reception_days.any? %>
-        <p>Jours préférés · <span class="style-txt-hote"><%= user.localized_reception_days.join(' / ') %></span></p>
+        <p>Jours préférés · <span class="style-txt-user"><%= user.localized_reception_days.join(' / ') %></span></p>
       <% end %>
 
-      <div class="desc-hote">
+      <div class="desc-user">
         <%= simple_format user.description %>
       </div>
 
       <div class="specialties">
         <% unless user.specialties.blank? %>
         <p>Mes spécialités<br/>
-        <span class="style-txt-hote"><%= user.specialties %></span></p>
+        <span class="style-txt-user"><%= user.specialties %></span></p>
         <% end %>
       </div>
-      <div class="btn-hote">
+      <div class="btn-user">
       <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-default btn-block' %>
     </div>
     </div>

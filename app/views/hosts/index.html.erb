@@ -1,9 +1,9 @@
 <%= content_for :title, t('menu.hosts') %>
 
 <div class="container">
-  <div class="hote-city">
-    <h1><span class="style-hote">Rencontrez</span> nos <%= t('menu.hosts') %></h1>
-    <p>Choisissez votre ville&nbsp;:</p>
+  <div class="user-city">
+    <h1><span class="style-user">Rencontrez</span> nos <%= t('menu.hosts') %></h1>
+    <p>Choisissez votre ville</p>
     <ul class="list-inline btn-city">
       <% @cities.each do |city| %>
       <li class="list-inline-item"><%= link_to city, city_hosts_path(city_slug: city.slug), class: 'btn btn-primary' %></li>
@@ -15,10 +15,10 @@
 <section class="users__list">
   <div class="container">
     <% if @meals.any? %>
-    <div class="title-hote">
+    <div class="title-user">
       <div class="row">
         <div class="col-md-11 offset-md-1">
-          <h2>Repas ouverts</h2>
+          <h2><span class="style-user">X</span> Repas ouverts</h2>
         </div>
       </div>
       <div class="row">
@@ -26,10 +26,10 @@
       </div>
     <% end %>
     
-    <div class="title-hote">
+    <div class="title-user">
       <div class="row">
         <div class="col-md-11 offset-md-1">
-          <h2><span class="style-hote">Contactez</span> un hôte</h2>
+          <h2><span class="style-user">Contactez</span> un hôte</h2>
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
       <%= render partial: 'users/user', collection: @users %>
     </div>
     <% unless @users.empty? || @users.last_page? %>
-      <div class="voir-plus">
+      <div class="see-more">
       <%= link_to hosts_path(page: @users.current_page+1),
                   class: "btn btn-primary",
                   id: "load-more-users",

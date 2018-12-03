@@ -9,11 +9,11 @@
         </div>
       </div>
       <% if current_user.nil? %>
-        <div class="col-lg-2 offset-lg-0 col-sm-5 offset-md-1">
-          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block btn-default btn-1' %>
+        <div class="btn-1 col-lg-2 offset-lg-0 col-sm-5 offset-md-1">
+          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block' %>
         </div>
-        <div class="col-lg-2 offset-lg-0 col-sm-5 offset-sm-0">
-          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block btn-default btn-2' %>
+        <div class="btn-2 col-lg-2 offset-lg-0 col-sm-5 offset-sm-0">
+          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block' %>
         </div>
       <% end %>
     </div>
@@ -41,7 +41,7 @@
                 <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
                 <%= f.input :email, label: false, placeholder: 'Email' %>
                 
-                <%= f.button :submit, 'Tenez-moi informé', class: "btn-form" %>
+                <%= f.button :submit, 'Tenez-moi informé', class: "btn-default btn-form" %>
               </div>
               <% end %>
             </div>
