@@ -21,19 +21,20 @@
           <h2><span class="style-user">X</span> Repas ouverts</h2>
         </div>
       </div>
+    </div>
       <div class="row">
         <%= render partial: 'meals/meal', collection: @meals %>
       </div>
     <% end %>
     
-    <div class="title-user">
+    <div class="title-user mt-5">
       <div class="row">
         <div class="col-md-11 offset-md-1">
           <h2><span class="style-user">Contactez</span> un hôte</h2>
         </div>
       </div>
     </div>
-    <div id="users" class="row">
+    <div class="row">
       <%= render partial: 'users/user', collection: @users %>
     </div>
     <% unless @users.empty? || @users.last_page? %>

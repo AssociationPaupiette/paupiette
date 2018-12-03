@@ -1,8 +1,11 @@
-<h1>Bonjour, <%= current_user.to_short_s %></h1>
-
-<div class="nav nav-tabs mb-5" id="nav-tab" role="tablist">
-  <%= link_to t('my.messages.name'), my_messages_path, class: "nav-item nav-link #{'active' if controller_name == 'messages'}" %>
-  <%= link_to t('my.profile.name'), my_profile_path, class: "nav-item nav-link #{'active' if controller_name == 'profile'}" %>
-  <%= link_to t('my.reviews.name'), my_reviews_path, class: "nav-item nav-link #{'active' if controller_name == 'reviews'}" %>
-  <%= link_to t('my.meals.name'), my_meals_path, class: "nav-item nav-link #{'active' if controller_name == 'meals'}" if can? :create, Meal  %>
+<div class="row">
+	<div class="profil-nav col-md-11 offset-md-1">
+		<h1>Bonjour, <%= current_user.to_short_s %></h1>
+		<div class="nav nav-tabs mb-5" id="nav-tab" role="tablist">
+			<%= link_to t('my.messages.name'), my_messages_path, class: "nav-item nav-link #{'active' if controller_name == 'messages'}" %>
+			<%= link_to t('my.profile.name'), my_profile_path, class: "nav-item nav-link #{'active' if controller_name == 'profile'}" %>
+			<%= link_to t('my.reviews.name'), my_reviews_path, class: "nav-item nav-link #{'active' if controller_name == 'reviews'}" %>
+			<%= link_to t('my.meals.name'), my_meals_path, class: "nav-item nav-link #{'active' if controller_name == 'meals'}" if can? :create, Meal  %>
+		</div>
+	</div>
 </div>
