@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-11 offset-md-1">
+    <div class="user-city col-md-12">
       <h1><%= t('menu.ambassadors') %></h1>
     </div>
   </div>
@@ -14,12 +14,16 @@
       <%= render partial: 'users/user', collection: @users %>
     </div>
     <% unless @users.empty? || @users.last_page? %>
-      <br/>
+     <div class="see-more">
       <%= link_to 'Voir plus',
                   ambassadors_path(page: @users.current_page+1),
                   class: "btn btn-primary",
                   id: "load-more-users",
-                  remote: true %></p>
+                  remote: true do %>
+          Voir plus
+        <i class="fas fa-angle-down"></i>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </section>
