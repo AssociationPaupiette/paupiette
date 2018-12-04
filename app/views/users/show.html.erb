@@ -1,48 +1,67 @@
 <%= content_for :title, "#{@user}" %>
-
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
-    </div>
-    <div class="col-md-8">
-      <h1><%= @user.full_name %></h1>
-      <h2><%= @user.host? ? "Hôte" : "Convive" %> à <%= @user.city %></h2>
-      <% if @user.ambassador? %>
-        <p>Ambassadeur à <%= @user.managed_cities.join(', ') %></p>
-      <% end %>
-
-      <p><%= @user.approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
-      <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary contact-btn" %>
-      <p><%= simple_format @user.description %></p>
-      <% if @user.host? %>
-        <p><strong>Spécialités :</strong> <%= @user.specialties %></p>
-        <p><strong>Jours de réception :</strong></p>
-        <ul>
-          <% @user.localized_reception_days.each do |day| %>
-          <li><%= day %></li>
-          <% end %>
-        </ul>
-      <% end %>
-      <% reviews = @user.reviews_received.approved %>
-      <% if reviews.any? %>
-        <hr/>
-        <h2>Avis</h2>
-        <ul class="list-unstyled">
-          <% reviews.each do |review| %>
-            <li>
-              <p><%= simple_format review.text %></p>
-              <p class="small">
-                <%= link_to user_path(user_slug: review.from.slug) do %>
-                  <%= render 'users/user_small', user: review.from %>
+    <div class="user-profil-front col-md-11 offset-md-1">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-name col-6">
+              <h4>Prénom&nbsp;:</h4>
+              <p><%= @user.full_name %></p>
+            </div>
+            
+            <div class="col-city col-6">
+              <h4>Région&nbsp;:</h4>
+              <p><%= @user.host? ? "Hôte" : "Convive" %> à <%= @user.city %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-desc-profil-front col-12">
+              <% if @user.ambassador? %>
+              <p>Ambassadeur à <%= @user.managed_cities.join(', ') %></p>
+              <% end %>
+              <p><%= @user.approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
+              <h4>Présentation&nbsp;:</h4>
+              <div class="desc-user">
+                <p><%= simple_format @user.description %></p>
+              </div>
+              <h4>Spécialités&nbsp;:</h4>
+              <% if @user.host? %>
+              <p><%= @user.specialties %></p>
+              <h4>Jours de réception :</h4>
+              <ul>
+                <% @user.localized_reception_days.each do |day| %>
+                <li><%= day %></li>
                 <% end %>
-                <br/>
-                Avis publié le <%= l review.created_at, format: :long %>
-              </p>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
+              </ul>
+              <% end %>
+              <% reviews = @user.reviews_received.approved %>
+              <% if reviews.any? %>
+              <hr/>
+              <h4>Avis</h4>
+              <ul class="list-unstyled">
+                <% reviews.each do |review| %>
+                <li>
+                  <p><%= simple_format review.text %></p>
+                  <p class="small">
+                    <%= link_to user_path(user_slug: review.from.slug) do %>
+                    <%= render 'users/user_small', user: review.from %>
+                    <% end %>
+                    <br/>
+                    Avis publié le <%= l review.created_at, format: :long %>
+                  </p>
+                </li>
+                <% end %>
+              </ul>
+              <% end %>
+              <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary btn-default" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

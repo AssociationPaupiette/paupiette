@@ -1,44 +1,48 @@
 <%= content_for :title, t('my.profile.name') %>
-
 <div class="container">
   <%= render 'my/nav' %>
-
-  <h2><%= t('my.profile.name') %></h2>
-
-  <%= simple_form_for(@user, url: my_profile_path, html: { method: :put }, wrapper: :vertical_form) do |f| %>
+</div>
+<div class="container-fluid bg-user-profil">
+  <div class="container">
     <div class="row">
-      <div class="col col-md-4">
-        <%= image_tag @user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
-        <%= f.input :photo, label: t('my.profile.photo') %>
-      </div>
-
-      <div class="col col-md-8">
-        <p><%= @user.approved ? t('my.profile.approved') : t('my.profile.unapproved')  %></p>
-        <%= f.input :first_name, autofocus: true, label: t('my.profile.first_name') %>
-        <%= f.input :last_name, label: t('my.profile.last_name') %>
-        <%= f.input :email, required: true, label: t('my.profile.email')  %>
-        <%= f.input :slug, 
-                    required: true, 
-                    label: t('my.profile.slug') , 
-                    hint: t('my.profile.slug_hint', url: user_url(user_slug: @user.slug)) %>
-        <%= f.association :city, include_blank: false, collection: City.active, label: t('my.profile.city') %>
-        <%= f.input :description, label: t('my.profile.description') %>
-        <%= f.input :identity_card, as: :file, label: t('my.profile.identity_card') %>
-        <% if @user.host? %>
-          <%= f.input :specialties, as: :text, label: t('my.profile.specialties') %>
-          <div class="reception_days">
-            <%= f.input :reception_days,
-                        label: t('my.profile.reception_days'),
-                        as: :check_boxes,
-                        collection: [["0", 'Lundi'], ["1", 'Mardi'], ["2", 'Mercredi'], ["3", 'Jeudi'], ["4", 'Vendredi'], ["5", 'Samedi'], ["6", 'Dimanche']],
-                        label_method: :second,
-                        value_method: :first,
-                        include_hidden: false,
-                        checked: @user.reception_days %>
+      <div class="user-profil col-md-11 offset-md-1">
+        <!--<h2><%= t('my.profile.name') %></h2>-->
+        <%= simple_form_for(@user, url: my_profile_path, html: { method: :put }, wrapper: :vertical_form) do |f| %>
+        <div class="row">
+          <div class="col-img-user col-md-4">
+            <%= image_tag @user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid img-user-2' if @user.photo.attached? %>
+            <%= f.input :photo, label: t('my.profile.photo') %>
           </div>
+          <div class="col-md-8">
+            <p><%= @user.approved ? t('my.profile.approved') : t('my.profile.unapproved')  %></p>
+            <%= f.input :first_name, autofocus: true, label: t('my.profile.first_name') %>
+            <%= f.input :last_name, label: t('my.profile.last_name') %>
+            <%= f.input :email, required: true, label: t('my.profile.email')  %>
+            <%= f.input :slug,
+            required: true,
+            label: t('my.profile.slug') ,
+            hint: t('my.profile.slug_hint', url: user_url(user_slug: @user.slug)) %>
+            <%= f.association :city, include_blank: false, collection: City.active, label: t('my.profile.city') %>
+            <%= f.input :description, label: t('my.profile.description') %>
+            <%= f.input :identity_card, as: :file, label: t('my.profile.identity_card') %>
+            <% if @user.host? %>
+            <%= f.input :specialties, as: :text, label: t('my.profile.specialties') %>
+            <div class="reception_days">
+              <%= f.input :reception_days,
+              label: t('my.profile.reception_days'),
+              as: :check_boxes,
+              collection: [["0", 'Lundi'], ["1", 'Mardi'], ["2", 'Mercredi'], ["3", 'Jeudi'], ["4", 'Vendredi'], ["5", 'Samedi'], ["6", 'Dimanche']],
+              label_method: :second,
+              value_method: :first,
+              include_hidden: false,
+              checked: @user.reception_days %>
+            </div>
+            <% end %>
+            <%= f.button :submit, t('my.profile.save'), class: 'btn-default' %>
+          </div>
+        </div>
         <% end %>
-        <%= f.button :submit, t('my.profile.save') %>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
