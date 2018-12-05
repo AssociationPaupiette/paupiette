@@ -3,8 +3,8 @@
   <div class="row">
     <div class="user-profil-front col-md-11 offset-md-1">
       <div class="row">
-        <div class="col-md-4">
-          <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid' if @user.photo.attached? %>
+        <div class="col-img-user col-md-4">
+          <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid img-user-2' if @user.photo.attached? %>
         </div>
         <div class="col-md-8">
           <div class="row">

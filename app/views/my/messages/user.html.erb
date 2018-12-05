@@ -1,27 +1,30 @@
 <% title = t('my.messages.conversation_with', name: @user.full_name) %>
 <%= content_for :title, title %>
-
 <div class="container">
   <%= render 'my/nav' %>
-
-  <h2><%= title %></h2>
-  <%= image_tag @user.photo.variant(resize: '60x60^', combine_options: { gravity: 'center', crop: '60x60+0+0' }), 
-              class: 'img-fluid' if @user.photo.attached? %>
-  <hr>
-
-  <% if @conversation %>
-    <% @conversation.messages.each do |message| %>
-      <%= render 'message', message: message %>
-    <% end %>
-  <% else %>
-    <p><%= t('my.messages.no_messages') %></p>
-  <% end %>
-
-  <hr>
-
-  <%= simple_form_for @message, url: my_send_message_path(user_slug: @user.slug) do |f| %>
-    <%= f.input :from_id, as: :hidden %>
-    <%= f.input :content, label: false, placeholder: t('my.messages.type_your_message') %>
-    <%= f.button :submit, t('my.messages.send') %>
-  <% end %>
+</div>
+<div class="container-fluid bg-user-profil">
+  <div class="container">
+    <div class="row">
+      <div class="user-profil col-md-11 offset-md-1">
+        <h2><%= title %></h2>
+        <%= image_tag @user.photo.variant(resize: '60x60^', combine_options: { gravity: 'center', crop: '60x60+0+0' }),
+        class: 'img-fluid img-user' if @user.photo.attached? %>
+        <hr>
+        <% if @conversation %>
+        <% @conversation.messages.each do |message| %>
+        <%= render 'message', message: message %>
+        <% end %>
+        <% else %>
+        <p><%= t('my.messages.no_messages') %></p>
+        <% end %>
+        <hr>
+        <%= simple_form_for @message, url: my_send_message_path(user_slug: @user.slug) do |f| %>
+        <%= f.input :from_id, as: :hidden %>
+        <%= f.input :content, label: false, placeholder: t('my.messages.type_your_message') %>
+        <%= f.button :submit, t('my.messages.send'), class: 'btn-default' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

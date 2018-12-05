@@ -112,6 +112,12 @@
           color: #a6969b
 
 /** CSS PROFIL PAGE BACK **/
+.img-user
+  border-radius: 50px
+  webkit-border-radius: 50px
+  moz-border-radius: 50px
+  margin: 0 25px 0 0
+
 .profil-nav
   h1
     text-align: center
@@ -137,16 +143,54 @@
 .user-profil
   background-color: #fff
   padding: 80px
+  h2
+    font-size: 2.5em
+    margin: 0 0 30px 0
 .col-img-user
   padding-right: 80px
   .img-user-2
     border-radius: 150px
     webkit-border-radius: 150px
     moz-border-radius: 150px
+.message-line
+  margin: 30px 0
+  li
+    margin: 0 0 20px 0
+  a
+    font-weight: 500
+    color: #242525
+    vertical-align: top
+  a:hover, a:active, a:focus
+    color: $color-main
+    text-decoration: none
+  .badge
+    color: #a1a0a0
+    display: block
+    padding: 0
+    text-align: left
+  .message
+    color: #a1a0a0
+    position: absolute
+    font-style: italic
+    font-weight: 500
+    left: 103px
+    top: 28px
+    font-size: 1em
+  time
+    color: #a1a0a0
+    font-style: italic
+    font-weight: 500
+    font-size: 1em
 
 /** CSS PROFIL PAGE FRONT **/
 .user-profil-front
   padding: 20px 20px 80px 20px
+  .col-img-user
+  padding-right: 80px
+  .img-user-2
+    border-radius: 150px
+    webkit-border-radius: 150px
+    moz-border-radius: 150px
   .col-name, .col-city
     p
       color: $color-main
@@ -167,3 +211,30 @@
         border-radius: 25px
         moz-border-radius: 25px
         webkit-border-radius: 25px
+
+@media screen and (max-width: 1023px)
+    .user-profil
+      padding: 80px
+    .col-img-user
+      padding-right: 40px
+    .user-profil-front
+      padding: 20px 20px 80px 20px
+      .col-img-user
+      padding-right: 40px
+
+@media screen and (max-width: 767px)
+    .bg-user-profil
+      padding: 50px
+
+    .user-profil
+      padding: 50px
+      .date, .badge
+        text-align: right
+
+@media screen and (max-width: 539px)
+    .bg-user-profil
+      padding: 30px
+    .user-profil
+      padding: 30px
+      .date, .badge
+        text-align: right

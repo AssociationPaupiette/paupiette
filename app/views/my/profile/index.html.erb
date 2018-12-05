@@ -9,11 +9,11 @@
         <!--<h2><%= t('my.profile.name') %></h2>-->
         <%= simple_form_for(@user, url: my_profile_path, html: { method: :put }, wrapper: :vertical_form) do |f| %>
         <div class="row">
-          <div class="col-img-user col-md-4">
+          <div class="col-img-user col-md-5">
             <%= image_tag @user.photo.variant(resize: '300x300^', combine_options: { gravity: 'center', crop: '300x300+0+0' }), class: 'img-fluid img-user-2' if @user.photo.attached? %>
             <%= f.input :photo, label: t('my.profile.photo') %>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-7">
             <p><%= @user.approved ? t('my.profile.approved') : t('my.profile.unapproved')  %></p>
             <%= f.input :first_name, autofocus: true, label: t('my.profile.first_name') %>
             <%= f.input :last_name, label: t('my.profile.last_name') %>

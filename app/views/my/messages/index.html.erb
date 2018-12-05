@@ -1,34 +1,45 @@
 <%= content_for :title, t('my.messages.name') %>
-
 <div class="container">
   <%= render 'my/nav' %>
-
-  <h2><%= t('my.messages.name') %></h2>
-
-  <ul class="list-unstyled">
-  <% @conversations.each do |conversation| %>
-    <% user = conversation.other(current_user).first %>
-    <% next if user.nil? # Deleted user %>
-    <li>
-      <%= link_to my_conversation_path(user_slug: user.slug) do %>
-        <%= render 'users/user_small', user: user %>
-      <% end %>
-      <span class="badge">
-        <% unread_count = conversation.messages.unread.received_from(user).count %>
-        <%= unread_count %> message<%= 's' if unread_count > 1 %> non lu<%= 's' if unread_count > 1 %>
-      </span>
-    </li>
-  <% end %>
-  </ul>
-
-  <h3><%= t 'my.messages.contact_my_ambassadors' %></h3>
-  <ul class="list-unstyled">
-    <% current_user.city.ambassadors.each do |user| %>
-      <li>
-        <%= link_to my_conversation_path(user_slug: user.slug) do %>
-          <%= render 'users/user_small', user: user %>
-        <% end %>
-      </li>
-    <% end unless current_user.city.nil? %>
-  </ul>
 </div>
+<div class="container-fluid bg-user-profil">
+  <div class="container">
+    <div class="row">
+      <div class="user-profil col-md-11 offset-md-1">
+        <h2><%= t('my.messages.name') %></h2>
+        <ul class="list-unstyled message-line">
+          <% @conversations.each do |conversation| %>
+          <% user = conversation.other(current_user).first %>
+          <% next if user.nil? # Deleted user %>
+          <li>
+            <div class="row">
+              <div class="col-md-9">
+                <%= link_to my_conversation_path(user_slug: user.slug) do %>
+                <%= render 'users/user_small', user: user %>
+                <% end %>
+                <span class="message">Lorem ipsum ...</span>
+              </div>
+              <div class="col-md-3 date">
+                <time>05/12/18</time>
+                <span class="badge">
+                  <% unread_count = conversation.messages.unread.received_from(user).count %>
+                  <%= unread_count %> message<%= 's' if unread_count > 1 %> non lu<%= 's' if unread_count > 1 %>
+                </span>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+          <h3><%= t 'my.messages.contact_my_ambassadors' %></h3>
+          <ul class="list-unstyled">
+            <% current_user.city.ambassadors.each do |user| %>
+            <li>
+              <%= link_to my_conversation_path(user_slug: user.slug) do %>
+              <%= render 'users/user_small', user: user %>
+              <% end %>
+            </li>
+            <% end unless current_user.city.nil? %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
