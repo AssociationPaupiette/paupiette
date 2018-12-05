@@ -146,12 +146,26 @@
   h2
     font-size: 2.5em
     margin: 0 0 30px 0
+  .img-user-3
+    border-radius: 150px
+    webkit-border-radius: 150px
+    moz-border-radius: 150px
 .col-img-user
   padding-right: 80px
   .img-user-2
     border-radius: 150px
     webkit-border-radius: 150px
     moz-border-radius: 150px
+.conversation
+  margin: 45px 0 0 0
+.new_message
+  .form-control
+    border-radius: 15px
+    webkit-border-radius: 15px
+    moz-border-radius: 15px
+    min-height: 120px
+  input
+    margin-top: 30px
 .message-line
   margin: 30px 0
   li
@@ -164,12 +178,12 @@
     color: $color-main
     text-decoration: none
   .badge
-    color: #a1a0a0
+    color: $color-title-grey
     display: block
     padding: 0
     text-align: left
   .message
-    color: #a1a0a0
+    color: $color-title-grey
     position: absolute
     font-style: italic
     font-weight: 500
@@ -181,6 +195,66 @@
     font-style: italic
     font-weight: 500
     font-size: 1em
+
+.message--from-someone-else
+  width: 70%
+  margin-bottom: 30px
+  .message-from-date
+    p
+      color: $color-title-grey
+      padding: 0 0 0 30px
+      font-style: italic
+      font-weight: 500
+  .message-content
+    background-color: #f6f5f5
+    padding: 30px
+    border-radius: 25px
+    webkit-border-radius: 25px
+    moz-border-radius: 25px
+    p
+      font-weight: 500
+    .badge
+      background-color: #dddddd
+      font-style: italic
+      color: #464646
+      font-weight: 500
+      border-radius: 5px
+      padding: 5px 10px
+
+.message--from-me
+  margin: 0 0 30px 30%
+  .message-from-date
+    p
+      color: $color-title-grey
+      padding: 0 30px 0 0
+      font-style: italic
+      font-weight: 500
+  .message-content
+    background-color: $color-main
+    padding: 30px
+    border-radius: 25px
+    webkit-border-radius: 25px
+    moz-border-radius: 25px
+    text-align: left
+    p
+      font-weight: 500
+      color: #fff
+    .badge
+      background-color: #b77575
+      font-style: italic
+      color: #fff
+      font-weight: 500
+      border-radius: 5px
+      webkit-border-radius: 5px
+      moz-border-radius: 5px
+      padding: 5px 10px
+
+.previous
+  margin: 20px 0 0 0
+  a
+    text-decoration: none
+    font-weight: 500
+
 
 /** CSS PROFIL PAGE FRONT **/
 .user-profil-front

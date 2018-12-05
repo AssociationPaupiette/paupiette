@@ -8,22 +8,31 @@
     <div class="row">
       <div class="user-profil col-md-11 offset-md-1">
         <h2><%= title %></h2>
-        <%= image_tag @user.photo.variant(resize: '60x60^', combine_options: { gravity: 'center', crop: '60x60+0+0' }),
-        class: 'img-fluid img-user' if @user.photo.attached? %>
-        <hr>
-        <% if @conversation %>
-        <% @conversation.messages.each do |message| %>
-        <%= render 'message', message: message %>
-        <% end %>
-        <% else %>
-        <p><%= t('my.messages.no_messages') %></p>
-        <% end %>
-        <hr>
+        <div class="conversation">
+          <div class="row">
+            <div class="col-lg-2">
+              <%= image_tag @user.photo.variant(resize: '60x60^', combine_options: { gravity: 'center', crop: '60x60+0+0' }),
+              class: 'img-user-3' if @user.photo.attached? %>
+            </div>
+            <div class="col-lg-10">
+              <% if @conversation %>
+              <% @conversation.messages.each do |message| %>
+              <%= render 'message', message: message %>
+              <% end %>
+              <% else %>
+              <p><%= t('my.messages.no_messages') %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
         <%= simple_form_for @message, url: my_send_message_path(user_slug: @user.slug) do |f| %>
         <%= f.input :from_id, as: :hidden %>
         <%= f.input :content, label: false, placeholder: t('my.messages.type_your_message') %>
         <%= f.button :submit, t('my.messages.send'), class: 'btn-default' %>
         <% end %>
+        <div class="previous">
+          <a href="#"><i class="fas fa-angle-double-left"></i> Revenir aux messages</a>
+        </div>
       </div>
     </div>
   </div>
