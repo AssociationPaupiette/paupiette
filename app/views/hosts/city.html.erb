@@ -1,41 +1,41 @@
 <%= content_for :title, @city %>
-
 <div class="container">
   <div class="row">
-    <div class="col-md-11 offset-md-1">
-      <h1>Hôtes à <%= @city %></h1>
+    <div class="col-md-11 offset-md-1 user-city">
+      <h1><span class="style-user">Hôtes</span> à <%= @city %></h1>
     </div>
   </div>
 </div>
-
 <section class="users__list">
   <div class="container">
-
     <% if @meals.any? %>
+    <div class="title-user">
       <div class="row">
         <div class="col-md-11 offset-md-1">
           <h2>Repas ouverts</h2>
         </div>
       </div>
-      <div class="row">
-        <%= render partial: 'meals/meal', collection: @meals %>
-      </div>
-    <% end %>
-
+    </div>
     <div class="row">
-      <div class="col-md-11 offset-md-1">
-        <h2>Contactez un hôte</h2>
+      <%= render partial: 'meals/meal', collection: @meals %>
+    </div>
+    <% end %>
+    <div class="title-user mt-5">
+      <div class="row">
+        <div class="col-md-11 offset-md-1">
+          <h2>Contactez un hôte</h2>
+        </div>
       </div>
     </div>
     <div class="row" id="users">
       <%= render partial: 'users/user', collection: @users %>
     </div>
     <% unless @users.empty? || @users.last_page? %>
-      <%= link_to 'Voir plus',
-                  city_hosts_path(page: @hosts.current_page+1, city: @city.id),
-                  class: "btn btn-primary",
-                  id: "load-more-hosts",
-                  remote: true %>
+    <%= link_to 'Voir plus',
+    city_hosts_path(page: @hosts.current_page+1, city: @city.id),
+    class: "btn btn-primary",
+    id: "load-more-hosts",
+    remote: true %>
     <% end %>
   </div>
 </section>
