@@ -1,121 +1,15 @@
-/** CSS HOSTS/AMBASSADORS PAGE **/
-.users__list
-  background: $color-background
-  padding: 40px 0
-
-.user-city
-  text-align: center
-  h1
-    margin-bottom: 50px
-  .style-user
-    color: $color-font-title
-  p
-    color: $color-main
-    font-size: 1.5em
-    font-weight: 500
-    margin: 0 0 30px 0
-  .btn-city
-    margin: 0 0 100px 0
-    li
-      a
-        color: #d5cbce
-        background-color: #fff
-        border: 2px solid #d5cbce
-        font-weight: bold
-        font-size: 1.1em
-        width: 150px
-        border-radius: 25px
-        moz-border-radius: 25px
-        webkit-border-radius: 25px
-      a:hover, a:active
-        color: $color-main
-        border: 2px solid $color-main
-
-.title-user
-  margin-top: 20px
-  margin-bottom: 40px
-
-.style-user
-  color: $color-font-title
-
-.see-more
-  margin: 20px 0
-  text-align: center
-  a
-    background: none
-    color: #d5cbce
-    font-size: 1.5em
-    font-weight: 500
-    border: 0
-  a:hover, a:active
-    color: $color-main
-    background: none
-  .fas
-    display: block
-    color: #d5cbce
-    font-size: 2em
-
-.card-user
-  a:hover, a:active, a:focus
-    text-decoration: none
-  .card
-    padding: 50px
-    border: 0
-    .row
-      .div-img-user
-        padding: 0 10px 0 15px
-        .img-user
-          width: 100%
-          max-width: 100px
-          border-radius: 50px
-          webkit-border-radius: 50px
-          moz-border-radius: 50px
-      .name-user
-        h2
-          padding: 5px 0 0 0
-          color: #252424
-          font-size: 2.2em
-          line-height: 1em
-          font-family: $font-title
-        p
-          color: $color-main
-          font-weight: 500
-      .fa-user-circle
-        position: absolute
-        right: 0
-        top: 0
-        padding: 10px
-        background-color: $color-main
-        font-size: 1.5em
-        color: #fff
-    .card-body
-      padding: 45px 0 0 0
-      p
-        color: #a1a0a0
-        font-style: italic
-        font-weight: 500
-      .style-txt-user
-        color: #252424
-        font-style: normal
-        font-weight: bold
-      .desc-user
-        p
-          font-weight: 500
-          line-height: 1.4em
-          font-style: normal
-          color: #252424
-      .btn-user
-        text-align: center
-        margin: 40px 0 0 0
-        a.btn-default:hover, a.btn-default:active, a.btn-default:focus
-          border: 1px solid #a6969b
-          color: #a6969b
-
 /** CSS PROFIL PAGE BACK **/
 .img-user
   border-radius: 50px
   webkit-border-radius: 50px
   moz-border-radius: 50px
+  margin: 0 25px 0 0
+
+.img-user-2
+  width: 60px
+  border-radius: 150px
+  webkit-border-radius: 150px
+  moz-border-radius: 150px
   margin: 0 25px 0 0
 
 .profil-nav
@@ -145,7 +39,11 @@
   padding: 80px
   h2
     font-size: 2.5em
-    margin: 0 0 30px 0
+    margin: 0 0 50px 0
+    text-align: center
+  h3
+    color: $color-main
+    font-weight: 600
   .img-user-3
     border-radius: 150px
     webkit-border-radius: 150px
@@ -166,6 +64,16 @@
     min-height: 120px
   input
     margin-top: 30px
+.message-line-2
+  margin: 30px 0
+  li
+    margin: 0 0 20px 0
+  a
+    font-weight: 500
+    color: #242525
+  a:hover, a:active, a:focus
+    color: $color-main
+    text-decoration: none
 .message-line
   margin: 30px 0
   li
@@ -255,6 +163,21 @@
     text-decoration: none
     font-weight: 500
 
+.table-body
+  margin: 40px 0 0 0
+  text-align: center
+  td
+    vertical-align: middle
+  .btn-update
+    background-color: $color-font-title
+    border: 0
+    padding: 5px
+  .btn-update:hover
+    background-color: #609eb3
+  .btn-red
+    border: 0
+    padding: 5px
+
 
 /** CSS PROFIL PAGE FRONT **/
 .user-profil-front
@@ -304,6 +227,8 @@
       padding: 50px
       .date, .badge
         text-align: right
+
+
 
 @media screen and (max-width: 539px)
     .bg-user-profil

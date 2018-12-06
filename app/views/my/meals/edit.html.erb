@@ -1,7 +1,14 @@
 <%= content_for :title, t('my.meals.edit') %>
-
 <div class="container">
-  <%= render 'my/nav' %>
-  <h2><%= t('my.meals.edit') %></h2>
-  <%= render 'form', meal: @meal %>
+	<%= render 'my/nav' %>
+</div>
+<div class="container-fluid bg-user-profil">
+	<div class="container">
+		<div class="row">
+			<div class="user-profil col-md-11 offset-md-1">
+				<h2><%= t('my.meals.edit') %></h2>
+				<%= render 'form', meal: @meal %>
+			</div>
+		</div>
+	</div>
 </div>

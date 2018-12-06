@@ -7,37 +7,37 @@
     <div class="row">
       <div class="user-profil col-md-11 offset-md-1">
         <h2><%= t('my.meals.name') %></h2>
-        <%= link_to 'Proposer un repas', new_my_meal_path, class: 'btn btn-primary' %><br/>
-        <br/>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Places totales</th>
-              <th>Convives confirmés</th>
-              <th>Places disponibles</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
+        <%= link_to 'Proposer un repas', new_my_meal_path, class: 'btn btn-primary btn-default' %>
+        <div class="table-responsive table-body">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Places totales</th>
+                <th scope="col">Convives confirmés</th>
+                <th scope="col">Places disponibles</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
             <% @meals.each do |meal| %>
-            <tr>
-              <td><%= l meal.date, format: :day unless meal.date.nil?%></td>
-              <td><%= meal.capacity %></td>
-              <td><%= meal.confirmed %></td>
-              <td><%= meal.remaining %></td>
-              <td>
-                <%= link_to 'Modifier', edit_my_meal_path(meal), class: 'btn btn-primary btn-default' %>
-                <%= link_to 'Annuler ce repas',
-                my_meal_path(meal),
-                method: :delete,
-                data: { confirm: 'Attention, l\'annulation est définitive' },
-                class: 'btn btn-danger' %>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td><%= l meal.date, format: :day unless meal.date.nil?%></td>
+                <td><%= meal.capacity %></td>
+                <td><%= meal.confirmed %></td>
+                <td><%= meal.remaining %></td>
+                <td> <%= link_to 'Modifier', edit_my_meal_path(meal), class: 'btn btn-primary btn-update' %>
+                  <%= link_to 'Annuler ce repas',
+                  my_meal_path(meal),
+                  method: :delete,
+                  data: { confirm: 'Attention, l\'annulation est définitive' },
+                class: 'btn btn-danger btn-red' %></td>
+              </tr>
+            </tbody>
             <% end %>
-          </tbody>
-        </table>
+          </table>
+        </div>
+        
       </div>
     </div>
   </div>
