@@ -30,7 +30,7 @@
             <% end %>
           </ul>
           <h3><%= t 'my.messages.contact_my_ambassadors' %></h3>
-          <ul class="list-unstyled">
+          <ul class="list-unstyled message-line-2">
             <% current_user.city.ambassadors.each do |user| %>
             <li>
               <%= link_to my_conversation_path(user_slug: user.slug) do %>
