@@ -1,3 +1,6 @@
-<%= image_tag user.photo.variant(resize: '60x60^', combine_options: { gravity: 'center', crop: '60x60+0+0' }), 
-              class: 'img-fluid img-user' if user.photo.attached? %>
+<% if user.photo.attached? %>
+  <%= image_tag user.photo.variant(resize: '60x60^', combine_options: { gravity: 'center', crop: '60x60+0+0' }), class: 'img-fluid img-user' %>
+<% else %>
+  <%= image_tag 'avatar.png', class: 'img-fluid img-user' %>
+<% end %>
 <%= user %>

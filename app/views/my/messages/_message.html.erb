@@ -3,7 +3,7 @@
 		<p><%= message.from %> - <%= l message.created_at, format: :short %></p>
 	</div>
 	<div class="message-content">
-		<p><%= message.content %></p>
+		<p><%= simple_format message.content %></p>
 		<span class="badge badge-primary">
 			<% if message.read_at.nil? %>
 			<%= t('my.messages.not_read') %>
