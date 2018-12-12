@@ -5,9 +5,9 @@
       <div class="row">
         <div class="col-img-user col-md-4">
           <% if @user.photo.attached? %>
-            <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid img-user-2' %>
+          <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid img-user-2' %>
           <% else %>
-            <%= image_tag 'avatar.png', class: 'img-fluid img-user-2' %>
+          <%= image_tag 'avatar.png', class: 'img-fluid img-user-2' %>
           <% end %>
         </div>
         <div class="col-md-8">
@@ -45,21 +45,25 @@
               <% reviews = @user.reviews_received.approved %>
               <% if reviews.any? %>
               <hr/>
-              <h4>Avis</h4>
-              <ul class="list-unstyled">
-                <% reviews.each do |review| %>
-                <li>
-                  <p><%= simple_format review.text %></p>
-                  <p class="small">
-                    <%= link_to user_path(user_slug: review.from.slug) do %>
-                    <%= render 'users/user_small', user: review.from %>
+              <h2>Vous avez <span class="style-user">X avis</span></h2>
+              <div class="row">
+                <div class="published-reviews col-md-6">
+                  <ul class="list-unstyled">
+                    <% reviews.each do |review| %>
+                    <li>
+                      <p class="small">
+                        <%= link_to user_path(user_slug: review.from.slug) do %>
+                        <%= render 'users/user_small', user: review.from %>
+                        <% end %>
+                        <br/>
+                        Avis publié le <%= l review.created_at, format: :long %>
+                      </p>
+                      <p><%= simple_format review.text %></p>
+                    </li>
                     <% end %>
-                    <br/>
-                    Avis publié le <%= l review.created_at, format: :long %>
-                  </p>
-                </li>
-                <% end %>
-              </ul>
+                  </ul>
+                </div>
+              </div>
               <% end %>
               <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary btn-default" %>
             </div>
