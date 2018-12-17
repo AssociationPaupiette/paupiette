@@ -9,6 +9,11 @@ fr:
     press: 'Espace presse'
     who: 'Qui sommes-nous?'
     legal: 'Mentions légales'
+  formulas:
+    main: Plat - 4€
+    starter_main: Entrée + Plat - 5€
+    main_dessert: Plat + Dessert - 5€
+    starter_main_dessert: Entrée + Plat + Dessert - 7€
   my: 
     name: 'Mon espace'
     messages:

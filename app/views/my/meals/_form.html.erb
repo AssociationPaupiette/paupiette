@@ -1,45 +1,23 @@
-<%= simple_form_for [:my, @meal] do |f| %>
-<div class="row">
-  <div class="col-md-4 pl-0 pr-0">
-    <p>Date</p>
-  </div>
-  <div class="col-md-8 pl-0 pr-0">
-    <%= f.input :date,
-    html5: true,
-    as: :date,
-    label: 'Date',
-    input_html: { min: Date.tomorrow } %>
-  </div>
-  <div class="col-md-4 pl-0 pr-0">
-    <p>Formule</p>
-  </div>
-  <div class="col-md-8 pl-0 pr-0">
-    <div class="form-group">
-      <select class="form-control" id="FormControlFormule">
-        <option>Plat - 4€</option>
-        <option>Entrée + Plat - 5€</option>
-        <option>Plat + Dessert - 5€</option>
-        <option>Entrée + Plat + Dessert - 7€</option>
-      </select>
-    </div>
-  </div>
-  <div class="col-md-4 pl-0 pr-0">
-    <p>Nombres de places disponibles</p>
-  </div>
-  <div class="col-md-8 pl-0 pr-0">
-    <%= f.input :capacity, label: 'Combien de convives peuvent venir?' %>
-  </div>
-  <div class="col-md-4 pl-0 pr-0">
-    <p>Commentaires</p>
-    </div>
-    <div class="col-md-8 pl-0 pr-0 mb-4">
-      <div class="form-group">
-        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ecrivez quelque chose ..." rows="3"></textarea>
-      </div>
-    </div>
-    <!--<div class="col-md-12">
-      <%= f.input :confirmed, label: 'Combien de convives ont confirmé leur présence?' %>
-    </div>-->
-    <%= f.button :submit, 'Valider', class: 'btn-default' %>
-    <% end %>
-  </div>
+<%= simple_form_for [:my, @meal], 
+                    wrapper: :horizontal_form,
+                    wrapper_mappings: {
+                      date: :horizontal_multi_select,
+                      datetime: :horizontal_multi_select } do |f| %>
+  <%= f.input   :date,
+                html5: true,
+                as: :date,
+                label: 'Date',
+                input_html: { min: Date.tomorrow } %>
+  <%= f.input   :capacity,
+                label: 'Nombre de convives' %>
+  <%= f.input   :confirmed,
+                label: 'Nombre de convives confirmés' %>
+  <%= f.input   :formula,
+                label: 'Formule',
+                collection: Meal.formulas.map { |key, value| [t("formulas.#{key}"), key]},
+                include_blank: false %>
+  <%= f.input   :description %>
+  <%= f.button  :submit,
+                'Valider',
+                class: 'btn-default' %>
+<% end %>

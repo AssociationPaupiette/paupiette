@@ -1,65 +1,62 @@
 <%= content_for :title, t('my_cities.name') %>
 
 <div class="container">
-  <h1><%= t('my_cities.name') %></h1>
+  <h1 class="text-center mb-5"><%= t('my_cities.name') %></h1>
 
   <% if @cities.none? %>
     <p>Pas de ville gérée.</p>
   <% end %>
 
   <% @cities.each do |city| %>
+    <hr/>
     <h2><%= city %></h2>
-    <div class="row">
-
-      <div class="col-md-4">
-        <div class="card">
+    <% classes = 'btn btn-primary btn-sm float-right' %>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body">
           <h1><%= city.users.guests.count %></h1>
           <p><%= t 'my_cities.users.guests' %></p>
-          <%= link_to 'Voir la liste', my_cities_users_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Voir la liste', my_cities_users_path(city_slug: city.slug), class: classes %>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card">
+      <div class="card">
+        <div class="card-body">
           <h1><%= city.users.hosts.count %></h1>
           <p><%= t 'my_cities.users.hosts' %></p>
-          <%= link_to 'Voir la liste', my_cities_users_hosts_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Voir la liste', my_cities_users_hosts_path(city_slug: city.slug), class: classes %>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card">
+      <div class="card">
+        <div class="card-body">
           <h1><%= city.users.to_approve.count %></h1>
           <p><%= t 'my_cities.users.to_approve' %></p>
-          <%= link_to 'Voir la liste', my_cities_users_approval_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Voir la liste', my_cities_users_approval_path(city_slug: city.slug), class: classes %>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card">
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body">
           <h1><%= city.reviews.count %></h1>
           <p><%= t('my_cities.reviews.name') %></p>
-          <%= link_to 'Voir la liste', my_cities_reviews_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Voir la liste', my_cities_reviews_path(city_slug: city.slug), class: classes %>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card">
+      <div class="card">
+        <div class="card-body">
           <h1><%= city.reviews.unapproved.count %></h1>
           <p><%= t('my_cities.reviews.to_approve') %></p>
-          <%= link_to 'Voir la liste', my_cities_reviews_approval_path(city_slug: city.slug), class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Voir la liste', my_cities_reviews_approval_path(city_slug: city.slug), class: classes %>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card">
+      <div class="card">
+        <div class="card-body">
           <h1><%= city.conversations.count %></h1>
           <p>Conversations</p>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card">
+      <div class="card">
+        <div class="card-body">
           <h1><%= city.meals.opened.count %></h1>
           <p>Repas ouvert</p>
         </div>

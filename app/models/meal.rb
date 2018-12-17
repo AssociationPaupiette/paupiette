@@ -2,17 +2,26 @@
 #
 # Table name: meals
 #
-#  id         :bigint(8)        not null, primary key
-#  date       :datetime
-#  host_id    :bigint(8)
-#  capacity   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  confirmed  :integer          default(1)
-#  remaining  :integer
+#  id          :bigint(8)        not null, primary key
+#  date        :datetime
+#  host_id     :bigint(8)
+#  capacity    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  confirmed   :integer          default(1)
+#  remaining   :integer
+#  description :text
+#  formula     :integer
 #
 
 class Meal < ApplicationRecord
+  enum formula: { 
+    main: 0, 
+    starter_main: 1, 
+    main_dessert: 2, 
+    starter_main_dessert: 3
+  } 
+
   belongs_to :host, class_name: "User"
 
   validates_presence_of :date, :capacity, :confirmed

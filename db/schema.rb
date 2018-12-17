@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_23_104922) do
+ActiveRecord::Schema.define(version: 2018_12_17_130103) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -73,6 +74,8 @@ ActiveRecord::Schema.define(version: 2018_11_23_104922) do
     t.datetime "updated_at", null: false
     t.integer "confirmed", default: 1
     t.integer "remaining"
+    t.text "description"
+    t.integer "formula"
     t.index ["host_id"], name: "index_meals_on_host_id"
   end
 

@@ -11,24 +11,29 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item mr-xl-5 mr-lg-3 mr-md-2 mr-sm-0"><%= link_to t('menu.hosts'), hosts_path, class: 'nav-link nav-item-1' %></li>
-      <li class="nav-item ml-xl-5 mr-xl-5 ml-lg-3 mr-lg-3 ml-md-2 mr-md-2 ml-sm-0 mr-sm-0"><%= link_to t('menu.ambassadors'), ambassadors_path, class: 'nav-link nav-item-1' %></li>
+      <% classes = 'nav-item ml-xl-5 ml-lg-3 ml-md-2 ml-sm-0' %>
+      <li class="<%= classes %>"><%= link_to t('menu.hosts'), hosts_path %></li>
+      <li class="<%= classes %>"><%= link_to t('menu.ambassadors'), ambassadors_path %></li>
       <% if current_user.nil? %>
-      <li class="nav-item nav-item-3 ml-xl-5"><%= link_to t('menu.signin'), new_user_session_path, class: 'nav-link link-2' %> / <%= link_to t('menu.signup'), new_user_registration_path, class: 'nav-link link-2' %></li>
+        <li class="<%= classes %> login-logout">
+          <%= link_to t('menu.signin'), new_user_session_path %>
+        / <%= link_to t('menu.signup'), new_user_registration_path %>
+        </li>
       <% else %>
-      <li class="nav-item ml-xl-5 mr-xl-5 ml-lg-3 mr-lg-3 ml-md-2 mr-md-2 ml-sm-0 mr-sm-0">
-        <%= link_to t('my.name'), my_root_path, class: 'nav-link nav-item-1' %>
+        <li class="<%= classes %>">
+        <%= link_to t('my.name'), my_root_path %>
       </li>
-      <li class="nav-item dropdown">
+      <li class="<%= classes %> dropdown">
         <a  id="navbarDropdownMenuUser"
-          class="nav-link dropdown-toggle nav-item-2"
-          href="#"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
+            class="dropdown-toggle"
+            href="#"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
           <%= current_user %>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">
+          <%= link_to t('my.name'), my_messages_path, class: 'dropdown-item' %>
           <%= link_to t('my.messages.name'), my_messages_path, class: 'dropdown-item' %>
           <%= link_to t('my.profile.name'), my_profile_path, class: 'dropdown-item' %>
           <%= link_to t('my.reviews.name'), my_reviews_path, class: 'dropdown-item' %>

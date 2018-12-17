@@ -44,7 +44,7 @@ class My::MealsController < My::ApplicationController
 
   def meal_params
     params.require(:meal)
-          .permit(:date, :capacity, :confirmed)
+          .permit(:date, :capacity, :confirmed, :description, :formula)
           .merge({host_id: current_user.id})
   end
 end

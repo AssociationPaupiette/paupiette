@@ -1,25 +1,10 @@
 <%= content_for :title, @city %>
 <div class="container">
-  <div class="row">
-    <div class="col-md-11 offset-md-1 user-city">
-      <h1><span class="style-user">Hôtes</span> à <%= @city %></h1>
-    </div>
-  </div>
+  <h1 class="text-center mb-5"><span class="style-user">Hôtes</span> à <%= @city %></h1>
 </div>
 <section class="users__list">
   <div class="container">
-    <% if @meals.any? %>
-    <div class="title-user">
-      <div class="row">
-        <div class="col-md-11 offset-md-1">
-          <h2>Repas ouverts</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <%= render partial: 'meals/meal', collection: @meals %>
-    </div>
-    <% end %>
+    <%= render 'meals/list', meals: @meals %>
     <div class="title-user mt-5">
       <div class="row">
         <div class="col-md-11 offset-md-1">

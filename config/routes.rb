@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     post 'reviews/:user_slug' => 'reviews#save', as: :review
     patch 'reviews/:user_slug' => 'reviews#save'
     resources 'meals'
-    root to: 'application#index'
+    root to: 'dashboard#index'
   end
 
   namespace 'my_cities' do

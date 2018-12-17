@@ -1,0 +1,12 @@
+<% if @meals.any? %>
+  <div class="title-user">
+    <div class="row">
+      <div class="col-md-11 offset-md-1">
+        <h2><span class="style-user"><%= @meals.count %></span> repas ouvert<%= 's' if @meals.many? %></h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= render partial: 'meals/meal', collection: @meals %>
+  </div>
+<% end %>

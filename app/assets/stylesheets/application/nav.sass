@@ -1,46 +1,40 @@
-/** NAV CSS GLOBAL **/
-.nav-marg
+.navbar
   padding: 130px 0 100px 0
-  font-weight: 300
+  font-size: 0.9em 
+  font-weight: 600
   color: black
-  .ml-auto
+  a
+    text-decoration: none
+  .nav-item
+    display: block
+    padding: 0.5rem 1rem
     height: 50px
-    li
-    .nav-item-3
-      border: 1px solid $color-main
-      padding: 10px 25px
-      color: $color-main
-      font-size: 0.9em
-    a.nav-link.nav-item-1, a.nav-link.nav-item-2
-      color: #252424
-      font-weight: 600
-      font-size: 0.9em 
-    a.nav-link.nav-item-1:active, a.nav-link.nav-item-1:hover
-      color: #252424
+    font-weight: 600
+    font-weight: bold
+    &:hover
       border-bottom: 5px solid $color-main
-      line-height: 28px
-    a.nav-link.link-2
-      display: inline
-      padding: 0
-      font-weight: bold
+    a
+      color: black
+      &:hover
+        color: lighten($color-main, 50)
+    &.dropdown
+      border-bottom: none
+  .login-logout
+    border: 1px solid $color-main
+    padding: 10px 25px
+    &:hover
+      border-bottom: 1px solid $color-main
+    a
       color: $color-main
-    a.nav-link.link-2:hover
-      color: #a6969b
+      display: inline
 
-/** NAV CSS MOBILE **/
+@media screen and (min-width: 767px)
+  .dropdown-menu-right
+    text-align: right
+
 @media screen and (max-width: 767px)
-    .nav-marg
-      padding: 130px 0px 100px 0px
-      .ml-auto    
-        li
-        .nav-item-3
-          border: 0
-          padding: 10px 0
-          margin-right: 0
-        a.nav-link.nav-item-1:active, .nav-marg a.nav-link.nav-item-1:hover
-          color: rgba(0, 0, 0, 0.7)
-          border-bottom: 0
-        a.nav-link.link-2
-          color: #252424
-        a.nav-link.link-2:hover
-          color: rgba(0, 0, 0, 0.7) 
+  .navbar
+    padding: 20px 0
+    .dropdown
+      z-index: 100
+      background: white

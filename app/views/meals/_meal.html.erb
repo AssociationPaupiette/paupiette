@@ -9,7 +9,8 @@
         <%= meal.capacity %> convives attendus, 
         <%= meal.remaining %> place<%= 's' if meal.remaining >1 %> disponible<%= 's' if meal.remaining >1 %>
       </p>
-      <%= link_to 'Contacter', my_conversation_path(user_slug: meal.host.slug), class: 'btn btn-primary btn-default' %>
+      <%= simple_format meal.description %>
+      <%= link_to 'Contacter', my_conversation_path(user_slug: meal.host.slug), class: 'btn btn-block btn-default' %>
     </div>
   </div>
 </div>
