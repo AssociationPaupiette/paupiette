@@ -14,8 +14,10 @@
         <% if user.meals.any? %>
         <p><%= user.meals.count %> repas</p>
         <% end %>
+        <%= render 'users/approved', user: user %>
         <hr>
       </div>
+
       <i class="far fa-user-circle"></i>
     </div>
     <div class="card-body">
@@ -30,16 +32,16 @@
         à <%= user.city %> depuis <%= l user.created_at, format: "%B %Y" %>
       </p>
       <% if user.localized_reception_days.any? %>
-      <p>Jours préférés · <span class="style-txt-user"><%= user.localized_reception_days.join(' / ') %></span></p>
+        <p>Jours préférés · <span class="style-txt-user"><%= user.localized_reception_days.join(' / ') %></span></p>
       <% end %>
       <div class="desc-user">
         <%= simple_format user.description %>
       </div>
 
       <% unless user.specialties.blank? %>
-      <p>Mes spécialités<br/>
-        <span class="style-txt-user"><%= user.specialties %></span></p>
-        <% end %>
+        <p>Mes spécialités<br/>
+        <span class="style-txt-user"><%= simple_format user.specialties %></span></p>
+      <% end %>
         
         <div class="btn-user">
           <%= link_to 'Contacter', my_conversation_path(user_slug: user.slug), class: 'btn btn-default btn-block' %>

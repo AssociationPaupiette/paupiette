@@ -13,12 +13,12 @@
         <div class="col-md-8">
           <div class="row">
             <div class="col-name col-6">
-              <h4>Prénom&nbsp;:</h4>
+              <h4>Nom&nbsp;:</h4>
               <p><%= @user.full_name %></p>
             </div>
             
             <div class="col-city col-6">
-              <h4>Région&nbsp;:</h4>
+              <h4>Ville&nbsp;:</h4>
               <p><%= @user.host? ? "Hôte" : "Convive" %> à <%= @user.city %></p>
             </div>
           </div>
@@ -27,20 +27,22 @@
               <% if @user.ambassador? %>
               <p>Ambassadeur à <%= @user.managed_cities.join(', ') %></p>
               <% end %>
-              <p><%= @user.approved? ? "Profil vérifié" : "Profil non vérifié" %></p>
+
+              <%= render 'users/approved', user: @user %>
+
               <h4>Présentation&nbsp;:</h4>
               <div class="desc-user">
                 <p><%= simple_format @user.description %></p>
               </div>
-              <h4>Spécialités&nbsp;:</h4>
               <% if @user.host? %>
-              <p><%= @user.specialties %></p>
-              <h4>Jours de réception :</h4>
-              <ul>
-                <% @user.localized_reception_days.each do |day| %>
-                <li><%= day %></li>
-                <% end %>
-              </ul>
+                <h4>Spécialités&nbsp;:</h4>
+                <p><%= @user.specialties %></p>
+                <h4>Jours de réception :</h4>
+                <ul>
+                  <% @user.localized_reception_days.each do |day| %>
+                  <li><%= day %></li>
+                  <% end %>
+                </ul>
               <% end %>
               <% reviews = @user.reviews_received.approved %>
               <% if reviews.any? %>

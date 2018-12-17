@@ -1,6 +1,6 @@
 <div class="message <%= message.from == current_user ? 'message--from-me' : 'message--from-someone-else' %>">
 	<div class="message-from-date">
-		<p><%= message.from %> - <%= l message.created_at, format: :short %></p>
+		<p><%= link_to message.from, user_path(user_slug: message.from.slug) %> - <%= l message.created_at, format: :short %></p>
 	</div>
 	<div class="message-content">
 		<p><%= simple_format message.content %></p>

@@ -23,7 +23,7 @@ fr:
     profile:
       name: 'Mon profil'
       approved: 'Profil approuvé'
-      unapproved: "Profil non approuvé, envoyez votre carte d'identité"
+      unapproved: 'Profil non approuvé'
       first_name: 'Prénom'
       last_name: 'Nom'
       city: 'Ville'
@@ -62,3 +62,4 @@ fr:
   time:
     formats:
       day: "%A %e %B %Y"
+      short_day: "%d/%m/%Y"

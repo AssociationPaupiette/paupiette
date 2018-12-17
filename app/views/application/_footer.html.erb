@@ -1,33 +1,51 @@
 <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-1">
-        <ul class="list-unstyled">
-          <li><%= link_to t('menu.press'), press_path %></li>
-          <li><%= link_to t('menu.who'), who_path %></li>
-          <li><%= link_to t('menu.legal'), legal_path %></li>
-        </ul>
+  <div class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-1 col-md-10">
+          <h2>Nos partenaires</h2>
+        </div>
       </div>
-      <div class="col-md-2">
-        <h2>Suivez-nous</h2>
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <a href="https://www.facebook.com/paupiette.food">
-              <%= icon 'fab', 'facebook-square' %>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://twitter.com/paupiette_food">
-              <%= icon 'fab', 'twitter-square' %>
-            </a>
-          </li>
-        </ul>
+      <div class="row">
+        <% [
+            'finistere.png',
+            'quimper.gif',
+            'fondation-macif.jpg',
+            'gironde.png',
+            'apres-demain.svg',
+            'fondation-carrefour.png'
+            ].each do |logo| %>
+          <div class="offset-md-1 col-md-2 col-4"><%= image_tag "partners/#{logo}", class: 'img-fluid' %></div>
+        <% end %>
       </div>
-      <div class="col-md-2">
-        <h2>Nos partenaires</h2>
-        <ul class="list-inline">
-          <li class="list-inline-item">logo</li>
-        </ul>
+    </div>
+  </div>
+
+  <div class="legal">
+    <div class="container">
+      <div class="row dark">
+        <div class="col-md-6 offset-md-1">
+          <ul class="list-unstyled">
+            <li><%= link_to t('menu.press'), press_path %></li>
+            <li><%= link_to t('menu.who'), who_path %></li>
+            <li><%= link_to t('menu.legal'), legal_path %></li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h2>Suivez-nous</h2>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/paupiette.food">
+                <%= icon 'fab', 'facebook-square' %>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/paupiette_food">
+                <%= icon 'fab', 'twitter-square' %>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

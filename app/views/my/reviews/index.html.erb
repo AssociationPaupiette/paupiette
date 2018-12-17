@@ -1,4 +1,42 @@
 <%= content_for :title, t('my.reviews.name') %>
+<%= render 'my/nav' %>
+<%= render 'my/container' %>
+  <h2><%= t('my.reviews.name') %></h2>
+  <div class="row">
+    <% @conversations.each do |conversation| %>
+      <% user = conversation.other(current_user).first %>
+      <% next if user.nil? # Deleted user %>
+      <% review = current_user.review_about(user) %>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <%= link_to user_path(user_slug: user.slug) do %>
+          <%= render 'users/user_small', user: user, class: 'img-user' %>
+          <% end %>
+        </div>
+        <p class="text-muted"><i>Seul votre convive pourra le consulter.</i></p>
+      </div>
+      <div class="col-md-8">
+        <%= simple_form_for review, url: my_review_path(user_slug: user.slug) do |f| %>
+          <%= f.input :text, label: false, input_html: { rows: 5 }, placeholder: 'Ecrivez quelque chose ...' %>
+          <%= f.button :submit,  t('my.reviews.save'), class: 'btn-default' %>
+        <% end %>
+        <% unless review.new_record? %>
+          <p class="badge badge-primary">
+            <% if review.approved? %>
+            <%= t('my.reviews.approved') %>
+            <% else %>
+            <%= t('my.reviews.unapproved') %>
+            <% end %>
+          </p>
+        <% end %>
+        <br/>
+      </div>
+    <% end %>
+  </div>
+<%= render 'my/container_end' %>
+
+
+
 <div class="container">
   <%= render 'my/nav' %>
 </div>
@@ -6,35 +44,6 @@
   <div class="container">
     <div class="row">
       <div class="user-profil col-md-11 offset-md-1">
-        <h2>Ecrivez vos avis</h2>
-        <div class="row">
-          <% @conversations.each do |conversation| %>
-          <% user = conversation.other(current_user).first %>
-          <% next if user.nil? # Deleted user %>
-          <% review = current_user.review_about(user) %>
-          <div class="profil-reviews col-12">
-            <div class="mb-3">
-              <%= link_to user_path(user_slug: user.slug) do %>
-              <%= render 'users/user_small', user: user, class: 'img-user' %>
-              <% end %>
-            </div>
-            <p>Seul votre convive pourra le consulter.</p>
-            <%= simple_form_for review, url: my_review_path(user_slug: user.slug) do |f| %>
-            <%= f.input :text, label: false, input_html: { rows: 5 }, placeholder: 'Ecrivez quelque chose ...' %>
-            <%= f.button :submit,  t('my.reviews.save'), class: 'btn-default' %>
-            <% end %>
-            <% unless review.new_record? %>
-            <p class="badge badge-primary">
-              <% if review.approved? %>
-              <%= t('my.reviews.approved') %>
-              <% else %>
-              <%= t('my.reviews.unapproved') %>
-              <% end %>
-            </p>
-            <% end %>
-          </div>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>

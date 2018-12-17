@@ -1,0 +1,5 @@
+<% if user.approved? %>
+  <span class="badge badge-primary"><%= t('my.profile.approved') %></span>
+<% else %>
+  <span class="badge badge-light"><%= t('my.profile.unapproved') %></span>
+<% end %>
