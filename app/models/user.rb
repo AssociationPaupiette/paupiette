@@ -102,6 +102,14 @@ class User < ApplicationRecord
     reviews_given.where(about: user).first_or_initialize
   end
 
+  def unread_messages_count
+    count = 0
+    conversations.each do |conversation|
+      count += conversation.messages_to(self).unread.count
+    end
+    count
+  end
+
   private
 
   def set_host

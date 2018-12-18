@@ -2,6 +2,13 @@
 <%= render 'my/nav' %>
 <%= render 'my/container' %>
   <h2><%= t('my.profile.name') %></h2>
+  <% unless current_user.approved? %>
+    <div class="alert alert-danger" role="alert">
+      Votre profil n'est pas encore approuvé.
+      Pour le faire approuver par un ambassadeur de votre ville,
+      scannez votre carte d'identité et envoyez le ici.
+    </div>
+  <% end %>
   <%= simple_form_for(@user, url: my_profile_path, html: { method: :put }, wrapper: :vertical_form) do |f| %>
     <div class="row">
       <div class="col-img-user col-md-5">

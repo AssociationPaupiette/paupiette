@@ -3,9 +3,21 @@
     <div class="profil-nav col-md-11 offset-md-1">
       <h1><span class="style-user">Bonjour</span> <%= current_user.to_short_s %></h1>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <%= link_to t('my.name'), my_root_path, class: "nav-item nav-link #{'active' if controller_name == 'dashboard'}" %>
-        <%= link_to t('my.messages.name'), my_messages_path, class: "nav-item nav-link #{'active' if controller_name == 'messages'}" %>
-        <%= link_to t('my.profile.name'), my_profile_path, class: "nav-item nav-link #{'active' if controller_name == 'profile'}" %>
+        <%= link_to my_root_path, class: "nav-item nav-link #{'active' if controller_name == 'dashboard'}" do %>
+          <%= t('my.name') %>
+        <% end %>
+        <%= link_to my_messages_path, class: "nav-item nav-link #{'active' if controller_name == 'messages'}" do %>
+          <%= t('my.messages.name') %>
+          <% if current_user.unread_messages_count > 0 %>
+            <span class="badge badge-primary"><%= current_user.unread_messages_count %></span>
+          <% end %>
+        <% end %>
+        <%= link_to my_profile_path, class: "nav-item nav-link #{'active' if controller_name == 'profile'}" do %>
+          <%= t('my.profile.name') %>
+          <% unless current_user.approved? %>
+            <span class="badge badge-primary">!</span>
+          <% end %>
+        <% end %>
         <%= link_to t('my.reviews.name'), my_reviews_path, class: "nav-item nav-link #{'active' if controller_name == 'reviews'}" %>
         <%= link_to t('my.meals.name'), my_meals_path, class: "nav-item nav-link #{'active' if controller_name == 'meals'}" if can? :create, Meal  %>
       </div>

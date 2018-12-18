@@ -16,10 +16,12 @@
           </div>
           <div class="col-md-3 date">
             <time><%= l conversation.updated_at, format: :short_day %></time>
-            <span class="badge">
-              <% unread_count = conversation.messages.unread.received_from(user).count %>
-              <%= unread_count %> message<%= 's' if unread_count > 1 %> non lu<%= 's' if unread_count > 1 %>
-            </span>
+            <% unread_count = conversation.messages.unread.received_from(user).count %>
+            <% if unread_count > 0 %>
+              <span class="badge badge-primary">
+                <%= unread_count %> message<%= 's' if unread_count > 1 %> non lu<%= 's' if unread_count > 1 %>
+              </span>
+            <% end %>
           </div>
         </div>
         <hr/>
