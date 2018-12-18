@@ -46,6 +46,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :slug
 
   before_validation :set_default_slug, on: :create
+  before_validation :strip_slug
   before_create :set_host
   before_destroy { conversations.clear }
 
@@ -121,5 +122,9 @@ class User < ApplicationRecord
 
   def slug_already_in_use?
     User.where(slug: self.slug).where.not(id: id).exists?
+  end
+
+  def strip_slug
+    self.slug.strip!
   end
 end
