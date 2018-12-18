@@ -61,8 +61,14 @@ class User < ApplicationRecord
   scope :not_approved, -> { where(approved: false) }
   scope :to_approve, -> { not_approved.joins(identity_card_attachment: :blob) }
   scope :search, -> (term) { 
-    where('email LIKE ? OR slug LIKE ? OR first_name LIKE ? OR last_name LIKE ?', 
-      term, term, "%#{term}%", "%#{term}%")
+    where(' email LIKE ?
+            OR slug LIKE ?
+            OR first_name LIKE ?
+            OR last_name LIKE ?',
+            "%#{term}%",
+            "%#{term}%",
+            "%#{term}%",
+            "%#{term}%")
   }
   default_scope { order(:last_name, :first_name) }
 

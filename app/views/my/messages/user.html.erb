@@ -1,8 +1,11 @@
-<% title = t('my.messages.conversation_with', name: @user) %>
+<% title = "#{t('my.messages.conversation_with')} #{@user}" %>
 <%= content_for :title, title %>
 <%= render 'my/nav' %>
 <%= render 'my/container' %>
-  <h2><%= title %></h2>
+  <h2>
+    <%= t('my.messages.conversation_with') %>
+    <%= link_to @user, user_path(user_slug: @user.slug) %>
+  </h2>
   <div class="conversation">
     <div class="row">
       <div class="col-md-2 col-4">
@@ -27,50 +30,11 @@
     </div>
   </div>
   <%= simple_form_for @message, url: my_send_message_path(user_slug: @user.slug) do |f| %>
-  <%= f.input :from_id, as: :hidden %>
-  <%= f.input :content, label: false, placeholder: t('my.messages.type_your_message') %>
-  <%= f.button :submit, t('my.messages.send'), class: 'btn-default' %>
+    <%= f.input :from_id, as: :hidden %>
+    <%= f.input :content, label: false, placeholder: t('my.messages.type_your_message') %>
+    <%= f.button :submit, t('my.messages.send'), class: 'btn-default' %>
   <% end %>
   <div class="previous">
     <a href="<%= my_messages_path %>"><i class="fas fa-angle-double-left"></i> Revenir aux messages</a>
   </div>
 <%= render 'my/container_end' %>
-<div class="container-fluid bg-user-profil">
-  <div class="container">
-    <div class="row">
-      <div class="user-profil col-md-11 offset-md-1">
-        <h2><%= title %></h2>
-        <div class="conversation">
-          <div class="row">
-            <div class="col-lg-2">
-              <%= link_to user_path(user_slug: @user.slug) do %>
-                <% if @user.photo.attached? %>
-                  <%= image_tag @user.photo.variant(resize: '60x60^', combine_options: { gravity: 'center', crop: '60x60+0+0' }), class: 'img-user-3' %>
-                <% else %>
-                  <%= image_tag 'avatar.png', class: 'img-fluid img-user' %>
-                <% end %>
-              <% end %>
-            </div>
-            <div class="col-lg-10">
-              <% if @conversation %>
-              <% @conversation.messages.each do |message| %>
-              <%= render 'message', message: message %>
-              <% end %>
-              <% else %>
-              <p><%= t('my.messages.no_messages') %></p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <%= simple_form_for @message, url: my_send_message_path(user_slug: @user.slug) do |f| %>
-        <%= f.input :from_id, as: :hidden %>
-        <%= f.input :content, label: false, placeholder: t('my.messages.type_your_message') %>
-        <%= f.button :submit, t('my.messages.send'), class: 'btn-default' %>
-        <% end %>
-        <div class="previous">
-          <a href="<%= my_messages_path %>"><i class="fas fa-angle-double-left"></i> Revenir aux messages</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

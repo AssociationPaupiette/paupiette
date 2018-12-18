@@ -47,7 +47,7 @@
               <% reviews = @user.reviews_received.approved %>
               <% if reviews.any? %>
               <hr/>
-              <h2>Vous avez <span class="style-user">X avis</span></h2>
+              <h2><span class="style-user"><%= reviews.count %> avis</span></h2>
               <div class="row">
                 <div class="published-reviews col-md-6">
                   <ul class="list-unstyled">

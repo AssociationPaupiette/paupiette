@@ -19,7 +19,7 @@ fr:
     messages:
       name: 'Mes messages'
       contact_my_ambassadors: 'Contacter mes ambassadeurs'
-      conversation_with: 'Conversation avec %{name}'
+      conversation_with: 'Conversation avec'
       no_messages: 'Pas de messages'
       type_your_message: 'Entrez votre message'
       send: 'Envoyer'

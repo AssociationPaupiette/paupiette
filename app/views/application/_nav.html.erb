@@ -33,16 +33,18 @@
           <%= current_user %>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">
-          <%= link_to t('my.name'), my_messages_path, class: 'dropdown-item' %>
+          <%= link_to t('my.name'), my_root_path, class: 'dropdown-item' %>
           <%= link_to t('my.messages.name'), my_messages_path, class: 'dropdown-item' %>
           <%= link_to t('my.profile.name'), my_profile_path, class: 'dropdown-item' %>
           <%= link_to t('my.reviews.name'), my_reviews_path, class: 'dropdown-item' %>
           <%= link_to t('my.meals.name'), my_meals_path, class: 'dropdown-item' %>
           <% if can? :manage, :city %>
-          <%= link_to t('my_cities.name'), my_cities_root_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to t('my_cities.name'), my_cities_root_path, class: 'dropdown-item' %>
           <% end %>
           <% if can? :access, :admin %>
-          <%= link_to t('menu.admin'), admin_root_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to t('menu.admin'), admin_root_path, class: 'dropdown-item' %>
           <% end %>
           <div class="dropdown-divider"></div>
           <%= link_to t('menu.signout'), destroy_user_session_path, class: 'dropdown-item' %>
