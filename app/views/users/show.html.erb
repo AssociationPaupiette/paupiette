@@ -5,9 +5,9 @@
       <div class="row">
         <div class="col-img-user col-md-4">
           <% if @user.photo.attached? %>
-          <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-fluid img-user-2' %>
+          <%= image_tag @user.photo.variant(resize: '512x512^', combine_options: { gravity: 'center', crop: '512x512+0+0' }), class: 'img-user img-fluid' %>
           <% else %>
-          <%= image_tag 'avatar.png', class: 'img-fluid img-user-2' %>
+          <%= image_tag 'avatar.png', class: 'img-user img-fluid' %>
           <% end %>
         </div>
         <div class="col-md-8">

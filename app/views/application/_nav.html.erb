@@ -23,7 +23,7 @@
         <li class="<%= classes %>">
           <%= link_to t('my.name'), my_root_path %>
           <% if current_user.unread_messages_count > 0 %>
-            <span class="badge badge-primary"><%= current_user.unread_messages_count %></span>
+            <span class="badge2 badge-primary"><%= current_user.unread_messages_count %></span>
           <% end %>
         </li>
       <li class="<%= classes %> dropdown">

@@ -31,12 +31,8 @@
   h3
     color: $color-main
     font-weight: 600
-  .img-user-3
-    border-radius: 150px
 .col-img-user
   padding-right: 80px
-  .img-user-2
-    border-radius: 150px
 .conversation
   margin: 45px 0 0 0
 .new_message
@@ -45,30 +41,34 @@
     min-height: 120px
   input
     margin-top: 30px
-.message-line-2
+.badge
+  font-weight: 500
+  border-radius: 5px
+  padding: 5px 10px
+  font-style: italic
+  color: #464646
+  background-color: #eaeaea
+.badge2
+  border-radius: 5px
+  padding: 3px 8px
+  font-style: normal
+  color: #fff
+  background-color: $color-main
+  margin: 0 0 0 5px
+
+.message-line, .message-line-2
   margin: 30px 0
   li
     margin: 0 0 20px 0
   a
     font-weight: 500
     color: #242525
-  a:hover, a:active, a:focus
-    color: $color-main
-.message-line
-  margin: 30px 0
-  li
-    margin: 0 0 20px 0
-  a
-    font-weight: 500
-    color: #242525
-    vertical-align: top
   a:hover, a:active, a:focus
     color: $color-main
   .badge
-    color: $color-title-grey
     display: block
-    padding: 0
-    text-align: left
+    width: 127px
+    margin: 10px 0 20px 0
   .message
     color: $color-title-grey
     position: absolute
@@ -83,9 +83,7 @@
     font-weight: 500
     font-size: 1em
 
-.message--from-someone-else
-  width: 70%
-  margin-bottom: 30px
+.message--from-someone-else, .message--from-me
   .message-from-date
     p
       color: $color-title-grey
@@ -93,42 +91,27 @@
       font-style: italic
       font-weight: 500
   .message-content
-    background-color: #f6f5f5
     padding: 30px
     border-radius: 15px
     p
       font-weight: 500
-    .badge
-      background-color: #dddddd
-      font-style: italic
-      color: #464646
-      font-weight: 500
-      border-radius: 5px
-      padding: 5px 10px
+
+.message--from-someone-else
+  width: 70%
+  margin-bottom: 30px
+  .message-content
+    background-color: #f6f5f5
 
 .message--from-me
   margin: 0 0 30px 30%
-  .message-from-date
-    p
-      color: $color-title-grey
-      padding: 0 30px 0 0
-      font-style: italic
-      font-weight: 500
   .message-content
     background-color: $color-main
-    padding: 30px
-    border-radius: 15px
     text-align: left
     p
-      font-weight: 500
       color: #fff
     .badge
       background-color: #b77575
-      font-style: italic
       color: #fff
-      font-weight: 500
-      border-radius: 5px
-      padding: 5px 10px
 
 .previous
   margin: 20px 0 0 0
@@ -158,9 +141,6 @@
   padding: 20px 20px 80px 20px
   .col-img-user
   padding-right: 80px
-  .img-user-2
-    width: 100%
-    border-radius: 150px
   .col-name, .col-city
     p
       color: $color-main
@@ -184,15 +164,6 @@
       border: 0
       padding: 0
 
-.img-user
-  border-radius: 100%
-  margin: 0 25px 0 0
-
-.img-user-3
-  width: 60px
-  border-radius: 150px
-  margin: 0 25px 0 0
-
 @media screen and (max-width: 1023px)
     .user-profil
       padding: 80px
@@ -203,6 +174,13 @@
       .col-img-user
       padding-right: 40px
 
+@media screen and (max-width: 991px) 
+    .message--from-someone-else
+      width: 100%
+      margin-top: 30px   
+    .message--from-me
+      margin: 0 0 30px 0 
+
 @media screen and (max-width: 767px)
     .bg-user-profil
       padding: 50px
@@ -211,15 +189,6 @@
       padding: 50px
       .date, .badge
         text-align: right
-
-    .message--from-someone-else
-      width: 100%
-      margin-top: 30px
-
-    .message--from-me
-      margin: 0 0 30px 0
-
-
 
 @media screen and (max-width: 539px)
     .bg-user-profil
