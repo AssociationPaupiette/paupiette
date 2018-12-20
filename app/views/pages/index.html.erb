@@ -1,17 +1,19 @@
 <div class="hero">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-7 offset-md-1">
-        <div class="col-hello">
+    <div class="row mt-5">
+      <% if current_user.nil? %>
+        <div class="col-lg-7 offset-md-1">
           <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
-      </div>
-      <% if current_user.nil? %>
         <div class="btn-1 col-lg-2 offset-lg-0 col-sm-5 offset-md-1">
           <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block' %>
         </div>
         <div class="btn-2 col-lg-2 offset-lg-0 col-sm-5 offset-sm-0">
           <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block' %>
+        </div>
+      <% else %>
+        <div class="col-lg-11 offset-md-1">
+          <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
       <% end %>
     </div>
