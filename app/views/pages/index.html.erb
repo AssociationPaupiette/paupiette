@@ -1,17 +1,19 @@
 <div class="hero">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-7 offset-md-1">
-        <div class="col-hello">
+    <div class="row mt-5">
+      <% if current_user.nil? %>
+        <div class="col-lg-7 offset-md-1">
           <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
-      </div>
-      <% if current_user.nil? %>
         <div class="btn-1 col-lg-2 offset-lg-0 col-sm-5 offset-md-1">
           <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block' %>
         </div>
         <div class="btn-2 col-lg-2 offset-lg-0 col-sm-5 offset-sm-0">
           <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block' %>
+        </div>
+      <% else %>
+        <div class="col-lg-11 offset-md-1">
+          <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
       <% end %>
     </div>
@@ -98,29 +100,23 @@
   </div>
 </div>
 
-<div class="pricing">
+<div class="pricing mb-5">
   <div class="container">
     <div class="row">
       <div class="col-md-11 offset-md-1">
-        <h2>Les formules de <span class="style-name">Paupiette</span></h2>
-        <p class="text-meal">Des formules à prix unique</p>
-        <div class="row">
-          <div class="col-lg-4 col-md-12 text-center">
-            <div class="meal-illustration1">
-              <%= image_tag "meal-1.png", class: 'img-fluid', width: '373', height: '463' %>
-            </div>
+        <h2 class="mt-5">Les formules de <span class="style-name">Paupiette</span></h2>
+        <p>Des formules à prix unique</p>
+        <div class="row mt-5">
+          <div class="col-md-4 text-center">
+            <%= image_tag "home/4.png", class: 'img-fluid' %>
             <p>Plat</p>
           </div>
-          <div class="col-lg-4 col-md-12 text-center">
-            <div class="meal-illustration2">
-              <%= image_tag "meal-2.png", class: 'img-fluid', width: '424', height: '463' %>
-            </div>
+          <div class="col-md-4 text-center">
+            <%= image_tag "home/5.png", class: 'img-fluid' %>
             <p>Entrée + Plat <br/> ou Plat + Dessert </p>
           </div>
-          <div class="col-lg-4 col-md-12 text-center">
-            <div class="meal-illustration3">
-              <%= image_tag "meal-3.png", class: 'img-fluid', width: '424', height: '467' %>
-            </div>
+          <div class="col-md-4 text-center">
+            <%= image_tag "home/7.png", class: 'img-fluid' %>
             <p>Entrée + Plat <br/> + Dessert </p>
           </div>
         </div>
