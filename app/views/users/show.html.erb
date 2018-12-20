@@ -49,17 +49,16 @@
               <hr/>
               <h2><span class="style-user"><%= reviews.count %> avis</span></h2>
               <div class="row">
-                <div class="published-reviews col-md-6">
+                <div class="published-reviews col-12">
                   <ul class="list-unstyled">
                     <% reviews.each do |review| %>
                     <li>
-                      <p class="small">
+                      <p class="small profil-reviews">
                         <%= link_to user_path(user_slug: review.from.slug) do %>
                         <%= render 'users/user_small', user: review.from %>
-                        <% end %>
-                        <br/>
-                        Avis publié le <%= l review.created_at, format: :long %>
+                        <% end %>                     
                       </p>
+                      <span class="date-reviews">Avis publié le <%= l review.created_at, format: :long %></span>
                       <p><%= simple_format review.text %></p>
                     </li>
                     <% end %>
