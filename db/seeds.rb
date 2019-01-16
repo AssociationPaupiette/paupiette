@@ -8,7 +8,7 @@
 
 cities = [
   {name: 'Paris', active: true, latitude: 48.856614, longitude: 2.3522219000000177},
-  {name: 'Bordeaux', active: true, latitude: 44.837789, longitude: 0.5791799999999512},
+  {name: 'Bordeaux', active: true, latitude: 44.84044, longitude: -0.5805},
   {name: 'Quimper', active: true, latitude: 47.997542, longitude: -4.097898999999984},
   {name: 'Marseille', active: false, latitude: 43.296482, longitude: 5.369779999999992},
   {name: 'Lyon', active: false, latitude: 45.764043, longitude: 4.835658999999964},

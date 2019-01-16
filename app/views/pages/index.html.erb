@@ -40,13 +40,13 @@
                 <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
                 <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
                 <%= f.input :email, label: false, placeholder: 'Email' %>
-                
+
                 <%= f.button :submit, 'Tenez-moi informé', class: "btn-default btn-form" %>
               </div>
               <% end %>
             </div>
             <div class="col-map col-lg-6">
-              <%= image_tag "map.jpg", class: "img-fluid" %>
+              <div id="map" data-center="<%= @map_center %>" data-markers="<%= @map_cities %>"></div>
             </div>
           </div>
         </div>
