@@ -66,6 +66,9 @@
                 </div>
               </div>
               <% end %>
+              <div id="map" data-center="<%= @map_center %>" data-zoom="11"></div>
+              <% if ENV['GOOGLE_MAPS_API_KEY'].present? %>
+              <% end %>
               <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary btn-default" %>
             </div>
           </div>

@@ -46,11 +46,11 @@
               <% end %>
             </div>
             <div class="col-map col-lg-6">
+                <div id="map" data-center="<%= @map_center %>" data-markers="<%= @map_cities %>" data-zoom="5.6"></div>
               <% if ENV['GOOGLE_MAPS_API_KEY'].present? %>
-                <div id="map" data-center="<%= @map_center %>" data-markers="<%= @map_cities %>"></div>
               <% else %>
                 <%# TODO: Maps API key local %>
-                <%= image_tag "map.jpg", class: "img-fluid" %>
+                <%# image_tag "map.jpg", class: "img-fluid" %>
               <% end %>
             </div>
           </div>

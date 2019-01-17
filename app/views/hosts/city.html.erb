@@ -12,6 +12,11 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div id="map" data-center="<%= @map_center %>" data-markers="<%= @users_active %>" data-zoom="12"></div>
+      <% if ENV['GOOGLE_MAPS_API_KEY'].present? %>
+      <% end %>
+    </div>
     <div class="row" id="users">
       <%= render partial: 'users/user', collection: @users %>
     </div>

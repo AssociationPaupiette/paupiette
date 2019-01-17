@@ -34,7 +34,12 @@
       </div>
     </div>
     <div class="row">
-      <%= render partial: 'users/user', collection: @users %>
+      <div id="map" data-center="<%= @map_center %>" data-markers="<%= @users_active %>" data-zoom="6.5"></div>
+      <% if ENV['GOOGLE_MAPS_API_KEY'].present? %>
+      <% end %>
+    </div>
+    <div class="row">
+    <%= render partial: 'users/user', collection: @users %>
     </div>
     <% unless @users.empty? || @users.last_page? %>
       <div class="see-more">
