@@ -23,7 +23,7 @@ var initMapZone = function (markerData) {
         fillColor: '#631C32',
         fillOpacity: 0.35,
         center: new google.maps.LatLng(markerData.latitude, markerData.longitude),
-        radius: 1000
+        radius: 600
     });
     return marker;
 };

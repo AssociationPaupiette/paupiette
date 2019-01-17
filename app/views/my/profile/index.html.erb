@@ -28,6 +28,8 @@
                     required: true,
                     label: t('my.profile.slug') ,
                     hint: t('my.profile.slug_hint', url: user_url(user_slug: @user.slug)) %>
+        <%= f.input :address, label: t('my.profile.address'), hint: t('my.profile.address_hint') %>
+        <%= f.input :zipcode, label: t('my.profile.zipcode') %>
         <%= f.association :city, include_blank: false, collection: City.active, label: t('my.profile.city') %>
         <% if @user.host? %>
           <%= f.input :description, label: t('my.profile.description'), placeholder: 'Partagez vos destinations de voyage, livres, films, musiques, plats préférés. Quelle est votre motivation à participer au projet ? Comment aimez-vous recevoir ?' %>

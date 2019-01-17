@@ -21,6 +21,9 @@
 #  slug                   :string           default(""), not null
 #  active                 :boolean          default(TRUE), not null
 #  approved               :boolean          default(FALSE)
+#  address                :string
+#  zipcode                :string
+#  city                   :string
 #
 
 require 'test_helper'

@@ -16,11 +16,11 @@
         <%= f.input :password_confirmation,
         required: true,
         input_html: { autocomplete: "new-password" } %>
-        <%= f.input :host_sign_up,
+        <%= f.input :host,
         label: "Je suis un",
         collection: [["Convive", false], ["Hôte", true]],
         include_blank: false,
-        selected: params[:host_sign_up] %>
+        selected: params[:as_host] %>
       </div>
 
       <div class="form-actions">

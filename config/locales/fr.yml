@@ -1,5 +1,5 @@
 fr:
-  menu: 
+  menu:
     hosts: 'Hôtes'
     ambassadors: 'Ambassadeurs'
     signin: 'Se connecter'
@@ -26,29 +26,32 @@ fr:
       not_read: 'Message non lu'
       read_on: 'Lu le %{date}'
     profile:
-      name: 'Mon profil'
+      address: 'Adresse'
+      address_hint: 'Votre adresse exacte ne sera pas communiquée aux autres utilisateurs. Vous devrez la communiquer à vos futurs convives.'
       approved: 'Profil approuvé'
-      unapproved: 'Profil non approuvé'
-      first_name: 'Prénom'
-      last_name: 'Nom'
       city: 'Ville'
-      email: 'Email'
-      slug: 'Nom du compte'
-      slug_hint: 'URL de profil : %{url}'
-      identity_card: "Carte d'identité"
-      photo: 'Photo'
       description: 'Description'
-      specialties: 'Spécialités'
+      email: 'Email'
+      first_name: 'Prénom'
+      identity_card: "Carte d'identité"
+      last_name: 'Nom'
+      name: 'Mon profil'
+      photo: 'Photo'
       reception_days: 'Jours préférés'
       save: 'Mettre à jour'
       saved: 'Profil mis à jour'
+      slug: 'Nom du compte'
+      slug_hint: 'URL de profil : %{url}'
+      specialties: 'Spécialités'
+      unapproved: 'Profil non approuvé'
+      zipcode: 'Code postal'
     reviews:
       name: 'Mes avis'
       save: 'Enregistrer'
       saved: 'Votre avis va être relu par un ambassadeur avant publication'
       approved: 'Avis approuvé'
       unapproved: 'Avis en attente de relecture'
-    meals: 
+    meals:
       name: 'Mes repas ouverts'
       new: 'Proposer un repas'
       edit: 'Modifier un repas'

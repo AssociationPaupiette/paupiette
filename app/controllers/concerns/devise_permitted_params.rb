@@ -10,7 +10,7 @@ module DevisePermittedParams
     if params[:action] == 'update'
       devise_parameter_sanitizer.permit(:account_update, keys: edit_user_params)
     elsif params[:action] == 'create'
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:host_sign_up])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:host])
     end
   end
 end

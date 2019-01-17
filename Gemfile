@@ -25,6 +25,7 @@ gem 'cancancan'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'kaminari-i18n'
+gem 'geocoder'
 
 # Front
 gem 'jquery-rails'

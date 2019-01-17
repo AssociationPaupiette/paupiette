@@ -118,6 +118,7 @@ GEM
       js_cookie_rails
       rails
       sass-rails
+    geocoder (1.5.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.5.2)
@@ -304,6 +305,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   gdpr
+  geocoder
   image_processing
   jbuilder
   jquery-rails
