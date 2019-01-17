@@ -40,16 +40,18 @@
                 <%= f.input :first_name, label: false, placeholder: 'Prénom' %>
                 <%= f.association :city, label: false, include_blank: 'Ville', collection: @preregistration_cities %>
                 <%= f.input :email, label: false, placeholder: 'Email' %>
-                
+
                 <%= f.button :submit, 'Tenez-moi informé', class: "btn-default btn-form" %>
               </div>
               <% end %>
             </div>
             <div class="col-map col-lg-6">
-              <!-- <%= image_tag "map.jpg", class: "img-fluid" %> -->
-              <div style='width: 800px;'>
-                <div id="map" style='width: 800px; height: 400px;'></div>
-              </div>
+              <% if ENV['GOOGLE_MAPS_API_KEY'].present? %>
+                <div id="map" data-center="<%= @map_center %>" data-markers="<%= @map_cities %>"></div>
+              <% else %>
+                <%# TODO: Maps API key local %>
+                <%= image_tag "map.jpg", class: "img-fluid" %>
+              <% end %>
             </div>
           </div>
         </div>
