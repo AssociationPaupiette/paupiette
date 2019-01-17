@@ -29,10 +29,14 @@
                     label: t('my.profile.slug') ,
                     hint: t('my.profile.slug_hint', url: user_url(user_slug: @user.slug)) %>
         <%= f.association :city, include_blank: false, collection: City.active, label: t('my.profile.city') %>
-        <%= f.input :description, label: t('my.profile.description') %>
+        <% if @user.host? %>
+          <%= f.input :description, label: t('my.profile.description'), placeholder: 'Partagez vos destinations de voyage, livres, films, musiques, plats préférés. Quelle est votre motivation à participer au projet ? Comment aimez-vous recevoir ?' %>
+        <% else %>
+          <%= f.input :description, label: t('my.profile.description'), placeholder: 'Partagez vos destinations de voyage, livres, films, musiques, plats préférés. Quelle est votre motivation à participer au projet ?' %>
+        <% end %>
         <%= f.input :identity_card, as: :file, label: t('my.profile.identity_card') %>
         <% if @user.host? %>
-          <%= f.input :specialties, as: :text, label: t('my.profile.specialties') %>
+          <%= f.input :specialties, as: :text, label: t('my.profile.specialties'), placeholder: 'Qu’aimez-vous cuisiner ? Partagez un ou deux menus types que vous aimeriez proposer à vos convives.' %>
           <div class="reception_days">
             <%= f.input :reception_days,
                         label: t('my.profile.reception_days'),

@@ -1,7 +1,13 @@
 <%= content_for :title, t('my.reviews.name') %>
 <%= render 'my/nav' %>
 <%= render 'my/container' %>
-  <h2><%= t('my.reviews.name') %></h2>
+  <div class="row">
+    <div class="hosts__details user-city col-md-12">
+      <p>Vous avez échangé ou partagé un déjeuner avec ces membres ?</p>
+      <h2><span class="style-name">Donnez</span> votre avis sur l'expérience !</h2>
+      <hr>
+    </div>
+  </div>
   <div class="row">
     <% @conversations.each do |conversation| %>
       <% user = conversation.other(current_user).first %>

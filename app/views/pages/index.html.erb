@@ -3,7 +3,7 @@
     <div class="row mt-5">
       <% if current_user.nil? %>
         <div class="col-lg-7 offset-md-1">
-          <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
+          <h1>Ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
         <div class="btn-1 col-lg-2 offset-lg-0 col-sm-5 offset-md-1">
           <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block' %>
@@ -13,7 +13,7 @@
         </div>
       <% else %>
         <div class="col-lg-11 offset-md-1">
-          <h1>Bienvenue, ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
+          <h1>Ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
       <% end %>
     </div>
@@ -46,7 +46,10 @@
               <% end %>
             </div>
             <div class="col-map col-lg-6">
-              <%= image_tag "map.jpg", class: "img-fluid" %>
+              <!-- <%= image_tag "map.jpg", class: "img-fluid" %> -->
+              <div style='width: 800px;'>
+                <div id="map" style='width: 800px; height: 400px;'></div>
+              </div>
             </div>
           </div>
         </div>
@@ -61,8 +64,8 @@
       <div class="img-history col-lg-5 offset-lg-1 col-md-11 offset-md-1">
         <%= image_tag "about-us.jpg", class: "img-fluid" %>
       </div>
-      <div class="col-lg-5 offset-lg-1 col-md-11 offset-md-1">
-        <h2>L'histoire de <span class="style-name">Paupiette</span></h2>
+      <div class="col-lg-6 offset-lg-0 col-md-11 offset-md-1">
+        <h2>Le concept de <span class="style-name">Paupiette</span></h2>
         <h3>Paupiette réunit séniors et étudiants sur le temps du&nbsp;déjeuner&nbsp;!</h3>
         <p>Nous luttons contre la solitude des séniors tout en proposant un repas complet à prix accessible aux étudiants.</p>
       </div>

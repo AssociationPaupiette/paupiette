@@ -2,5 +2,53 @@
 <%= render 'my/nav' %>
 <%= render 'my/container' %>
   <h2><%= t('my.name') %></h2>
-  <p>Bienvenue</p>
+  <div class="espace container">
+    <div class="row">
+    <% if current_user.host? %>
+      <div class="hosts__details user-city col-md-12">
+        <p>Vous souhaitez organiser un déjeuner intergénérationnel ?</p>
+        <hr>
+        <div class="row">
+         <div class="col-lg-12 data__step" data-step="1">
+            <h2><span class="style-name">Complétez</span> votre profil</h2>
+            <p>pour que vos futurs convives apprennent à mieux vous connaître  !</p>
+          </div>
+          <div class="col-lg-12">
+            <hr>
+          </div>
+          <div class="row data__step"  data-step="2>
+            <div class="col-lg-5 col-md-5">
+              <h2><span class="style-name">Attendez</span></h2>
+              <p>que ces derniers prennent contact avec vous via la messagerie</p>
+            </div>
+            <div class="col-lg-2 col-md-2 hosts__or"><h2>ou</h2></div>
+            <div class="col-lg-5 col-md-5">
+              <h2><span class="style-name">Créez</span> une annonce</h2>
+              <p>dans l’onglet « Mes repas ouverts » s’il manque quelques convives à votre table </p>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <p class="espace__ps">Après le déjeuner, n'oubliez pas d'écrire un petit mot sur ce moment partagé avec vos convives</p>
+      </div>
+    <% else %>
+        <div class="hosts__details user-city col-md-12 data__step" data-step="1">
+        <p>Vous souhaitez participer à un déjeuner intergénérationnel ?</p>
+        <hr>
+        <div class="row">
+          <div class="col-lg-5 col-md-5">
+            <h2><span class="style-name">Contactez</span> directement l’hôte de votre choix</h2>
+            <p>et convenez ensemble de la date et du menu</p>
+          </div>
+          <div class="col-lg-2 col-md-2 hosts__or"><h2>ou</h2></div>
+          <div class="col-lg-5 col-md-5">
+            <h2><span class="style-name">Complétez</span> une table ouverte</h2>
+            <p>et rencontrez d’autres convives !</p>
+          </div>
+        </div>
+        <hr>
+        <p class="espace__ps">Après le déjeuner, n'oubliez pas d'écrire un petit mot sur ce moment partagé avec votre hôte et les convives</p>
+      </div>
+    <% end %>
+  </div>
 <%= render 'my/container_end' %>

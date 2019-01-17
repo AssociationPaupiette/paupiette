@@ -9,9 +9,13 @@
       <div class="row">
         <% [
             'finistere.png',
-            'quimper.gif',
+            'quimper.png',
             'fondation-macif.jpg',
-            'gironde.png',
+            'gironde.png'
+            ].each do |logo| %>
+          <div class="offset-md-1 col-md-2 col-4"><%= image_tag "partners/#{logo}", class: 'img-fluid partners-small' %></div>
+        <% end %>
+        <% [
             'apres-demain.svg',
             'fondation-carrefour.png'
             ].each do |logo| %>

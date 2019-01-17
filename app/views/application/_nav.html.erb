@@ -21,7 +21,7 @@
         </li>
       <% else %>
         <li class="<%= classes %>">
-          <%= link_to t('my.name'), my_root_path %>
+          <%= link_to t('my.messages.name'), my_messages_path %>
           <% if current_user.unread_messages_count > 0 %>
             <span class="badge2 badge-primary"><%= current_user.unread_messages_count %></span>
           <% end %>
