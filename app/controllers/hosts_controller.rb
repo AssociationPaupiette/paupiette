@@ -7,7 +7,7 @@ class HostsController < ApplicationController
     @cities = City.active
     @users = User.hosts.approved.page params[:page]
     @meals = Meal.opened
-    @map_center = { latitude: 47.1407702, longitude: 2.3445468 }.to_json
+    @map_center = { latitude: 46.8506542, longitude: 3.9984845 }.to_json
     @users_active = @users.map { |user|
       { latitude: 48.8695998, longitude: 2.3202199, url: user_path(user_slug: user.slug) }
     }.to_json
