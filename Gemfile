@@ -25,6 +25,7 @@ gem 'cancancan'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'kaminari-i18n'
+gem 'geocoder'
 
 # Front
 gem 'jquery-rails'
@@ -46,6 +47,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
+  gem 'figaro'
 end
 
 group :test do

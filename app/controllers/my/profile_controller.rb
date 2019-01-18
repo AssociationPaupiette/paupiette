@@ -20,7 +20,7 @@ class My::ProfileController < My::ApplicationController
 
   def user_params
     params[:user][:reception_days] ||= []
-    params.require(:user).permit(:first_name, :last_name, :email, :slug, :city_id, :description,
-                                 :photo, :specialties, :identity_card, reception_days: [])
+    params.require(:user).permit(:first_name, :last_name, :email, :slug, :address, :zipcode, :city_id,
+                                 :description, :photo, :specialties, :identity_card, reception_days: [])
   end
 end

@@ -9,7 +9,7 @@ class HostsController < ApplicationController
     @meals = Meal.opened
     @map_center = { latitude: 46.8506542, longitude: 3.9984845 }.to_json
     @users_active = @users.map { |user|
-      { latitude: 48.8695998, longitude: 2.3202199, url: user_path(user_slug: user.slug) }
+      { latitude: user.reduced_latitude, longitude: user.reduced_longitude, url: user_path(user_slug: user.slug) }
     }.to_json
   end
 
@@ -19,7 +19,7 @@ class HostsController < ApplicationController
     @meals = @city.meals.opened
     @map_center = { latitude: @city.latitude, longitude: @city.longitude }.to_json
     @users_active = @users.map { |user|
-      { latitude: 48.8695998, longitude: 2.3202199, url: user_path(user_slug: user.slug) }
+      { latitude: user.reduced_latitude, longitude: user.reduced_longitude, url: user_path(user_slug: user.slug) }
     }.to_json
     add_breadcrumb @city
   end

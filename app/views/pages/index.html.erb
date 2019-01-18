@@ -6,10 +6,10 @@
           <h1>Ce midi, c'est&nbsp;chez&nbsp;Mamie&nbsp;!</h1>
         </div>
         <div class="btn-1 col-lg-2 offset-lg-0 col-sm-5 offset-md-1">
-          <%= link_to 'Je suis hôte', new_user_registration_path(host_sign_up: true), class: 'btn btn-block' %>
+          <%= link_to 'Je suis hôte', new_user_registration_path(as_host: true), class: 'btn btn-block' %>
         </div>
         <div class="btn-2 col-lg-2 offset-lg-0 col-sm-5 offset-sm-0">
-          <%= link_to 'Je suis convive', new_user_registration_path(host_sign_up: false), class: 'btn btn-block' %>
+          <%= link_to 'Je suis convive', new_user_registration_path(as_host: false), class: 'btn btn-block' %>
         </div>
       <% else %>
         <div class="col-lg-11 offset-md-1">
@@ -46,12 +46,7 @@
               <% end %>
             </div>
             <div class="col-map col-lg-6">
-                <div id="map" data-center="<%= @map_center %>" data-markers="<%= @map_cities %>" data-zoom="5.6"></div>
-              <% if ENV['GOOGLE_MAPS_API_KEY'].present? %>
-              <% else %>
-                <%# TODO: Maps API key local %>
-                <%# image_tag "map.jpg", class: "img-fluid" %>
-              <% end %>
+              <div id="map" data-center="<%= @map_center %>" data-markers="<%= @map_cities %>" data-zoom="5.6"></div>
             </div>
           </div>
         </div>

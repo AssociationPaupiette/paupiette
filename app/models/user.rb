@@ -21,12 +21,14 @@
 #  slug                   :string           default(""), not null
 #  active                 :boolean          default(TRUE), not null
 #  approved               :boolean          default(FALSE)
+#  address                :string
+#  zipcode                :string
+#  city                   :string
 #
 
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  attr_accessor :host_sign_up
   serialize :reception_days, Array
 
   belongs_to :city, optional: true
@@ -47,8 +49,9 @@ class User < ApplicationRecord
 
   before_validation :set_default_slug, on: :create
   before_validation :strip_slug
-  before_create :set_host
   before_destroy { conversations.clear }
+
+  after_validation :geocode, if: -> (user) { user.address.present? && user.address_changed? }
 
   # Every user is a guest
   scope :guests, -> {}
@@ -61,7 +64,7 @@ class User < ApplicationRecord
   scope :approved, -> { where(approved: true) }
   scope :not_approved, -> { where(approved: false) }
   scope :to_approve, -> { not_approved.joins(identity_card_attachment: :blob) }
-  scope :search, -> (term) { 
+  scope :search, -> (term) {
     where(' email LIKE ?
             OR slug LIKE ?
             OR first_name LIKE ?
@@ -73,6 +76,8 @@ class User < ApplicationRecord
   }
   default_scope { order(:last_name, :first_name) }
 
+  geocoded_by :full_address
+
   def full_name
     "#{first_name} #{last_name}".strip
   end
@@ -83,6 +88,10 @@ class User < ApplicationRecord
 
   def to_short_s
     first_name.blank? ? "Utilisateur anonyme #{id}" : "#{first_name}"
+  end
+
+  def full_address
+    "#{address}, #{zipcode}".strip
   end
 
   def localized_reception_days
@@ -110,12 +119,17 @@ class User < ApplicationRecord
     count
   end
 
-  private
-
-  def set_host
-    # FIXME
-    self.host = true if host_sign_up == "true"
+  def reduced_latitude
+    return nil if latitude.nil?
+    (latitude * 1000).ceil / 1000.0
   end
+
+  def reduced_longitude
+    return nil if longitude.nil?
+    (longitude * 1000).ceil / 1000.0
+  end
+
+  private
 
   def set_default_slug
     create_slug
