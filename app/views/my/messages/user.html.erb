@@ -29,6 +29,24 @@
       </div>
     </div>
   </div>
+
+  <% if current_user.host? %>
+    <div class="row collapse show conversation__conversion">
+      <div class="col-lg-6 offset-lg-6">
+        <h3>Êtes-vous tombés d'accord sur un repas ?</h3>
+        <%= simple_form_for [:my, Meal.new(host: current_user, capacity: 1, confirmed: 1, date: Date.tomorrow)] do |f| %>
+          <%= f.input :host_id, as: :hidden %>
+          <%= f.input :capacity, as: :hidden %>
+          <%= f.input :confirmed, as: :hidden %>
+          <%= f.input :date, as: :hidden %>
+          <a href="#" class="btn btn-primary btn-sm" data-toggle="collapse" data-target=".conversation__conversion">Non, pas encore</a>
+          <%= f.submit 'Oui', class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Oui, mais il manque des convives', new_my_meal_path, class: 'btn btn-primary btn-sm' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
   <%= simple_form_for @message, url: my_send_message_path(user_slug: @user.slug) do |f| %>
     <%= f.input :from_id, as: :hidden %>
     <%= f.input :content, label: false, placeholder: t('my.messages.type_your_message') %>

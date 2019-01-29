@@ -52,7 +52,7 @@ fr:
       approved: 'Avis approuvé'
       unapproved: 'Avis en attente de relecture'
     meals:
-      name: 'Mes repas ouverts'
+      name: 'Mes repas'
       new: 'Proposer un repas'
       edit: 'Modifier un repas'
       cancel: 'Annuler un repas'
