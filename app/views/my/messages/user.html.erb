@@ -20,11 +20,11 @@
       </div>
       <div class="col-lg-10">
         <% if @conversation %>
-        <% @conversation.messages.each do |message| %>
-        <%= render 'message', message: message %>
-        <% end %>
+          <% @conversation.messages.each do |message| %>
+            <%= render 'message', message: message %>
+          <% end %>
         <% else %>
-        <p><%= t('my.messages.no_messages') %></p>
+          <p><%= t('my.messages.no_messages') %></p>
         <% end %>
       </div>
     </div>
