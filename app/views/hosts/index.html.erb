@@ -12,32 +12,6 @@
 </div>
 <section class="users__list">
   <div class="container">
-    <%= render 'meals/list', meals: @meals %>
-    <div class="title-user mt-5">
-      <div class="row">
-        <div class="hosts__details user-city col-md-12">
-          <p>Vous souhaitez participer à un déjeuner intergénérationnel ?</p>
-          <hr>
-          <div class="row">
-            <div class="col-lg-5 col-md-5">
-              <h2><span class="style-name">Contactez</span> directement l’hôte de votre choix</h2>
-              <p>et convenez ensemble de la date et du menu</p>
-            </div>
-            <div class="col-lg-2 col-md-2 hosts__or"><h2>ou</h2></div>
-            <div class="col-lg-5 col-md-5">
-              <h2><span class="style-name">Complétez</span> une table ouverte</h2>
-              <p>et rencontrez d’autres convives !</p>
-            </div>
-          </div>
-          <hr>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="map" data-center="<%= @map_center %>" data-markers="<%= @users_active %>" data-zoom="5.5"></div>
-  <% if ENV['GOOGLE_MAPS_API_KEY'].present? %>
-  <% end %>
-  <div class="container">
     <div class="row">
     <%= render partial: 'users/user', collection: @users %>
     </div>
