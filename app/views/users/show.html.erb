@@ -55,6 +55,8 @@
                 <div id="map" data-center="<%= @map_center %>" data-zoom="13"></div>
               <% end %>
 
+              <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary btn-default" %>
+
               <% reviews = @user.reviews_received.approved %>
               <% if reviews.any? %>
                 <hr/>
@@ -77,8 +79,6 @@
                   </div>
                 </div>
               <% end %>
-
-              <%= link_to "ENVOYER UN MESSAGE", my_conversation_path(user_slug: @user.slug), class: "btn btn-primary btn-default" %>
             </div>
           </div>
         </div>
