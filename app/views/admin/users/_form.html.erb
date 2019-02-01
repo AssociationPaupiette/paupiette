@@ -4,14 +4,38 @@
       <%= f.input :email %>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
+      <%= f.input :slug %>
+      <%= f.input :description %>
+      <%= f.input :photo  %>
+      <%= f.input :identity_card %>
     </div>
     <div class="col-md-4">
       <%= f.input :approved %>
       <%= f.input :host %>
       <%= f.input :admin %>
+      <hr/>
+      <%= f.input :address, label: t('my.profile.address') %>
+      <%= f.input :zipcode, label: t('my.profile.zipcode') %>
+      <%= f.association :city, include_blank: false, collection: City.active %>
+      <hr/>
+      <%= f.input :specialties %>
+      <%= f.input :reception_days,
+                  as: :check_boxes,
+                  collection: [
+                    ['0', 'Lundi'],
+                    ['1', 'Mardi'],
+                    ['2', 'Mercredi'],
+                    ['3', 'Jeudi'],
+                    ['4', 'Vendredi'],
+                    ['5', 'Samedi'],
+                    ['6', 'Dimanche']
+                  ],
+                  label_method: :second,
+                  value_method: :first,
+                  include_hidden: false,
+                  checked: @user.reception_days %>
     </div>
     <div class="col-md-4">
-      <%= f.association :city, collection: City.active %>
       <%= f.association :managed_cities, as: :check_boxes %>
     </div>
   </div>

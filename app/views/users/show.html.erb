@@ -19,30 +19,36 @@
               <%= render 'users/approved', user: @user %>
             </div>
             <div class="col-name col-6">
-              <h4>Nom&nbsp;:</h4>
+              <h4>Nom</h4>
               <p><%= @user.full_name %></p>
             </div>
 
             <div class="col-city col-6">
-              <h4>Ville&nbsp;:</h4>
+              <h4>Ville</h4>
               <p><%= @user.host? ? "Hôte" : "Convive" %> à <%= @user.city %></p>
             </div>
           </div>
           <div class="row">
             <div class="col-desc-profil-front col-12">
-              <h4>Présentation&nbsp;:</h4>
-              <div class="desc-user">
-                <p><%= simple_format @user.description %></p>
-              </div>
+              <% unless @user.description.blank? %>
+                <div class="desc-user">
+                  <h4>Présentation</h4>
+                  <%= simple_format @user.description %>
+                </div>
+              <% end %>
               <% if @user.host? %>
-                <h4>Spécialités&nbsp;:</h4>
-                <p><%= @user.specialties %></p>
-                <h4>Jours de réception :</h4>
-                <ul>
-                  <% @user.localized_reception_days.each do |day| %>
-                  <li><%= day %></li>
-                  <% end %>
-                </ul>
+                <% unless @user.specialties.blank? %>
+                  <h4>Spécialités</h4>
+                  <%= simple_format@user.specialties %>
+                <% end %>
+                <% if @user.localized_reception_days.any? %>
+                  <h4>Jours de réception</h4>
+                  <ul>
+                    <% @user.localized_reception_days.each do |day| %>
+                    <li><%= day %></li>
+                    <% end %>
+                  </ul>
+                <% end %>
               <% end %>
               <% reviews = @user.reviews_received.approved %>
               <% if reviews.any? %>

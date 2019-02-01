@@ -78,7 +78,8 @@ class Admin::UsersController < Admin::ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :city_id, :host, :admin, :active, :approved, :profile_verification, managed_city_ids: [])
+    params.require(:user).permit(:first_name, :last_name, :email, :slug, :address, :zipcode, :city_id,
+      :host, :admin, :active, :approved, :profile_verification, :description, :photo, :specialties, :identity_card,
+      reception_days: [], managed_city_ids: [])
   end
-
 end
