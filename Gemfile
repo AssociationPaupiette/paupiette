@@ -6,7 +6,6 @@ ruby '2.5.1'
 # Infrastructure
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
-gem 'newrelic_rpm'
 gem 'bootsnap', require: false
 gem 'rails_autoscale_agent', group: :production
 gem 'aws-sdk-s3'
