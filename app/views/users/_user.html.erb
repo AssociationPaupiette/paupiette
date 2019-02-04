@@ -23,13 +23,11 @@
     <div class="card-body">
       <p>
         <% if user.ambassador? %>
-        Ambassadeur
-        <% elsif user.host? %>
-        Hôte
+          Ambassadeur à <%= user.managed_cities.join(', ') %>
         <% else %>
-        Convive
+          <%= user.host? : 'Hôte' : 'Convive' %> à <%= user.city %> 
         <% end %>
-        à <%= user.city %> depuis <%= l user.created_at, format: "%B %Y" %>
+        depuis <%= l user.created_at, format: "%B %Y" %>
       </p>
       <% if user.localized_reception_days.any? %>
         <p>Jours préférés · <span class="style-txt-user"><%= user.localized_reception_days.join(' / ') %></span></p>
