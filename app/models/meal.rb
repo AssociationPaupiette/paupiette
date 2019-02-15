@@ -38,7 +38,7 @@ class Meal < ApplicationRecord
   protected
 
   def denormalize_remaining
-    self.remaining = self.capacity - self.confirmed
+    self.remaining = self.capacity.to_i - self.confirmed.to_i
   end
 
   def date_cannot_be_in_the_past
