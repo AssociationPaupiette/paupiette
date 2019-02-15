@@ -12,6 +12,7 @@
   <div class="col-md-3">
     <h2>Coordonnées</h2>
     <p>Ville: <%= link_to @user.city, [:admin, @user.city] unless @user.city.nil? %></p>
+    <%= @user.photo.url %>
   </div>
   <div class="col-md-3">
     <h2>Ambassadeur</h2>
