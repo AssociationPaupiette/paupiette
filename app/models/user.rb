@@ -36,8 +36,8 @@ class User < ApplicationRecord
   has_many :managed_cities, through: :ambassadorships, source: :city
   has_and_belongs_to_many :conversations
   has_many :messages_sent, class_name: 'Message', foreign_key: :from_id, dependent: :destroy
-  has_many :reviews_received, class_name: 'User::Review', foreign_key: :about_id
-  has_many :reviews_given, class_name: 'User::Review', foreign_key: :from_id
+  has_many :reviews_received, class_name: 'User::Review', foreign_key: :about_id, dependent: :destroy
+  has_many :reviews_given, class_name: 'User::Review', foreign_key: :from_id, dependent: :destroy
   has_many :meals, foreign_key: :host_id
 
   has_one_attached :photo
