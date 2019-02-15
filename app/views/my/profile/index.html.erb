@@ -17,7 +17,7 @@
         <% else %>
           <%= image_tag 'avatar.png', class: 'img-fluid img-user' %>
         <% end %>
-        <%= f.input :photo, label: t('my.profile.photo') %>
+        <%= f.input :photo, label: t('my.profile.photo'), hint: t('my.profile.photo_hint'), input_html: { accept: '.jpg,.png,.gif' } %>
         <%= render 'users/approved', user: @user %>
       </div>
       <div class="col-md-7">
@@ -36,9 +36,9 @@
         <% else %>
           <%= f.input :description, label: t('my.profile.description'), placeholder: 'Partagez vos destinations de voyage, livres, films, musiques, plats préférés. Quelle est votre motivation à participer au projet ?' %>
         <% end %>
-        <%= f.input :identity_card, as: :file, label: t('my.profile.identity_card') %>
+        <%= f.input :identity_card, label: t('my.profile.identity_card'), hint: t('my.profile.identity_card_hint'), input_html: { accept: '.jpg,.png,.pdf' } %>
         <% if @user.host? %>
-          <%= f.input :specialties, as: :text, label: t('my.profile.specialties'), placeholder: 'Qu’aimez-vous cuisiner ? Partagez un ou deux menus types que vous aimeriez proposer à vos convives.' %>
+          <%= f.input :specialties, label: t('my.profile.specialties'), placeholder: 'Qu’aimez-vous cuisiner ? Partagez un ou deux menus types que vous aimeriez proposer à vos convives.' %>
           <div class="reception_days">
             <%= f.input :reception_days,
                         label: t('my.profile.reception_days'),

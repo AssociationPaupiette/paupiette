@@ -6,8 +6,8 @@
       <%= f.input :last_name %>
       <%= f.input :slug %>
       <%= f.input :description %>
-      <%= f.input :photo  %>
-      <%= f.input :identity_card %>
+      <%= f.input :photo, hint: t('my.profile.photo_hint'), input_html: { accept: '.jpg,.png,.gif' } %>
+      <%= f.input :identity_card, hint: t('my.profile.identity_card_hint'), input_html: { accept: '.jpg,.png,.pdf' } %>
     </div>
     <div class="col-md-4">
       <%= f.input :approved %>

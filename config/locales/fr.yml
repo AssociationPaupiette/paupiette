@@ -14,7 +14,7 @@ fr:
     starter_main: Entrée + Plat - 5€
     main_dessert: Plat + Dessert - 5€
     starter_main_dessert: Entrée + Plat + Dessert - 7€
-  my: 
+  my:
     name: 'Mon espace'
     messages:
       name: 'Mes messages'
@@ -34,9 +34,11 @@ fr:
       email: 'Email'
       first_name: 'Prénom'
       identity_card: "Carte d'identité"
+      identity_card_hint: "Formats acceptés : JPG, PNG et PDF."
       last_name: 'Nom'
       name: 'Mon profil'
       photo: 'Photo'
+      photo_hint: "Formats acceptés : JPG, PNG et GIF."
       reception_days: 'Jours préférés'
       save: 'Mettre à jour'
       saved: 'Profil mis à jour'
