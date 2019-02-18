@@ -28,6 +28,15 @@ var initMapZone = function (markerData) {
     return marker;
 };
 
+var initMapMarkers = function (mapObj, markersData) {
+    'use strict';
+    var i, marker;
+    for (i = 0; i < markersData.length; i += 1) {
+        marker = initMapMarker(markersData[i]);
+        marker.setMap(mapObj);
+    }
+};
+
 var initMap = function () {
     'use strict';
     var mapElt = document.getElementById('map');
@@ -43,17 +52,11 @@ var initMap = function () {
             zoomControl: true,
             disableDefaultUI: true
         }),
-        markersData = JSON.parse(mapElt.getAttribute('data-markers')),
-        i,
-        marker;
+        markersData = JSON.parse(mapElt.getAttribute('data-markers'));
 
-    if (markersData !== null) {
-        for (i = 0; i < markersData.length; i += 1) {
-            marker = initMapMarker(markersData[i]);
-            marker.setMap(map);
-        }
-    } else {
-        marker = initMapZone(center);
-        marker.setMap(map);
+    if (markersData === null) {
+        markersData = [center];
     }
+
+    initMapMarkers(map, markersData);
 };
