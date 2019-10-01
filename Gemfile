@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.3'
 
 # Infrastructure
 gem 'pg', '>= 0.18', '< 2.0'
@@ -12,7 +12,7 @@ gem 'aws-sdk-s3'
 gem 'bugsnag'
 
 # Back
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2'
 gem 'rails-i18n'
 gem 'devise'
 gem 'devise-i18n'
